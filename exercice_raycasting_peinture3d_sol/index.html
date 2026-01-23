@@ -871,7 +871,7 @@
 <li>✅ Ignorer des objets en mouvement qui ne doivent pas interférer avec le placement</li>
 <li>✅ Changer la couleur des cubes à placer</li>
 </ol>
-<p><strong>Durée estimée :</strong> 45-60 minutes</p>
+<p><strong>Durée approximative :</strong> 45-60 minutes</p>
 <hr />
 <h2 id="etape-1-configuration-de-la-scene">Étape 1 : Configuration de la scène</h2>
 <h3 id="11-creer-un-nouveau-projet-unity">1.1 Créer un nouveau projet Unity</h3>
@@ -882,8 +882,12 @@
 </ol>
 <h3 id="12-preparer-la-scene">1.2 Préparer la scène</h3>
 <ol>
-<li><strong>Créer un sol :</strong></li>
-<li>GameObject → 3D Object → Plane</li>
+<li>
+<p><strong>Créer un sol :</strong></p>
+</li>
+<li>
+<p>GameObject → 3D Object → Plane</p>
+</li>
 <li>Renommez-le "Sol"</li>
 <li>
 <p>Scale : (5, 1, 5) pour avoir une grande surface</p>
@@ -891,31 +895,23 @@
 <li>
 <p><strong>Ajuster la caméra :</strong></p>
 </li>
-<li>Sélectionnez Main Camera</li>
+<li>
+<p>Sélectionnez Main Camera</p>
+</li>
 <li>Position : (0, 10, -10)</li>
 <li>Rotation : (45, 0, 0)</li>
-<li>
-<p>Vous devriez voir le sol en perspective</p>
-</li>
-<li>
-<p><strong>Améliorer l'éclairage :</strong></p>
-</li>
-<li>Sélectionnez Directional Light</li>
-<li>Rotation : (50, -30, 0)</li>
+<li>Vous devriez voir le sol en perspective</li>
 </ol>
 <h3 id="13-creer-un-prefab-de-cube">1.3 Créer un prefab de cube</h3>
 <ol>
-<li>GameObject → 3D Object → Cube</li>
 <li>Scale : (0.5, 0.5, 0.5) pour faire un petit cube</li>
-<li>Glissez le cube du Hierarchy vers le dossier Assets pour créer un prefab</li>
-<li>Supprimez le cube de la scène (il reste comme prefab)</li>
 <li>Renommez le prefab "CubePrefab"</li>
 </ol>
 <hr />
 <h2 id="etape-2-script-de-placement-de-base">Étape 2 : Script de placement de base</h2>
 <h3 id="21-creer-le-script-principal">2.1 Créer le script principal</h3>
 <ol>
-<li>Dans Assets, Create → C# Script</li>
+<li>Dans le dossier Scripts</li>
 <li>Nommez-le <code>PlacementRaycast</code></li>
 <li>Double-cliquez pour l'ouvrir dans votre éditeur de code</li>
 </ol>
