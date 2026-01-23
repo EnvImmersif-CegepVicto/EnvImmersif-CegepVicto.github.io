@@ -1,0 +1,1968 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/raycasting_3d_theorie/">
+      
+      
+        <link rel="prev" href="../intro_environnements_immersifs/">
+      
+      
+        <link rel="next" href="../reference_input_actions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Raycasting 3D - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#raycasting-3d-dans-unity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Raycasting 3D
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quest-ce-quun-raycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu'est-ce qu'un raycast?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Qu&#39;est-ce qu&#39;un raycast?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analogie-du-monde-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analogie du monde réel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-le-raycast-est-il-fondamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi le raycast est-il fondamental?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anatomie-dun-raycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anatomie d'un raycast
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anatomie d&#39;un raycast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-point-de-depart-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Point de départ (Origin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-distance-maximale-optionnelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Distance maximale (optionnelle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raycasting-dans-unity-la-syntaxe-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raycasting dans Unity : La syntaxe de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Raycasting dans Unity : La syntaxe de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Décomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#informations-disponibles-dans-raycasthit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informations disponibles dans RaycastHit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-pratique-detecter-un-clic-sur-un-objet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple pratique : Détecter un clic sur un objet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple pratique : Détecter un clic sur un objet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#points-importants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points importants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#placer-un-objet-au-point-dimpact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Placer un objet au point d'impact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-quaternions-orientation-en-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les quaternions : Orientation en 3D
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les quaternions : Orientation en 3D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-quun-quaternion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu'est-ce qu'un quaternion?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Qu&#39;est-ce qu&#39;un quaternion?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-pas-simplement-utiliser-des-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi pas simplement utiliser des angles?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulgarisation-ne-pas-y-penser-en-nombres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulgarisation : Ne pas y penser en nombres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quaternionidentity-le-plus-utilise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quaternion.identity - Le plus utilisé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quaternionlookrotation-orienter-vers-une-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quaternion.LookRotation - Orienter vers une direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aligner-un-objet-sur-une-surface-utiliser-la-normale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aligner un objet sur une surface (utiliser la normale)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aligner un objet sur une surface (utiliser la normale)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualisation-de-la-normale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation de la normale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtrer-les-collisions-avec-les-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtrer les collisions avec les Layers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtrer les collisions avec les Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-et-assigner-des-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer et assigner des layers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utiliser-un-layermask-dans-le-raycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utiliser un LayerMask dans le raycast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-layermask-dans-linspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration du LayerMask dans l'Inspector
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualiser-les-rayons-en-mode-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualiser les rayons en mode Scene
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-toujours-verifier-si-la-camera-existe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Toujours vérifier si la caméra existe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-utiliser-une-distance-maximale-pour-la-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Utiliser une distance maximale pour la performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verifier-les-composants-avant-de-les-utiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Vérifier les composants avant de les utiliser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-les-objets-doivent-avoir-un-collider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Les objets doivent avoir un Collider
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differences-entre-raycast-et-raycastall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différences entre Raycast et RaycastAll
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Différences entre Raycast et RaycastAll">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#physicsraycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics.Raycast()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physicsraycastall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics.RaycastAll()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume-des-concepts-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé des concepts clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de compréhension
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Références
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Références
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quest-ce-quun-raycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu'est-ce qu'un raycast?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Qu&#39;est-ce qu&#39;un raycast?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analogie-du-monde-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analogie du monde réel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-le-raycast-est-il-fondamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi le raycast est-il fondamental?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anatomie-dun-raycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anatomie d'un raycast
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anatomie d&#39;un raycast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-point-de-depart-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Point de départ (Origin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-distance-maximale-optionnelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Distance maximale (optionnelle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raycasting-dans-unity-la-syntaxe-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raycasting dans Unity : La syntaxe de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Raycasting dans Unity : La syntaxe de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Décomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#informations-disponibles-dans-raycasthit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informations disponibles dans RaycastHit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-pratique-detecter-un-clic-sur-un-objet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple pratique : Détecter un clic sur un objet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple pratique : Détecter un clic sur un objet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#points-importants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points importants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#placer-un-objet-au-point-dimpact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Placer un objet au point d'impact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-quaternions-orientation-en-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les quaternions : Orientation en 3D
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les quaternions : Orientation en 3D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-quun-quaternion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu'est-ce qu'un quaternion?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Qu&#39;est-ce qu&#39;un quaternion?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-pas-simplement-utiliser-des-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi pas simplement utiliser des angles?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulgarisation-ne-pas-y-penser-en-nombres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulgarisation : Ne pas y penser en nombres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quaternionidentity-le-plus-utilise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quaternion.identity - Le plus utilisé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quaternionlookrotation-orienter-vers-une-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quaternion.LookRotation - Orienter vers une direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aligner-un-objet-sur-une-surface-utiliser-la-normale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aligner un objet sur une surface (utiliser la normale)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aligner un objet sur une surface (utiliser la normale)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualisation-de-la-normale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation de la normale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtrer-les-collisions-avec-les-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtrer les collisions avec les Layers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtrer les collisions avec les Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-et-assigner-des-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer et assigner des layers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utiliser-un-layermask-dans-le-raycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utiliser un LayerMask dans le raycast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-layermask-dans-linspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration du LayerMask dans l'Inspector
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualiser-les-rayons-en-mode-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualiser les rayons en mode Scene
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-toujours-verifier-si-la-camera-existe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Toujours vérifier si la caméra existe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-utiliser-une-distance-maximale-pour-la-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Utiliser une distance maximale pour la performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verifier-les-composants-avant-de-les-utiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Vérifier les composants avant de les utiliser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-les-objets-doivent-avoir-un-collider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Les objets doivent avoir un Collider
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differences-entre-raycast-et-raycastall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différences entre Raycast et RaycastAll
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Différences entre Raycast et RaycastAll">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#physicsraycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics.Raycast()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physicsraycastall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics.RaycastAll()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume-des-concepts-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé des concepts clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de compréhension
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="raycasting-3d-dans-unity">Raycasting 3D dans Unity</h1>
+<h2 id="quest-ce-quun-raycast">Qu'est-ce qu'un raycast?</h2>
+<p>Un <strong>raycast</strong> (lancer de rayon) est une technique qui consiste à projeter un rayon invisible dans une direction donnée pour détecter ce qu'il touche.</p>
+<h3 id="analogie-du-monde-reel">Analogie du monde réel</h3>
+<p>Imaginez que vous pointez un laser :</p>
+<ul>
+<li>Le laser part de votre position</li>
+<li>Il voyage en ligne droite dans la direction où vous pointez</li>
+<li>Il s'arrête dès qu'il touche quelque chose</li>
+<li>Vous pouvez alors savoir <strong>quoi</strong> a été touché et <strong>où</strong> exactement (point sur la cible)</li>
+</ul>
+<p>C'est exactement ce que fait un raycast.</p>
+<hr />
+<h2 id="pourquoi-le-raycast-est-il-fondamental">Pourquoi le raycast est-il fondamental?</h2>
+<p>Le raycasting est la base de presque toutes les interactions en 3D :</p>
+<ul>
+<li><strong>Cliquer sur un objet</strong> : Lancer un rayon depuis la caméra vers la position du clic</li>
+<li><strong>Détection de sol</strong> : Vérifier si un personnage touche le sol</li>
+<li><strong>Ligne de vue</strong> : Savoir si un ennemi peut "voir" le joueur</li>
+<li><strong>Placement d'objets en AR</strong> : Trouver où placer un objet virtuel sur une surface réelle</li>
+</ul>
+<blockquote>
+<p><strong>En réalité augmentée</strong>, nous utilisons constamment le raycasting pour savoir où l'utilisateur touche l'écran et quelle surface correspond à l'interaction.</p>
+</blockquote>
+<hr />
+<h2 id="anatomie-dun-raycast">Anatomie d'un raycast</h2>
+<p>Un raycast a besoin de trois infromations principales :</p>
+<h3 id="1-point-de-depart-origin">1. Point de départ (Origin)</h3>
+<p>D'où part le rayon? </p>
+<ul>
+<li>Position de la caméra</li>
+<li>Position d'un objet</li>
+<li>Position du doigt sur l'écran (converti en point 3D)</li>
+</ul>
+<h3 id="2-direction">2. Direction</h3>
+<p>Dans quelle direction va le rayon?</p>
+<ul>
+<li>Direction de la caméra (<code>Camera.main.transform.forward</code>)</li>
+<li>Direction vers le bas (<code>Vector3.down</code>)</li>
+<li>Direction calculée entre deux points</li>
+</ul>
+<h3 id="3-distance-maximale-optionnelle">3. Distance maximale (optionnelle)</h3>
+<p>Jusqu'où le rayon peut-il voyager avant d'abandonner?</p>
+<ul>
+<li>Utile pour limiter la portée d'une interaction</li>
+<li>Améliore les performances (moins de calculs)</li>
+</ul>
+<hr />
+<h2 id="raycasting-dans-unity-la-syntaxe-de-base">Raycasting dans Unity : La syntaxe de base</h2>
+<pre><code class="language-csharp">// Créer un rayon
+Ray ray = new Ray(origin, direction);
+
+// Variable pour stocker les informations de collision
+RaycastHit hit;
+
+// Lancer le rayon et vérifier s'il touche quelque chose
+if (Physics.Raycast(ray, out hit))
+{
+    // Le rayon a touché quelque chose!
+    Debug.Log(&quot;Objet touché : &quot; + hit.collider.gameObject.name);
+    Debug.Log(&quot;Point d'impact : &quot; + hit.point);
+}
+</code></pre>
+<h3 id="decomposition">Décomposition</h3>
+<p><strong><code>Ray ray = new Ray(origin, direction);</code></strong></p>
+<ul>
+<li>Crée un rayon avec un point de départ et une direction</li>
+</ul>
+<p><strong><code>RaycastHit hit;</code></strong></p>
+<ul>
+<li>Variable qui contiendra les informations sur ce qui a été touché</li>
+<li>C'est comme une "fiche de rapport" de la collision</li>
+</ul>
+<p><strong><code>Physics.Raycast(ray, out hit)</code></strong></p>
+<ul>
+<li>Lance le rayon dans la scène</li>
+<li>Retourne <code>true</code> si quelque chose est touché</li>
+<li>Remplit automatiquement <code>hit</code> avec les détails</li>
+</ul>
+<hr />
+<h2 id="informations-disponibles-dans-raycasthit">Informations disponibles dans RaycastHit</h2>
+<p>Quand un raycast touche quelque chose, l'objet <code>RaycastHit</code> nous donne plusieurs informations utiles :</p>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hit.point</code></td>
+<td>Vector3</td>
+<td>Position exacte du point d'impact</td>
+</tr>
+<tr>
+<td><code>hit.collider</code></td>
+<td>Collider</td>
+<td>Le composant Collider touché</td>
+</tr>
+<tr>
+<td><code>hit.collider.gameObject</code></td>
+<td>GameObject</td>
+<td>L'objet complet qui a été touché</td>
+</tr>
+<tr>
+<td><code>hit.distance</code></td>
+<td>float</td>
+<td>Distance entre l'origine et le point d'impact</td>
+</tr>
+<tr>
+<td><code>hit.normal</code></td>
+<td>Vector3</td>
+<td>Vecteur perpendiculaire à la surface touchée</td>
+</tr>
+<tr>
+<td><code>hit.transform</code></td>
+<td>Transform</td>
+<td>Le Transform de l'objet touché</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exemple-pratique-detecter-un-clic-sur-un-objet">Exemple pratique : Détecter un clic sur un objet</h2>
+<pre><code class="language-csharp">using UnityEngine;
+
+public class RaycastClick : MonoBehaviour
+{
+    void Update()
+    {
+        // Vérifier si le bouton gauche de la souris est cliqué
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Créer un rayon depuis la caméra vers la position de la souris
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            // Lancer le rayon
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(&quot;Vous avez cliqué sur : &quot; + hit.collider.gameObject.name);
+
+                // Changer la couleur de l'objet touché
+                Renderer renderer = hit.collider.GetComponent&lt;Renderer&gt;();
+                if (renderer != null)
+                {
+                    renderer.material.color = Color.red;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="points-importants">Points importants</h3>
+<p><strong><code>Camera.main.ScreenPointToRay(Input.mousePosition)</code></strong></p>
+<ul>
+<li>Convertit la position 2D de la souris à l'écran en rayon 3D</li>
+<li>C'est la méthode la plus courante pour les clics</li>
+</ul>
+<p><strong><code>Input.GetMouseButtonDown(0)</code></strong></p>
+<ul>
+<li>Détecte le moment exact où le bouton est enfoncé</li>
+<li><code>0</code> = bouton gauche, <code>1</code> = bouton droit, <code>2</code> = bouton du milieu</li>
+</ul>
+<hr />
+<h2 id="placer-un-objet-au-point-dimpact">Placer un objet au point d'impact</h2>
+<pre><code class="language-csharp">using UnityEngine;
+
+public class PlacerObjet : MonoBehaviour
+{
+    public GameObject objetAPlacer; // Assignez un prefab dans l'inspecteur
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Créer l'objet au point d'impact
+                Instantiate(objetAPlacer, hit.point, Quaternion.identity);
+            }
+        }
+    }
+}
+</code></pre>
+<hr />
+<h2 id="les-quaternions-orientation-en-3d">Les quaternions : Orientation en 3D</h2>
+<h3 id="quest-ce-quun-quaternion">Qu'est-ce qu'un quaternion?</h3>
+<p>Un <strong>quaternion</strong> est une façon mathématique de représenter une rotation dans l'espace 3D.</p>
+<h4 id="pourquoi-pas-simplement-utiliser-des-angles">Pourquoi pas simplement utiliser des angles?</h4>
+<p>En 3D, nous avons besoin de trois rotations (X, Y, Z) - on appelle ça des <strong>angles d'Euler</strong>. Le problème avec les angles d'Euler :</p>
+<ol>
+<li><strong>Gimbal Lock</strong> : Dans certaines positions, deux axes se superposent et vous "perdez" une dimension de rotation</li>
+<li><strong>Interpolation</strong> : Animer une rotation peut donner des résultats bizarres</li>
+<li><strong>Ambiguïté</strong> : Plusieurs combinaisons d'angles peuvent représenter la même rotation</li>
+</ol>
+<p>Les quaternions résolvent tous ces problèmes!</p>
+<h3 id="vulgarisation-ne-pas-y-penser-en-nombres">Vulgarisation : Ne pas y penser en nombres</h3>
+<p><strong>La bonne nouvelle</strong> : Vous n'avez presque jamais besoin de créer un quaternion manuellement!</p>
+<p>Unity fournit des quaternions "prêts à l'emploi" :</p>
+<pre><code class="language-csharp">// Pas de rotation
+Quaternion.identity
+
+// Rotation qui regarde vers une direction
+Quaternion.LookRotation(direction)
+
+// Rotation à partir d'angles Euler (si vraiment nécessaire)
+Quaternion.Euler(0, 90, 0) // Rotation de 90° sur l'axe Y
+
+// Rotation entre deux points
+Quaternion.FromToRotation(pointA, pointB)
+</code></pre>
+<h3 id="quaternionidentity-le-plus-utilise">Quaternion.identity - Le plus utilisé</h3>
+<p><code>Quaternion.identity</code> signifie <strong>"aucune rotation"</strong> - c'est l'orientation par défaut (0°, 0°, 0°).</p>
+<p><strong>Quand l'utiliser :</strong></p>
+<ul>
+<li>Placer un objet sans rotation spécifique</li>
+<li>Réinitialiser une rotation</li>
+<li>Position "neutre"</li>
+</ul>
+<pre><code class="language-csharp">// Créer un cube sans rotation
+Instantiate(cube, position, Quaternion.identity);
+</code></pre>
+<h3 id="quaternionlookrotation-orienter-vers-une-direction">Quaternion.LookRotation - Orienter vers une direction</h3>
+<p>Souvent, nous voulons qu'un objet "regarde" dans une direction particulière.</p>
+<pre><code class="language-csharp">// Orienter un objet vers le point d'impact
+Vector3 directionVersImpact = hit.point - transform.position;
+Quaternion rotation = Quaternion.LookRotation(directionVersImpact);
+Instantiate(objet, transform.position, rotation);
+</code></pre>
+<hr />
+<h2 id="aligner-un-objet-sur-une-surface-utiliser-la-normale">Aligner un objet sur une surface (utiliser la normale)</h2>
+<p>La <strong>normale</strong> (<code>hit.normal</code>) est un vecteur perpendiculaire à la surface touchée. C'est crucial pour placer des objets de manière réaliste.</p>
+<pre><code class="language-csharp">if (Physics.Raycast(ray, out hit))
+{
+    // Rotation qui aligne l'objet perpendiculairement à la surface
+    Quaternion rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+
+    Instantiate(objetAPlacer, hit.point, rotation);
+}
+</code></pre>
+<h3 id="visualisation-de-la-normale">Visualisation de la normale</h3>
+<pre><code>        ^ hit.normal (perpendiculaire)
+        |
+        |
+    --------  Surface
+</code></pre>
+<p><strong>Pourquoi Vector3.up?</strong></p>
+<ul>
+<li>Par défaut, les objets Unity sont orientés vers le haut (axe Y positif)</li>
+<li><code>FromToRotation</code> calcule la rotation nécessaire pour aller de "up" vers la normale</li>
+<li>Résultat : l'objet s'aligne parfaitement avec la surface</li>
+</ul>
+<hr />
+<h2 id="filtrer-les-collisions-avec-les-layers">Filtrer les collisions avec les Layers</h2>
+<p>Parfois, nous voulons ignorer certains objets. Unity utilise des <strong>Layers</strong> (couches) pour catégoriser les objets.</p>
+<h3 id="creer-et-assigner-des-layers">Créer et assigner des layers</h3>
+<ol>
+<li>Sélectionnez un GameObject</li>
+<li>En haut de l'Inspector, cliquez sur "Layer" → "Add Layer..."</li>
+<li>Nommez votre layer (ex: "Ignorable")</li>
+<li>Assignez ce layer aux objets que vous voulez ignorer</li>
+</ol>
+<h3 id="utiliser-un-layermask-dans-le-raycast">Utiliser un LayerMask dans le raycast</h3>
+<pre><code class="language-csharp">// Créer un masque qui ignore la couche &quot;Ignorable&quot;
+public LayerMask layerMask;
+
+void Update()
+{
+    if (Input.GetMouseButtonDown(0))
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        // Raycast avec masque de layer
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.Log(&quot;Touché : &quot; + hit.collider.gameObject.name);
+        }
+    }
+}
+</code></pre>
+<h3 id="configuration-du-layermask-dans-linspector">Configuration du LayerMask dans l'Inspector</h3>
+<ol>
+<li>Dans l'Inspector de votre script, vous verrez <code>Layer Mask</code></li>
+<li>Décochez les layers que vous voulez <strong>ignorer</strong></li>
+<li>Les objets sur ces layers seront invisibles pour ce raycast</li>
+</ol>
+<p><strong>Astuce</strong> : Vous pouvez aussi inverser la logique en code :</p>
+<pre><code class="language-csharp">// Ignorer seulement la couche &quot;Ignorable&quot;
+int layerMask = ~LayerMask.GetMask(&quot;Ignorable&quot;);
+Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
+</code></pre>
+<p>Le <code>~</code> inverse le masque (ignorer au lieu d'inclure).</p>
+<hr />
+<h2 id="visualiser-les-rayons-en-mode-scene">Visualiser les rayons en mode Scene</h2>
+<p>Pour déboguer, il est utile de voir les rayons :</p>
+<pre><code class="language-csharp">// Dessiner une ligne visible dans la Scene (pas en Game)
+Debug.DrawRay(origin, direction * distance, Color.red, 2f);
+
+// OU
+Debug.DrawLine(startPoint, endPoint, Color.green, 2f);
+</code></pre>
+<p><strong>Paramètres :</strong></p>
+<ul>
+<li>Couleur : Color.red, Color.green, etc.</li>
+<li>Durée : Temps en secondes (2f = 2 secondes)</li>
+</ul>
+<p>Ces lignes sont visibles uniquement dans la vue Scene de l'éditeur Unity.</p>
+<hr />
+<h2 id="bonnes-pratiques">Bonnes pratiques</h2>
+<h3 id="1-toujours-verifier-si-la-camera-existe">1. Toujours vérifier si la caméra existe</h3>
+<pre><code class="language-csharp">if (Camera.main == null)
+{
+    Debug.LogError(&quot;Aucune caméra principale trouvée!&quot;);
+    return;
+}
+</code></pre>
+<h3 id="2-utiliser-une-distance-maximale-pour-la-performance">2. Utiliser une distance maximale pour la performance</h3>
+<pre><code class="language-csharp">float maxDistance = 100f;
+if (Physics.Raycast(ray, out hit, maxDistance))
+{
+    // ...
+}
+</code></pre>
+<h3 id="3-verifier-les-composants-avant-de-les-utiliser">3. Vérifier les composants avant de les utiliser</h3>
+<pre><code class="language-csharp">Renderer renderer = hit.collider.GetComponent&lt;Renderer&gt;();
+if (renderer != null)
+{
+    renderer.material.color = Color.blue;
+}
+else
+{
+    Debug.LogWarning(&quot;Pas de Renderer sur cet objet!&quot;);
+}
+</code></pre>
+<h3 id="4-les-objets-doivent-avoir-un-collider">4. Les objets doivent avoir un Collider</h3>
+<p>Pour qu'un raycast détecte un objet, cet objet <strong>doit</strong> avoir un composant Collider (BoxCollider, SphereCollider, MeshCollider, etc.).</p>
+<hr />
+<h2 id="differences-entre-raycast-et-raycastall">Différences entre Raycast et RaycastAll</h2>
+<h3 id="physicsraycast">Physics.Raycast()</h3>
+<ul>
+<li>S'arrête au <strong>premier</strong> objet touché</li>
+<li>Plus performant</li>
+<li>Parfait pour la plupart des cas</li>
+</ul>
+<h3 id="physicsraycastall">Physics.RaycastAll()</h3>
+<ul>
+<li>Retourne <strong>tous</strong> les objets touchés le long du rayon</li>
+<li>Retourne un tableau de RaycastHit</li>
+<li>Utile pour voir à travers des objets, compter les collisions</li>
+</ul>
+<pre><code class="language-csharp">RaycastHit[] hits = Physics.RaycastAll(ray);
+foreach (RaycastHit hit in hits)
+{
+    Debug.Log(&quot;Traversé : &quot; + hit.collider.gameObject.name);
+}
+</code></pre>
+<hr />
+<h2 id="resume-des-concepts-cles">Résumé des concepts clés</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Utilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ray</strong></td>
+<td>Ligne invisible qui part d'un point dans une direction</td>
+</tr>
+<tr>
+<td><strong>RaycastHit</strong></td>
+<td>Informations sur ce qui a été touché</td>
+</tr>
+<tr>
+<td><strong>hit.point</strong></td>
+<td>Position exacte de l'impact (crucial pour placer des objets)</td>
+</tr>
+<tr>
+<td><strong>hit.normal</strong></td>
+<td>Orientation de la surface (pour aligner des objets)</td>
+</tr>
+<tr>
+<td><strong>Quaternion.identity</strong></td>
+<td>Pas de rotation (0°, 0°, 0°)</td>
+</tr>
+<tr>
+<td><strong>Quaternion.FromToRotation</strong></td>
+<td>Calculer rotation entre deux directions</td>
+</tr>
+<tr>
+<td><strong>LayerMask</strong></td>
+<td>Filtrer quels objets peuvent être touchés</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="questions-de-comprehension">Questions de compréhension</h2>
+<ol>
+<li>Quelle est la différence entre <code>Ray</code> et <code>RaycastHit</code>?</li>
+<li>Pourquoi avons-nous besoin de <code>hit.normal</code> pour placer des objets sur des surfaces inclinées?</li>
+<li>Dans quel scénario utiliseriez-vous <code>Physics.RaycastAll()</code> au lieu de <code>Physics.Raycast()</code>?</li>
+<li>Que signifie <code>Quaternion.identity</code> et quand l'utiliser?</li>
+<li>Comment faire pour qu'un raycast ignore certains objets?</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
