@@ -1,0 +1,2183 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/exercice_adaptation_ar/">
+      
+      
+        <link rel="prev" href="../exercice_raycasting_peinture3d/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Exercice 2 - Adaptation AR - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exercice-pratique-passage-du-raycasting-3d-a-la-realite-augmentee" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exercice 2 - Adaptation AR
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raycasting_3d_theorie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_arcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_simulation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-de-lexercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de l'exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-1-preparation-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Préparation du projet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 1 : Préparation du projet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-ouvrir-votre-projet-de-la-semaine-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 : Ouvrir votre projet de la semaine 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-installer-les-packages-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 : Installer les packages AR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-configurer-les-parametres-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 : Configurer les paramètres du projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-transformer-la-scene-en-scene-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Transformer la scène en scène AR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 2 : Transformer la scène en scène AR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-supprimer-les-elements-non-compatibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 : Supprimer les éléments non compatibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ajouter-les-composants-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 : Ajouter les composants AR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-creer-et-assigner-le-prefab-de-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 : Créer et assigner le prefab de plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-configurer-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 : Configurer la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-adapter-le-script-de-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Adapter le script de placement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 3 : Adapter le script de placement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ajouter-les-namespaces-necessaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 : Ajouter les namespaces nécessaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ajouter-une-reference-a-ar-raycast-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 : Ajouter une référence à AR Raycast Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-comprendre-la-difference-entre-les-deux-types-de-raycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 : Comprendre la différence entre les deux types de raycast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-modifier-la-methode-de-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 : Modifier la méthode de placement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-points-importants-a-noter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 : Points importants à noter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-adapter-la-suppression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 : Adapter la suppression
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-4-test-en-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Test en simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 4 : Test en simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-lancer-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 : Lancer la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-tester-le-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 : Tester le placement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tester-la-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 : Tester la navigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-verifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 : Vérifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-5-amelioration-feedback-visuel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Amélioration - Feedback visuel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 5 : Amélioration - Feedback visuel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ajouter-un-indicateur-de-pret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 : Ajouter un indicateur de "prêt"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-creer-lui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 : Créer l'UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-6-gerer-les-cubes-sur-differents-types-de-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6 : Gérer les cubes sur différents types de plans
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 6 : Gérer les cubes sur différents types de plans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-detecter-le-type-de-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 : Détecter le type de plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-configuration-pour-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 : Configuration pour tester
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-7-defis-supplementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7 : Défis supplémentaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 7 : Défis supplémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defi-1-utiliser-les-ancres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Défi 1 : Utiliser les ancres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-2-limiter-le-placement-aux-surfaces-horizontales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Défi 2 : Limiter le placement aux surfaces horizontales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-3-preview-avant-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Défi 3 : Preview avant placement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-4-mode-peinture-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Défi 4 : Mode "peinture continue"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif-des-concepts-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif des concepts utilisés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Récapitulatif des concepts utilisés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differences-cles-avec-le-raycasting-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différences clés avec le raycasting 3D
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remise-de-lexercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remise de l'exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de réflexion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depannage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépannage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dépannage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arraycastmanager-is-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "ARRaycastManager is null"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-raycast-ne-touche-jamais-rien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Le raycast ne touche jamais rien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-cubes-apparaissent-a-des-positions-etranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les cubes apparaissent à des positions étranges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespace-xrarfoundation-could-not-be-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "Namespace XR.ARFoundation could not be found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-de-lexercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de l'exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-1-preparation-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Préparation du projet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 1 : Préparation du projet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-ouvrir-votre-projet-de-la-semaine-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 : Ouvrir votre projet de la semaine 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-installer-les-packages-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 : Installer les packages AR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-configurer-les-parametres-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 : Configurer les paramètres du projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-transformer-la-scene-en-scene-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Transformer la scène en scène AR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 2 : Transformer la scène en scène AR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-supprimer-les-elements-non-compatibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 : Supprimer les éléments non compatibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ajouter-les-composants-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 : Ajouter les composants AR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-creer-et-assigner-le-prefab-de-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 : Créer et assigner le prefab de plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-configurer-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 : Configurer la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-adapter-le-script-de-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Adapter le script de placement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 3 : Adapter le script de placement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ajouter-les-namespaces-necessaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 : Ajouter les namespaces nécessaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ajouter-une-reference-a-ar-raycast-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 : Ajouter une référence à AR Raycast Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-comprendre-la-difference-entre-les-deux-types-de-raycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 : Comprendre la différence entre les deux types de raycast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-modifier-la-methode-de-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 : Modifier la méthode de placement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-points-importants-a-noter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 : Points importants à noter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-adapter-la-suppression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 : Adapter la suppression
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-4-test-en-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Test en simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 4 : Test en simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-lancer-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 : Lancer la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-tester-le-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 : Tester le placement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tester-la-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 : Tester la navigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-verifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 : Vérifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-5-amelioration-feedback-visuel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Amélioration - Feedback visuel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 5 : Amélioration - Feedback visuel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ajouter-un-indicateur-de-pret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 : Ajouter un indicateur de "prêt"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-creer-lui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 : Créer l'UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-6-gerer-les-cubes-sur-differents-types-de-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6 : Gérer les cubes sur différents types de plans
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 6 : Gérer les cubes sur différents types de plans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-detecter-le-type-de-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 : Détecter le type de plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-configuration-pour-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 : Configuration pour tester
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-7-defis-supplementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7 : Défis supplémentaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 7 : Défis supplémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defi-1-utiliser-les-ancres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Défi 1 : Utiliser les ancres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-2-limiter-le-placement-aux-surfaces-horizontales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Défi 2 : Limiter le placement aux surfaces horizontales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-3-preview-avant-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Défi 3 : Preview avant placement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-4-mode-peinture-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Défi 4 : Mode "peinture continue"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif-des-concepts-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif des concepts utilisés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Récapitulatif des concepts utilisés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differences-cles-avec-le-raycasting-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différences clés avec le raycasting 3D
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remise-de-lexercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remise de l'exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de réflexion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depannage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépannage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dépannage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arraycastmanager-is-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "ARRaycastManager is null"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-raycast-ne-touche-jamais-rien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Le raycast ne touche jamais rien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-cubes-apparaissent-a-des-positions-etranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les cubes apparaissent à des positions étranges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespace-xrarfoundation-could-not-be-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "Namespace XR.ARFoundation could not be found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="exercice-pratique-passage-du-raycasting-3d-a-la-realite-augmentee">Exercice pratique - Passage du raycasting 3D à la réalité augmentée</h1>
+<h2 id="objectifs-de-lexercice">Objectifs de l'exercice</h2>
+<p>Dans cet exercice, vous allez <strong>adapter votre projet de peinture 3D</strong> de la semaine 1 pour qu'il fonctionne en réalité augmentée. Concrètement, vous allez :</p>
+<ol>
+<li>✅ Configurer votre projet existant pour l'AR</li>
+<li>✅ Remplacer le sol fixe par des plans détectés dynamiquement</li>
+<li>✅ Adapter le raycasting pour toucher les plans AR</li>
+<li>✅ Tester en simulation AR</li>
+<li>✅ <strong>BONUS :</strong> Ajouter un système de feedback visuel pendant la détection</li>
+</ol>
+<p><strong>Durée approximative :</strong> 60-90 minutes</p>
+<p><strong>Prérequis :</strong> Avoir complété l'exercice de raycasting 3D de la semaine 1</p>
+<hr />
+<h2 id="etape-1-preparation-du-projet">Étape 1 : Préparation du projet</h2>
+<h3 id="11-ouvrir-votre-projet-de-la-semaine-1">1.1 : Ouvrir votre projet de la semaine 1</h3>
+<ol>
+<li>Ouvrez Unity Hub</li>
+<li>Ouvrez votre projet <code>RaycastingExercice</code> de la semaine 1</li>
+<li>
+<p><strong>Créez une copie de votre scène actuelle</strong> :</p>
+</li>
+<li>
+<p>Clic droit sur votre scène → Duplicate</p>
+</li>
+<li>Renommez la copie "SceneAR"</li>
+<li>Ouvrez cette nouvelle scène</li>
+</ol>
+<blockquote>
+<p><strong>Pourquoi une copie ?</strong> Pour garder votre version 3D classique intacte au cas où.</p>
+</blockquote>
+<h3 id="12-installer-les-packages-ar">1.2 : Installer les packages AR</h3>
+<p>Suivez la <strong>Partie 1</strong> du document "Configuration AR Foundation et Simulation AR" :</p>
+<ul>
+<li>[ ] Installer AR Foundation</li>
+<li>[ ] Installer Google ARCore XR Plugin</li>
+<li>[ ] Installer XR Simulation</li>
+</ul>
+<h3 id="13-configurer-les-parametres-du-projet">1.3 : Configurer les paramètres du projet</h3>
+<p>Suivez la <strong>Partie 2</strong> du même document :</p>
+<ul>
+<li>[ ] Activer XR Simulation (Desktop)</li>
+<li>[ ] Activer Google ARCore (Android)</li>
+<li>[ ] Configurer les paramètres Android</li>
+</ul>
+<hr />
+<h2 id="etape-2-transformer-la-scene-en-scene-ar">Étape 2 : Transformer la scène en scène AR</h2>
+<h3 id="21-supprimer-les-elements-non-compatibles">2.1 : Supprimer les éléments non compatibles</h3>
+<p>Dans votre scène actuelle, supprimez :</p>
+<ol>
+<li>❌ Le <strong>Plane</strong> (sol) - il sera remplacé par la détection de plans AR</li>
+<li>❌ La <strong>Main Camera</strong> par défaut</li>
+</ol>
+<p><strong>Gardez :</strong></p>
+<ul>
+<li>✅ Votre GameObject "Utilisateur" (ou "GameManager") avec le script de placement</li>
+<li>✅ Le prefab de cube</li>
+<li>✅ La sphère en mouvement (si vous l'avez créée)</li>
+</ul>
+<h3 id="22-ajouter-les-composants-ar">2.2 : Ajouter les composants AR</h3>
+<p>Suivez la <strong>Partie 3</strong> du document de configuration :</p>
+<ol>
+<li>
+<p><strong>Ajouter XR Origin :</strong></p>
+</li>
+<li>
+<p>Clic droit dans Hierarchy → XR → XR Origin (Mobile AR)</p>
+</li>
+<li>
+<p><strong>Ajouter AR Session :</strong></p>
+</li>
+<li>
+<p>Clic droit dans Hierarchy → XR → AR Session</p>
+</li>
+<li>
+<p><strong>Configurer XR Origin :</strong></p>
+</li>
+<li>
+<p>Sélectionnez XR Origin</p>
+</li>
+<li>Add Component → AR Plane Manager</li>
+<li>Add Component → AR Raycast Manager</li>
+</ol>
+<h3 id="23-creer-et-assigner-le-prefab-de-plan">2.3 : Créer et assigner le prefab de plan</h3>
+<p>Suivez la <strong>Partie 6</strong> du document de configuration pour créer un prefab de plan visualisable.</p>
+<p><strong>Configuration recommandée pour cet exercice :</strong></p>
+<ul>
+<li>Matériau : Vert semi-transparent (Alpha ~0.4)</li>
+<li>Cela permet de voir clairement où sont les surfaces détectées</li>
+</ul>
+<p>Assignez le prefab dans <strong>AR Plane Manager → Plane Prefab</strong></p>
+<h3 id="24-configurer-la-simulation">2.4 : Configurer la simulation</h3>
+<ol>
+<li><strong>Edit → Project Settings → XR Simulation</strong></li>
+<li>Sélectionnez <strong>"Simulated Room"</strong> comme environnement</li>
+<li>Testez en appuyant sur Play - vous devriez voir l'environnement de simulation</li>
+</ol>
+<hr />
+<h2 id="etape-3-adapter-le-script-de-placement">Étape 3 : Adapter le script de placement</h2>
+<p>C'est l'étape clé ! Vous allez modifier votre script <code>PlacementRaycast.cs</code> pour utiliser le raycasting AR.</p>
+<h3 id="31-ajouter-les-namespaces-necessaires">3.1 : Ajouter les namespaces nécessaires</h3>
+<p>En haut de votre script, ajoutez :</p>
+<pre><code class="language-csharp">using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
+</code></pre>
+<h3 id="32-ajouter-une-reference-a-ar-raycast-manager">3.2 : Ajouter une référence à AR Raycast Manager</h3>
+<p>Dans votre classe, ajoutez :</p>
+<pre><code class="language-csharp">[SerializeField] private ARRaycastManager arRaycastManager;
+</code></pre>
+<p><strong>Dans Unity :</strong></p>
+<ol>
+<li>Sélectionnez votre GameObject "Utilisateur"</li>
+<li>Dans l'Inspector, trouvez votre script</li>
+<li>Glissez <strong>XR Origin</strong> dans le champ <strong>AR Raycast Manager</strong>
+   (XR Origin a le composant AR Raycast Manager)</li>
+</ol>
+<h3 id="33-comprendre-la-difference-entre-les-deux-types-de-raycast">3.3 : Comprendre la différence entre les deux types de raycast</h3>
+<p><strong>Raycasting 3D classique :</strong></p>
+<pre><code class="language-csharp">// Touche des COLLIDERS Unity
+Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+if (Physics.Raycast(ray, out RaycastHit hit))
+{
+    // hit contient des infos sur le collider touché
+}
+</code></pre>
+<p><strong>Raycasting AR (Nouvelle méthode) :</strong></p>
+<pre><code class="language-csharp">// Touche des PLANS DÉTECTÉS par ARCore
+List&lt;ARRaycastHit&gt; hits = new List&lt;ARRaycastHit&gt;();
+if (arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
+{
+    // hits[0] contient des infos sur le plan AR touché
+}
+</code></pre>
+<h3 id="34-modifier-la-methode-de-placement">3.4 : Modifier la méthode de placement</h3>
+<p>Remplacez votre méthode de placement existante par cette version AR :</p>
+<pre><code class="language-csharp">private void OnTap(InputAction.CallbackContext context)
+{
+    // Obtenir la position du touch/clic
+    Vector2 touchPosition = controles.Player.Point.ReadValue&lt;Vector2&gt;();
+
+    // Liste pour stocker les résultats du raycast AR
+    List&lt;ARRaycastHit&gt; hits = new List&lt;ARRaycastHit&gt;();
+
+    // Lancer un raycast AR vers les plans détectés
+    if (arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
+    {
+        // Prendre le premier plan touché
+        Pose hitPose = hits[0].pose;
+
+        // Créer le cube à la position du plan
+        GameObject nouveauCube = Instantiate(cubePrefab, hitPose.position, Quaternion.identity);
+
+        // Appliquer la couleur actuelle
+        Renderer renderer = nouveauCube.GetComponent&lt;Renderer&gt;();
+        if (renderer != null)
+        {
+            renderer.material.color = couleurActuelle;
+        }
+
+        // Assigner le tag pour pouvoir supprimer plus tard
+        nouveauCube.tag = &quot;Cube&quot;;
+    }
+}
+</code></pre>
+<h3 id="35-points-importants-a-noter">3.5 : Points importants à noter</h3>
+<p><strong><code>TrackableType.PlaneWithinPolygon</code> :</strong></p>
+<ul>
+<li>Ne touche que les plans détectés (pas les objets virtuels)</li>
+<li>Équivalent AR du LayerMask pour ignorer certains objets</li>
+</ul>
+<p><strong><code>hits[0].pose</code> :</strong></p>
+<ul>
+<li>Un <code>Pose</code> contient position ET rotation</li>
+<li><code>pose.position</code> = Vector3 de la position</li>
+<li><code>pose.rotation</code> = Quaternion de la rotation</li>
+</ul>
+<p><strong>Pourquoi <code>Quaternion.identity</code> ?</strong></p>
+<ul>
+<li>Pour cet exercice, on garde les cubes non-rotés pour simplifier</li>
+<li>On pourrait utiliser <code>hitPose.rotation</code> pour aligner avec la surface</li>
+</ul>
+<h3 id="36-adapter-la-suppression">3.6 : Adapter la suppression</h3>
+<p>Modifiez le système de suppression au clic droit de la même manière :</p>
+<pre><code class="language-csharp">private void OnDelete(InputAction.CallbackContext context)
+{
+    Vector2 touchPosition = controles.Player.Point.ReadValue&lt;Vector2&gt;();
+
+    // On peut utiliser le raycast CLASSIQUE pour toucher les cubes
+    Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+    if (Physics.Raycast(ray, out RaycastHit hit))
+    {
+        if (hit.collider.CompareTag(&quot;Cube&quot;))
+        {
+            Destroy(hit.collider.gameObject);
+        }
+    }
+}
+</code></pre>
+<p><strong>Pourquoi mélanger les deux types ?</strong></p>
+<ul>
+<li><strong>AR Raycast</strong> pour toucher les plans réels détectés</li>
+<li><strong>Physics Raycast classique</strong> pour toucher les cubes virtuels (qui ont des colliders)</li>
+</ul>
+<hr />
+<h2 id="etape-4-test-en-simulation">Étape 4 : Test en simulation</h2>
+<h3 id="41-lancer-la-simulation">4.1 : Lancer la simulation</h3>
+<ol>
+<li>Appuyez sur <strong>Play</strong></li>
+<li>
+<p>Vous devriez voir :</p>
+</li>
+<li>
+<p>L'environnement de simulation (pièce 3D)</p>
+</li>
+<li>Des grilles vertes sur le sol (plans détectés)</li>
+</ol>
+<h3 id="42-tester-le-placement">4.2 : Tester le placement</h3>
+<ol>
+<li><strong>Clic gauche</strong> sur une surface verte → Un cube devrait apparaître</li>
+<li>Utilisez les <strong>touches 1-5</strong> pour changer de couleur</li>
+<li>Placez plusieurs cubes de différentes couleurs</li>
+</ol>
+<h3 id="43-tester-la-navigation">4.3 : Tester la navigation</h3>
+<ul>
+<li><strong>Clic droit + souris</strong> : Regarder autour</li>
+<li><strong>WASD</strong> : Se déplacer</li>
+<li>Observez les cubes depuis différents angles</li>
+</ul>
+<h3 id="44-verifications">4.4 : Vérifications</h3>
+<p>✅ Les cubes apparaissent uniquement sur les plans verts ?
+✅ La suppression fonctionne toujours (si implémentée) ?
+✅ Le changement de couleur fonctionne ?</p>
+<hr />
+<h2 id="etape-5-amelioration-feedback-visuel">Étape 5 : Amélioration - Feedback visuel</h2>
+<h3 id="51-ajouter-un-indicateur-de-pret">5.1 : Ajouter un indicateur de "prêt"</h3>
+<p>Créez un nouveau script <code>ARStatusFeedback.cs</code> :</p>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
+
+public class ARStatusFeedback : MonoBehaviour
+{
+    [SerializeField] private ARPlaneManager planeManager;
+    [SerializeField] private Text statusText; // Nécessite un UI Text
+
+    private int planesCount = 0;
+
+    void Update()
+    {
+        // Compter les plans détectés
+        planesCount = planeManager.trackables.count;
+
+        if (planesCount == 0)
+        {
+            statusText.text = &quot;Recherche de surfaces...&quot;;
+            statusText.color = Color.yellow;
+        }
+        else
+        {
+            statusText.text = $&quot;Prêt ! {planesCount} surface(s) détectée(s)&quot;;
+            statusText.color = Color.green;
+        }
+    }
+}
+</code></pre>
+<h3 id="52-creer-lui">5.2 : Créer l'UI</h3>
+<ol>
+<li><strong>Clic droit dans Hierarchy → UI → Text - TextMeshPro</strong>
+   (Si demandé, importez TMP Essentials)</li>
+<li>Renommez le Text en "StatusText"</li>
+<li>
+<p>Configurez le texte :</p>
+</li>
+<li>
+<p>Font Size : 24</p>
+</li>
+<li>Alignment : Center</li>
+<li>
+<p>Position en haut de l'écran</p>
+</li>
+<li>
+<p>Créez un GameObject vide "ARManager"</p>
+</li>
+<li>Attachez le script <code>ARStatusFeedback</code></li>
+<li>
+<p>Assignez les références :</p>
+</li>
+<li>
+<p>AR Plane Manager (depuis XR Origin)</p>
+</li>
+<li>Status Text</li>
+</ol>
+<p><strong>Testez :</strong> Le texte devrait indiquer combien de surfaces sont détectées.</p>
+<hr />
+<h2 id="etape-6-gerer-les-cubes-sur-differents-types-de-plans">Étape 6 : Gérer les cubes sur différents types de plans</h2>
+<h3 id="61-detecter-le-type-de-plan">6.1 : Détecter le type de plan</h3>
+<p>Modifiez votre méthode de placement pour réagir au type de plan :</p>
+<pre><code class="language-csharp">private void OnTap(InputAction.CallbackContext context)
+{
+    Vector2 touchPosition = controles.Player.Point.ReadValue&lt;Vector2&gt;();
+    List&lt;ARRaycastHit&gt; hits = new List&lt;ARRaycastHit&gt;();
+
+    if (arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
+    {
+        Pose hitPose = hits[0].pose;
+
+        // Obtenir le plan touché
+        ARPlane plane = hits[0].trackable as ARPlane;
+
+        // Adapter selon le type de plan
+        Vector3 position = hitPose.position;
+
+        if (plane.alignment == PlaneAlignment.HorizontalUp)
+        {
+            // Sol ou table - position normale
+            position += Vector3.up * 0.25f; // Légèrement au-dessus
+        }
+        else if (plane.alignment == PlaneAlignment.Vertical)
+        {
+            // Mur - peut-être coller au mur ?
+            position += plane.normal * 0.1f; // Légèrement devant le mur
+        }
+
+        GameObject nouveauCube = Instantiate(cubePrefab, position, Quaternion.identity);
+
+        // Appliquer couleur
+        Renderer renderer = nouveauCube.GetComponent&lt;Renderer&gt;();
+        if (renderer != null)
+        {
+            renderer.material.color = couleurActuelle;
+        }
+
+        nouveauCube.tag = &quot;Cube&quot;;
+
+        Debug.Log($&quot;Cube placé sur : {plane.alignment}&quot;);
+    }
+}
+</code></pre>
+<h3 id="62-configuration-pour-tester">6.2 : Configuration pour tester</h3>
+<p>Dans <strong>AR Plane Manager</strong> :</p>
+<ul>
+<li>Changez <strong>Detection Mode</strong> à <strong>Everything</strong></li>
+</ul>
+<p>Cela permet de détecter les murs en plus du sol.</p>
+<hr />
+<h2 id="etape-7-defis-supplementaires">Étape 7 : Défis supplémentaires</h2>
+<h3 id="defi-1-utiliser-les-ancres">Défi 1 : Utiliser les ancres</h3>
+<p>Les ancres sont importantes pour que les objets restent stables.</p>
+<p><strong>Indice :</strong> Créez une ancre à chaque placement :</p>
+<pre><code class="language-csharp">// Après avoir créé le cube
+ARAnchor anchor = hits[0].trackable.gameObject.AddComponent&lt;ARAnchor&gt;();
+nouveauCube.transform.parent = anchor.transform;
+</code></pre>
+<h3 id="defi-2-limiter-le-placement-aux-surfaces-horizontales">Défi 2 : Limiter le placement aux surfaces horizontales</h3>
+<p>Modifiez le raycast pour ignorer les murs :</p>
+<pre><code class="language-csharp">if (arRaycastManager.Raycast(touchPosition, hits, 
+    TrackableType.PlaneWithinPolygon))
+{
+    ARPlane plane = hits[0].trackable as ARPlane;
+
+    // Placer uniquement sur surfaces horizontales
+    if (plane.alignment == PlaneAlignment.HorizontalUp)
+    {
+        // Placer le cube
+    }
+    else
+    {
+        Debug.Log(&quot;Placement uniquement sur surfaces horizontales&quot;);
+    }
+}
+</code></pre>
+<h3 id="defi-3-preview-avant-placement">Défi 3 : Preview avant placement</h3>
+<p>Affichez un cube fantôme qui suit le pointeur avant de confirmer le placement.</p>
+<p><strong>Étapes suggérées :</strong>
+1. Créez un cube semi-transparent qui suit le raycast
+2. Au tap, transformez-le en cube permanent
+3. Créez un nouveau cube fantôme</p>
+<h3 id="defi-4-mode-peinture-continue">Défi 4 : Mode "peinture continue"</h3>
+<p>Permettez de placer des cubes en maintenant le doigt, pas seulement au tap.</p>
+<p><strong>Indices :</strong>
+- Utilisez les événements <code>started</code> et <code>canceled</code>
+- Ajoutez un délai entre chaque placement (0.1s)</p>
+<hr />
+<h2 id="recapitulatif-des-concepts-utilises">Récapitulatif des concepts utilisés</h2>
+<p>✅ <strong>AR Foundation</strong> : Framework unifié pour AR<br />
+✅ <strong>XR Origin</strong> : Système de coordonnées AR<br />
+✅ <strong>AR Session</strong> : Gestion de la session AR<br />
+✅ <strong>AR Plane Manager</strong> : Détection de plans<br />
+✅ <strong>AR Raycast Manager</strong> : Raycasting sur plans AR<br />
+✅ <strong>TrackableType</strong> : Filtrer ce que le raycast touche<br />
+✅ <strong>Pose</strong> : Position + rotation en AR<br />
+✅ <strong>PlaneAlignment</strong> : Type de plan (horizontal/vertical)  </p>
+<h3 id="differences-cles-avec-le-raycasting-3d">Différences clés avec le raycasting 3D</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Raycasting 3D</th>
+<th>Raycasting AR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cible</strong></td>
+<td>Colliders Unity</td>
+<td>Plans détectés par ARCore</td>
+</tr>
+<tr>
+<td><strong>Manager</strong></td>
+<td>Physics</td>
+<td>ARRaycastManager</td>
+</tr>
+<tr>
+<td><strong>Hit type</strong></td>
+<td>RaycastHit</td>
+<td>ARRaycastHit</td>
+</tr>
+<tr>
+<td><strong>Position</strong></td>
+<td>hit.point</td>
+<td>hit.pose.position</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="remise-de-lexercice">Remise de l'exercice</h2>
+<p><strong>À remettre :</strong></p>
+<ol>
+<li><strong>Lien Github</strong> du projet adapté en AR</li>
+<li><strong>Captures d'écran</strong> montrant :</li>
+<li>La scène AR avec plans détectés (grilles vertes)</li>
+<li>Plusieurs cubes de différentes couleurs placés</li>
+<li>Le UI de feedback (si implémenté)</li>
+<li><strong>Vidéo courte</strong> (30-60 secondes) démontrant :</li>
+<li>Navigation dans la simulation</li>
+<li>Placement de cubes sur différentes surfaces</li>
+<li>Changement de couleur</li>
+</ol>
+<p><strong>Bonus :</strong>
+- Gestion des différents types de plans (sol vs murs)
+- Système de preview avant placement
+- Utilisation d'ancres
+- UI de feedback complet
+- Installation sur votre cellulaire et démo en flexant</p>
+<hr />
+<h2 id="questions-de-reflexion">Questions de réflexion</h2>
+<ol>
+<li>Quelle est la principale différence entre <code>Physics.Raycast()</code> et <code>arRaycastManager.Raycast()</code> ?</li>
+<li>Pourquoi utilise-t-on <code>TrackableType.PlaneWithinPolygon</code> dans le raycast AR ?</li>
+<li>Dans quel cas pourrait-on avoir besoin de combiner les deux types de raycasting dans une même app ?</li>
+<li>Que se passerait-il si on utilisait <code>hit.pose.rotation</code> au lieu de <code>Quaternion.identity</code> pour les cubes ?</li>
+<li>Pourquoi est-il important de tester en simulation avant de déployer sur appareil ?</li>
+</ol>
+<hr />
+<h2 id="depannage">Dépannage</h2>
+<h3 id="arraycastmanager-is-null">❌ "ARRaycastManager is null"</h3>
+<p><strong>Cause :</strong> Référence non assignée</p>
+<p><strong>Solution :</strong></p>
+<ol>
+<li>Vérifiez que XR Origin a bien le composant AR Raycast Manager</li>
+<li>Glissez XR Origin dans le champ du script dans l'Inspector</li>
+</ol>
+<h3 id="le-raycast-ne-touche-jamais-rien">❌ Le raycast ne touche jamais rien</h3>
+<p><strong>Vérifications :</strong></p>
+<ol>
+<li>Les plans sont bien détectés (grilles visibles) ?</li>
+<li>AR Raycast Manager est sur XR Origin ?</li>
+<li>Vous utilisez bien <code>TrackableType.PlaneWithinPolygon</code> ?</li>
+</ol>
+<h3 id="les-cubes-apparaissent-a-des-positions-etranges">❌ Les cubes apparaissent à des positions étranges</h3>
+<p><strong>Cause possible :</strong> Confusion entre coordinate spaces</p>
+<p><strong>Solution :</strong> Utilisez toujours <code>hits[0].pose.position</code> directement, sans transformation</p>
+<h3 id="namespace-xrarfoundation-could-not-be-found">❌ "Namespace XR.ARFoundation could not be found"</h3>
+<p><strong>Cause :</strong> Packages AR non installés</p>
+<p><strong>Solution :</strong></p>
+<ol>
+<li>Vérifiez Package Manager → AR Foundation installé</li>
+<li>Redémarrez Unity si nécessaire</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

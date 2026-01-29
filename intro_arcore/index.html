@@ -1,0 +1,1904 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/intro_arcore/">
+      
+      
+        <link rel="prev" href="../raycasting_3d_theorie/">
+      
+      
+        <link rel="next" href="../config_simulation_ar/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Introduction à la Réalité Augmentée - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-a-arcore" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction à la Réalité Augmentée
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raycasting_3d_theorie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quest-ce-quarcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu'est-ce qu'ARCore?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conception-dapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conception d'application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-trois-piliers-darcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les trois piliers d'ARCore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les trois piliers d&#39;ARCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tracking-de-mouvement-motion-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tracking de mouvement (Motion Tracking)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-detection-de-plans-plane-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Détection de plans (Plane Detection)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-estimation-de-leclairage-light-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Estimation de l'éclairage (Light Estimation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-cle-les-ancres-anchors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept clé : Les Ancres (Anchors)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept clé : Les Ancres (Anchors)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-les-ancres-sont-essentielles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi les ancres sont essentielles?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quand-creer-une-ancre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand créer une ancre?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-dancres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types d'ancres
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-cycle-de-vie-dune-session-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cycle de vie d'une session AR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le cycle de vie d&#39;une session AR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-initialisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Initialisation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-phase-de-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Phase de tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-etats-du-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. États du tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gestion-des-interruptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Gestion des interruptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systeme-de-coordonnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Système de coordonnées
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ar-foundation-le-pont-entre-unity-et-arcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AR Foundation : Le pont entre Unity et ARCore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AR Foundation : Le pont entre Unity et ARCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composants-principaux-dar-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composants principaux d'AR Foundation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-typique-dune-app-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow typique d'une app AR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow typique d&#39;une app AR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-setup-initial-une-fois" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Setup initial (une fois)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-initialisation-au-demarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Initialisation (au démarrage)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-interaction-utilisateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Interaction utilisateur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mise-a-jour-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mise à jour continue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differences-cles-ar-vs-developpement-3d-classique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différences clés : AR vs développement 3D classique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prérequis techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#materiel-necessaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matériel nécessaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versions-logicielles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versions logicielles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limites-et-defis-darcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limites et défis d'ARCore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Limites et défis d&#39;ARCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitations-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prochaines-etapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prochaines étapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de compréhension
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_simulation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_adaptation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quest-ce-quarcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu'est-ce qu'ARCore?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conception-dapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conception d'application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-trois-piliers-darcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les trois piliers d'ARCore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les trois piliers d&#39;ARCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tracking-de-mouvement-motion-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tracking de mouvement (Motion Tracking)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-detection-de-plans-plane-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Détection de plans (Plane Detection)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-estimation-de-leclairage-light-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Estimation de l'éclairage (Light Estimation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-cle-les-ancres-anchors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept clé : Les Ancres (Anchors)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept clé : Les Ancres (Anchors)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-les-ancres-sont-essentielles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi les ancres sont essentielles?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quand-creer-une-ancre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand créer une ancre?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-dancres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types d'ancres
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-cycle-de-vie-dune-session-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cycle de vie d'une session AR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le cycle de vie d&#39;une session AR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-initialisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Initialisation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-phase-de-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Phase de tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-etats-du-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. États du tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gestion-des-interruptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Gestion des interruptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systeme-de-coordonnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Système de coordonnées
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ar-foundation-le-pont-entre-unity-et-arcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AR Foundation : Le pont entre Unity et ARCore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AR Foundation : Le pont entre Unity et ARCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composants-principaux-dar-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composants principaux d'AR Foundation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-typique-dune-app-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow typique d'une app AR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow typique d&#39;une app AR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-setup-initial-une-fois" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Setup initial (une fois)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-initialisation-au-demarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Initialisation (au démarrage)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-interaction-utilisateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Interaction utilisateur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mise-a-jour-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mise à jour continue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differences-cles-ar-vs-developpement-3d-classique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différences clés : AR vs développement 3D classique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prérequis techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#materiel-necessaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matériel nécessaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versions-logicielles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versions logicielles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limites-et-defis-darcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limites et défis d'ARCore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Limites et défis d&#39;ARCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitations-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prochaines-etapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prochaines étapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de compréhension
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduction-a-arcore">Introduction à ARCore</h1>
+<h2 id="quest-ce-quarcore">Qu'est-ce qu'ARCore?</h2>
+<p><strong>ARCore</strong> est la plateforme de réalité augmentée développée par Google pour les appareils Android. Elle permet aux développeurs de créer des expériences AR en utilisant les capteurs et caméras déjà présents sur les smartphones.</p>
+<blockquote>
+<p><strong>Note :</strong> ARKit (Apple) fonctionne de manière très similaire. Les concepts appris avec ARCore sont transférables à ARKit.</p>
+</blockquote>
+<h2 id="conception-dapplication">Conception d'application</h2>
+<p><a href="https://developers.google.com/ar/design?hl=fr">Design</a></p>
+<hr />
+<h2 id="les-trois-piliers-darcore">Les trois piliers d'ARCore</h2>
+<p>ARCore repose sur trois capacités fondamentales.</p>
+<h3 id="1-tracking-de-mouvement-motion-tracking">1. Tracking de mouvement (Motion Tracking)</h3>
+<p>ARCore utilise une technique appelée <strong>SLAM</strong> (Simultaneous Localization and Mapping) pour comprendre où se trouve l'appareil dans l'espace.</p>
+<p><strong>Comment ça fonctionne :</strong></p>
+<ul>
+<li>La caméra capture des images continuellement</li>
+<li>ARCore identifie des <strong>points caractéristiques</strong> (feature points) dans l'image</li>
+<li>En suivant ces points entre les images, ARCore calcule le déplacement de l'appareil</li>
+<li>Résultat : ARCore sait où vous êtes et dans quelle direction vous regardez</li>
+</ul>
+<p><strong>Analogie :</strong> Imaginez que vous fermez les yeux dans une pièce que vous connaissez. En touchant les meubles autour de vous, vous pouvez déduire votre position et vos mouvements. ARCore fait la même chose avec la caméra.</p>
+<p><strong>Ce que ça permet :</strong></p>
+<ul>
+<li>Placer un objet virtuel et le voir rester au même endroit quand vous vous déplacez</li>
+<li>Marcher autour d'un objet 3D pour le voir sous tous les angles</li>
+<li>Créer une carte de l'environnement</li>
+</ul>
+<hr />
+<h3 id="2-detection-de-plans-plane-detection">2. Détection de plans (Plane Detection)</h3>
+<p>ARCore analyse l'environnement pour détecter des <strong>surfaces planes</strong> comme les sols, tables, ou murs.</p>
+<p><strong>Comment ça fonctionne :</strong></p>
+<ul>
+<li>ARCore groupe les points caractéristiques qui sont à la même hauteur</li>
+<li>Il forme des polygones qui représentent des surfaces</li>
+<li>Ces surfaces sont continuellement mises à jour pour gagner en précision</li>
+</ul>
+<p><strong>Types de plans détectés :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Horizontal vers le haut</strong></td>
+<td>Surface horizontale face vers le ciel</td>
+<td>Sol, table, bureau</td>
+</tr>
+<tr>
+<td><strong>Horizontal vers le bas</strong></td>
+<td>Surface horizontale face vers le sol</td>
+<td>Plafond</td>
+</tr>
+<tr>
+<td><strong>Vertical</strong></td>
+<td>Surface verticale</td>
+<td>Murs, portes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ce que ça permet :</strong></p>
+<ul>
+<li>Placer des objets de manière réaliste sur les surfaces</li>
+<li>Savoir si une surface est un sol, un mur ou un plafond</li>
+<li>Créer des interactions qui respectent la géométrie réelle</li>
+</ul>
+<p><strong>Visualisation :</strong></p>
+<p><img alt="Plane detection" src="https://img.reality.news/img/73/38/63672426472339/0/mobile-ar-apps-can-now-track-any-surface-using-plane-detection-via-wikitude-sdk.1280x600.jpg" /></p>
+<hr />
+<h3 id="3-estimation-de-leclairage-light-estimation">3. Estimation de l'éclairage (Light Estimation)</h3>
+<p>ARCore estime l'éclairage ambiant de l'environnement réel pour que les objets virtuels aient un rendu cohérent.</p>
+<p><strong>Ce qui est estimé :</strong></p>
+<ul>
+<li><strong>Intensité lumineuse</strong> : Est-ce lumineux ou sombre?</li>
+<li><strong>Température de couleur</strong> : La lumière est-elle chaude (jaune) ou froide (bleue)?</li>
+<li><strong>Direction principale</strong> : D'où vient la source de lumière?</li>
+</ul>
+<p><strong>Ce que ça permet :</strong></p>
+<ul>
+<li>Objets virtuels qui s'intègrent naturellement</li>
+<li>Ombres cohérentes avec l'environnement</li>
+<li>Réflexions réalistes sur les objets virtuels</li>
+</ul>
+<p><strong>Exemple concret :</strong></p>
+<p>Si vous êtes dans une pièce éclairée par une lumière orange, vos objets virtuels auront aussi une teinte orange plutôt que d'être blanc pur.</p>
+<hr />
+<h2 id="concept-cle-les-ancres-anchors">Concept clé : Les Ancres (Anchors)</h2>
+<p>Une <strong>ancre</strong> est un point fixe dans l'espace réel auquel on attache des objets virtuels.</p>
+<h3 id="pourquoi-les-ancres-sont-essentielles">Pourquoi les ancres sont essentielles?</h3>
+<p>Sans ancre, ARCore doit recalculer constamment la position de chaque objet. Avec une ancre :</p>
+<ul>
+<li>✅ ARCore gère automatiquement la position de l'ancre</li>
+<li>✅ Les objets restent stables même quand vous bougez</li>
+<li>✅ La performance est optimisée</li>
+</ul>
+<h3 id="quand-creer-une-ancre">Quand créer une ancre?</h3>
+<ul>
+<li><strong>Placement d'objet</strong> : Quand l'utilisateur place un objet sur une surface</li>
+<li><strong>Persistance</strong> : Pour que l'objet reste là entre les sessions</li>
+<li><strong>Tracking précis</strong> : Pour des objets qui doivent rester parfaitement alignés</li>
+</ul>
+<h3 id="types-dancres">Types d'ancres</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plane Anchor</strong></td>
+<td>Ancré à un plan détecté</td>
+<td>Objets sur sol/table</td>
+</tr>
+<tr>
+<td><strong>Feature Point Anchor</strong></td>
+<td>Ancré à un point caractéristique</td>
+<td>Objets en l'air</td>
+</tr>
+<tr>
+<td><strong>Cloud Anchor</strong></td>
+<td>Ancré dans le cloud (partageable)</td>
+<td>Expériences multi-utilisateurs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="le-cycle-de-vie-dune-session-ar">Le cycle de vie d'une session AR</h2>
+<p>Comprendre comment fonctionne une session AR est crucial pour bien programmer.</p>
+<h3 id="1-initialisation">1. Initialisation</h3>
+<pre><code>Démarrage de l'app
+    â†&quot;
+ARCore s'initialise
+    â†&quot;
+Caméra activée
+</code></pre>
+<h3 id="2-phase-de-tracking">2. Phase de tracking</h3>
+<pre><code>[Tracking insuffisant]  â†'  Demander à l'utilisateur de bouger
+    â†&quot;
+[Tracking limité]       â†'  Détection de plans en cours
+    â†&quot;
+[Tracking normal]       â†'  Prêt pour placement d'objets
+</code></pre>
+<h3 id="3-etats-du-tracking">3. États du tracking</h3>
+<table>
+<thead>
+<tr>
+<th>État</th>
+<th>Signification</th>
+<th>Action recommandée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>None</strong></td>
+<td>ARCore non initialisé</td>
+<td>Attendre</td>
+</tr>
+<tr>
+<td><strong>Limited</strong></td>
+<td>Tracking insuffisant</td>
+<td>Afficher instructions à l'utilisateur</td>
+</tr>
+<tr>
+<td><strong>Tracking</strong></td>
+<td>Tout fonctionne</td>
+<td>Autoriser interactions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-gestion-des-interruptions">4. Gestion des interruptions</h3>
+<ul>
+<li><strong>App en arrière-plan</strong> : Session en pause</li>
+<li><strong>Caméra bloquée</strong> : Tracking perdu</li>
+<li><strong>Retour à l'app</strong> : Session reprend (ou recommence)</li>
+</ul>
+<h3 id="systeme-de-coordonnees">Système de coordonnées</h3>
+<p>ARCore utilise un système de coordonnées différent :</p>
+<p><a href="https://tse4.mm.bing.net/th/id/OIP.J0P662phdRjD6eK78dvRDAHaEi?rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3">Coordinate system</a></p>
+<ul>
+<li><strong>Origine</strong> : Position de l'appareil au démarrage</li>
+<li><strong>Y+</strong> : Vers le haut (gravité inversée)</li>
+<li><strong>Z+</strong> : Direction où regarde la caméra au démarrage</li>
+<li><strong>X+</strong> : Droite de la caméra</li>
+</ul>
+<p><strong>Important :</strong> Les objets sont placés en <strong>mètres réels</strong>, pas en unités Unity arbitraires.</p>
+<hr />
+<h2 id="ar-foundation-le-pont-entre-unity-et-arcore">AR Foundation : Le pont entre Unity et ARCore</h2>
+<p><strong>AR Foundation</strong> est une couche d'abstraction créée par Unity qui unifie ARCore (Android) et ARKit (iOS).</p>
+<h3 id="architecture">Architecture</h3>
+<p>Votre code Unity
+        ↓
+AR Foundation (API unifiée)
+    ↓         ↓
+ARCore      ARKit
+(Android)   (iOS)</p>
+<h3 id="avantages">Avantages</h3>
+<ul>
+<li>✅ <strong>Un seul code</strong> pour Android et iOS</li>
+<li>✅ <strong>API simplifiée</strong> par rapport à ARCore natif</li>
+<li>✅ <strong>Composants Unity</strong> intégrés</li>
+<li>✅ <strong>Simulation</strong> dans l'éditeur Unity</li>
+</ul>
+<h3 id="composants-principaux-dar-foundation">Composants principaux d'AR Foundation</h3>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AR Session</strong></td>
+<td>Gère la session AR (tracking, mise à jour)</td>
+</tr>
+<tr>
+<td><strong>AR Session Origin</strong></td>
+<td>Point de référence de la scène AR</td>
+</tr>
+<tr>
+<td><strong>AR Camera</strong></td>
+<td>Caméra spéciale pour afficher le monde réel</td>
+</tr>
+<tr>
+<td><strong>AR Plane Manager</strong></td>
+<td>Gère la détection de plans</td>
+</tr>
+<tr>
+<td><strong>AR Raycast Manager</strong></td>
+<td>Permet de faire des raycasts AR</td>
+</tr>
+<tr>
+<td><strong>AR Anchor Manager</strong></td>
+<td>Gère les ancres</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="workflow-typique-dune-app-ar">Workflow typique d'une app AR</h2>
+<p>Voici le workflow que vous utiliserez dans vos projets :</p>
+<h3 id="1-setup-initial-une-fois">1. Setup initial (une fois)</h3>
+<ul>
+<li>Installer AR Foundation</li>
+<li>Configurer les paramètres du projet</li>
+<li>Ajouter les composants AR à la scène</li>
+</ul>
+<h3 id="2-initialisation-au-demarrage">2. Initialisation (au démarrage)</h3>
+<ul>
+<li>ARCore démarre</li>
+<li>Demander à l'utilisateur de scanner l'environnement</li>
+<li>Attendre la détection de plans</li>
+</ul>
+<h3 id="3-interaction-utilisateur">3. Interaction utilisateur</h3>
+<pre><code>Utilisateur tape l'écran
+    â†&quot;
+Raycast AR vers la position du tap
+    â†&quot;
+Touche un plan détecté?
+    â†&quot;
+OUI : Créer une ancre → Placer l'objet
+NON : Ignorer ou afficher feedback
+</code></pre>
+<h3 id="4-mise-a-jour-continue">4. Mise à jour continue</h3>
+<ul>
+<li>ARCore met à jour le tracking</li>
+<li>Les plans s'agrandissent/fusionnent</li>
+<li>Les ancres restent stables</li>
+</ul>
+<hr />
+<h2 id="differences-cles-ar-vs-developpement-3d-classique">Différences clés : AR vs développement 3D classique</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>3D Classique</th>
+<th>AR avec ARCore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Environnement</strong></td>
+<td>Entièrement contrôlé</td>
+<td>Monde réel + virtuel</td>
+</tr>
+<tr>
+<td><strong>Caméra</strong></td>
+<td>Contrôle libre</td>
+<td>Position = position réelle de l'appareil</td>
+</tr>
+<tr>
+<td><strong>Surfaces</strong></td>
+<td>Créées manuellement</td>
+<td>Détectées automatiquement</td>
+</tr>
+<tr>
+<td><strong>Lumière</strong></td>
+<td>Configurée manuellement</td>
+<td>Estimée depuis l'environnement</td>
+</tr>
+<tr>
+<td><strong>Échelle</strong></td>
+<td>Arbitraire</td>
+<td>Mètres réels</td>
+</tr>
+<tr>
+<td><strong>Input</strong></td>
+<td>Clavier/souris</td>
+<td>Tactile uniquement</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="prerequis-techniques">Prérequis techniques</h2>
+<h3 id="materiel-necessaire">Matériel nécessaire</h3>
+<ul>
+<li><strong>Appareil Android</strong> compatible ARCore (<a href="https://developers.google.com/ar/devices">liste officielle</a>)</li>
+<li><strong>OU</strong> Utilisation de la simulation AR (recommandé pour le développement)</li>
+</ul>
+<h3 id="versions-logicielles">Versions logicielles</h3>
+<ul>
+<li>Unity 2022.3 LTS ou plus récent</li>
+<li>AR Foundation 5.0+</li>
+<li>Google ARCore XR Plugin 5.0+</li>
+</ul>
+<hr />
+<h2 id="limites-et-defis-darcore">Limites et défis d'ARCore</h2>
+<p>Il est important de connaître les limites :</p>
+<h3 id="limitations-techniques">Limitations techniques</h3>
+<ul>
+<li>❌ <strong>Surfaces transparentes</strong> : Difficiles à détecter (verre, eau)</li>
+<li>❌ <strong>Surfaces uniformes</strong> : Peu de points caractéristiques (mur blanc)</li>
+<li>❌ <strong>Objets en mouvement</strong> : Peuvent perturber le tracking</li>
+<li>❌ <strong>Éclairage faible</strong> : Détection moins précise</li>
+<li>❌ <strong>Surfaces brillantes</strong> : Peuvent causer des reflets</li>
+</ul>
+<h3 id="bonnes-pratiques">Bonnes pratiques</h3>
+<ul>
+<li>✅ Demander à l'utilisateur de bien éclairer la pièce</li>
+<li>✅ Encourager le mouvement lent pour un meilleur tracking</li>
+<li>✅ Fournir du feedback visuel pendant la détection</li>
+<li>✅ Tester dans différents environnements</li>
+</ul>
+<hr />
+<h2 id="prochaines-etapes">Prochaines étapes</h2>
+<p>Maintenant que vous comprenez les concepts fondamentaux d'ARCore, nous allons :</p>
+<ol>
+<li><strong>Installer et configurer</strong> AR Foundation dans Unity</li>
+<li><strong>Utiliser la simulation AR</strong> pour développer sans appareil physique</li>
+<li><strong>Créer une app simple</strong> qui détecte des plans et place des objets</li>
+</ol>
+<hr />
+<h2 id="ressources-complementaires">Ressources complémentaires</h2>
+<ul>
+<li><a href="https://developers.google.com/ar">Documentation officielle ARCore</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@latest">AR Foundation Package</a></li>
+<li><a href="https://developers.google.com/ar/devices">Liste des appareils compatibles</a></li>
+<li><a href="https://developers.google.com/ar/develop/best-practices">Best practices ARCore</a></li>
+</ul>
+<hr />
+<h2 id="questions-de-comprehension">Questions de compréhension</h2>
+<ol>
+<li>Quels sont les trois piliers fondamentaux d'ARCore?</li>
+<li>Quelle est la différence entre un raycasting classique et un raycasting AR?</li>
+<li>Pourquoi utilise-t-on des ancres plutôt que de simplement positionner des objets?</li>
+<li>Dans quelles situations le tracking peut-il être "limité"?</li>
+<li>Quel est l'avantage d'utiliser AR Foundation plutôt qu'ARCore directement?</li>
+</ol>
+<hr />
+<p><strong>Prochaine étape :</strong> Configuration d'AR Foundation et utilisation de la simulation AR dans Unity.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2570 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/config_simulation_ar/">
+      
+      
+        <link rel="prev" href="../intro_arcore/">
+      
+      
+        <link rel="next" href="../exercice_raycasting_peinture3d/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Configuratoin AR dans Unity - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration-ar-foundation-et-simulation-ar" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuratoin AR dans Unity
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raycasting_3d_theorie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_arcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-utiliser-la-simulation-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi utiliser la simulation AR?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pourquoi utiliser la simulation AR?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avantages-de-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantages de la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-1-installation-des-packages-necessaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 1 : Installation des packages nécessaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 1 : Installation des packages nécessaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-11-ouvrir-le-package-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.1 : Ouvrir le Package Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-12-installer-ar-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.2 : Installer AR Foundation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-13-installer-arcore-xr-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.3 : Installer ARCore XR Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-14-installer-xr-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.4 : Installer XR Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-2-configuration-du-projet-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 2 : Configuration du projet Unity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 2 : Configuration du projet Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-21-parametres-xr-plug-in-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.1 : Paramètres XR Plug-in Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-22-parametres-de-build-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.2 : Paramètres de build Android
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-23-verification-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.3 : Vérification de la configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-3-creation-dune-scene-ar-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 3 : Création d'une scène AR de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 3 : Création d&#39;une scène AR de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-31-creer-une-nouvelle-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.1 : Créer une nouvelle scène
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-32-supprimer-la-camera-par-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.2 : Supprimer la caméra par défaut
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-33-ajouter-xr-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.3 : Ajouter XR Origin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-34-ajouter-ar-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.4 : Ajouter AR Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-35-ajouter-les-managers-necessaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.5 : Ajouter les managers nécessaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-4-configuration-de-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 4 : Configuration de la simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 4 : Configuration de la simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-41-acceder-aux-parametres-de-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4.1 : Accéder aux paramètres de simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-42-choisir-un-environnement-de-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4.2 : Choisir un environnement de simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-43-configuration-des-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4.3 : Configuration des contrôles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-5-test-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 5 : Test de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 5 : Test de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-51-lancer-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.1 : Lancer la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-52-verifier-la-detection-de-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.2 : Vérifier la détection de plans
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-53-naviguer-dans-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.3 : Naviguer dans la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-6-ajouter-un-prefab-pour-visualiser-les-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 6 : Ajouter un prefab pour visualiser les plans
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 6 : Ajouter un prefab pour visualiser les plans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-61-creer-le-prefab-de-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.1 : Créer le prefab de plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-62-creer-un-materiau-semi-transparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.2 : Créer un matériau semi-transparent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-63-ajouter-le-composant-ar-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.3 : Ajouter le composant AR Plane
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-64-creer-un-prefab-et-lassigner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.4 : Créer un prefab et l'assigner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-65-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.5 : Tester
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-7-creer-des-environnements-de-simulation-personnalises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 7 : Créer des environnements de simulation personnalisés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 7 : Créer des environnements de simulation personnalisés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-creer-vos-propres-environnements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi créer vos propres environnements?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-71-structure-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.1 : Structure de base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-72-ajouter-des-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.2 : Ajouter des surfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-73-ajouter-les-composants-de-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.3 : Ajouter les composants de simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-74-creer-le-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.4 : Créer le prefab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-75-assigner-dans-les-parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.5 : Assigner dans les paramètres
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-8-utilisation-du-device-simulator-complementaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 8 : Utilisation du Device Simulator (complémentaire)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 8 : Utilisation du Device Simulator (complémentaire)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-81-ouvrir-le-device-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 8.1 : Ouvrir le Device Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-82-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 8.2 : Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-83-simuler-le-touch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 8.3 : Simuler le touch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-9-workflow-de-developpement-recommande" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 9 : Workflow de développement recommandé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 9 : Workflow de développement recommandé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-developpement-initial-90-du-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 : Développement initial (90% du temps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-validation-10-du-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 : Validation (10% du temps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-debug-sur-appareil-si-necessaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 : Debug sur appareil (si nécessaire)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-10-limitations-de-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 10 : Limitations de la simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 10 : Limitations de la simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-qui-fonctionne-bien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui fonctionne bien ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-qui-ne-fonctionne-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui ne fonctionne pas ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategie-recommandee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stratégie recommandée
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depannage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépannage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dépannage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-xr-simulation-environments-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "No XR Simulation environments found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-plans-ne-sont-pas-detectes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les plans ne sont pas détectés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arsession-is-not-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "ARSession is not enabled"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-camera-ne-bouge-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ La caméra ne bouge pas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-de-configuration-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist de configuration complète
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de compréhension
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_adaptation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-utiliser-la-simulation-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi utiliser la simulation AR?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pourquoi utiliser la simulation AR?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avantages-de-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantages de la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-1-installation-des-packages-necessaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 1 : Installation des packages nécessaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 1 : Installation des packages nécessaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-11-ouvrir-le-package-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.1 : Ouvrir le Package Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-12-installer-ar-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.2 : Installer AR Foundation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-13-installer-arcore-xr-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.3 : Installer ARCore XR Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-14-installer-xr-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.4 : Installer XR Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-2-configuration-du-projet-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 2 : Configuration du projet Unity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 2 : Configuration du projet Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-21-parametres-xr-plug-in-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.1 : Paramètres XR Plug-in Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-22-parametres-de-build-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.2 : Paramètres de build Android
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-23-verification-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.3 : Vérification de la configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-3-creation-dune-scene-ar-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 3 : Création d'une scène AR de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 3 : Création d&#39;une scène AR de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-31-creer-une-nouvelle-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.1 : Créer une nouvelle scène
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-32-supprimer-la-camera-par-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.2 : Supprimer la caméra par défaut
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-33-ajouter-xr-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.3 : Ajouter XR Origin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-34-ajouter-ar-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.4 : Ajouter AR Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-35-ajouter-les-managers-necessaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.5 : Ajouter les managers nécessaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-4-configuration-de-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 4 : Configuration de la simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 4 : Configuration de la simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-41-acceder-aux-parametres-de-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4.1 : Accéder aux paramètres de simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-42-choisir-un-environnement-de-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4.2 : Choisir un environnement de simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-43-configuration-des-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4.3 : Configuration des contrôles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-5-test-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 5 : Test de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 5 : Test de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-51-lancer-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.1 : Lancer la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-52-verifier-la-detection-de-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.2 : Vérifier la détection de plans
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-53-naviguer-dans-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.3 : Naviguer dans la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-6-ajouter-un-prefab-pour-visualiser-les-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 6 : Ajouter un prefab pour visualiser les plans
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 6 : Ajouter un prefab pour visualiser les plans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-61-creer-le-prefab-de-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.1 : Créer le prefab de plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-62-creer-un-materiau-semi-transparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.2 : Créer un matériau semi-transparent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-63-ajouter-le-composant-ar-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.3 : Ajouter le composant AR Plane
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-64-creer-un-prefab-et-lassigner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.4 : Créer un prefab et l'assigner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-65-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.5 : Tester
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-7-creer-des-environnements-de-simulation-personnalises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 7 : Créer des environnements de simulation personnalisés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 7 : Créer des environnements de simulation personnalisés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-creer-vos-propres-environnements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi créer vos propres environnements?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-71-structure-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.1 : Structure de base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-72-ajouter-des-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.2 : Ajouter des surfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-73-ajouter-les-composants-de-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.3 : Ajouter les composants de simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-74-creer-le-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.4 : Créer le prefab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-75-assigner-dans-les-parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7.5 : Assigner dans les paramètres
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-8-utilisation-du-device-simulator-complementaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 8 : Utilisation du Device Simulator (complémentaire)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 8 : Utilisation du Device Simulator (complémentaire)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-81-ouvrir-le-device-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 8.1 : Ouvrir le Device Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-82-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 8.2 : Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-83-simuler-le-touch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 8.3 : Simuler le touch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-9-workflow-de-developpement-recommande" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 9 : Workflow de développement recommandé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 9 : Workflow de développement recommandé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-developpement-initial-90-du-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 : Développement initial (90% du temps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-validation-10-du-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 : Validation (10% du temps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-debug-sur-appareil-si-necessaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 : Debug sur appareil (si nécessaire)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-10-limitations-de-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 10 : Limitations de la simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 10 : Limitations de la simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-qui-fonctionne-bien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui fonctionne bien ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-qui-ne-fonctionne-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui ne fonctionne pas ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategie-recommandee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stratégie recommandée
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depannage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépannage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dépannage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-xr-simulation-environments-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "No XR Simulation environments found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-plans-ne-sont-pas-detectes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les plans ne sont pas détectés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arsession-is-not-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "ARSession is not enabled"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-camera-ne-bouge-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ La caméra ne bouge pas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-de-configuration-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist de configuration complète
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de compréhension
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuration-ar-foundation-et-simulation-ar">Configuration AR Foundation et Simulation AR</h1>
+<h2 id="pourquoi-utiliser-la-simulation-ar">Pourquoi utiliser la simulation AR?</h2>
+<p>Développer en AR nécessite normalement de déployer votre app sur un appareil mobile à chaque test. C'est :</p>
+<ul>
+<li>⏱️ <strong>Long</strong> : Build + transfert + installation = 5-10 minutes par test</li>
+<li>💰 <strong>Coûteux</strong> : Nécessite un appareil physique compatible</li>
+<li>🐛 <strong>Difficile à déboguer</strong> : Pas d'accès direct à la console Unity</li>
+</ul>
+<p><strong>La simulation AR résout tous ces problèmes !</strong></p>
+<h3 id="avantages-de-la-simulation">Avantages de la simulation</h3>
+<ul>
+<li>✅ <strong>Test instantané</strong> : Play dans l'éditeur Unity</li>
+<li>✅ <strong>Débogage facile</strong> : Console, Debug.Log, breakpoints</li>
+<li>✅ <strong>Pas d'appareil nécessaire</strong> : Développez n'importe où</li>
+<li>✅ <strong>Itération rapide</strong> : Testez et modifiez en quelques secondes</li>
+<li>✅ <strong>Environnements contrôlés</strong> : Scènes de test pré-configurées</li>
+</ul>
+<blockquote>
+<p><strong>Note importante :</strong> La simulation n'est pas parfaite à 100%, mais elle permet de développer 90% de votre app avant de tester sur appareil physique.</p>
+</blockquote>
+<hr />
+<h2 id="partie-1-installation-des-packages-necessaires">Partie 1 : Installation des packages nécessaires</h2>
+<h3 id="etape-11-ouvrir-le-package-manager">Étape 1.1 : Ouvrir le Package Manager</h3>
+<ol>
+<li>Dans Unity, allez à <strong>Window → Package Manager</strong></li>
+<li>En haut à gauche, changez le menu déroulant de "In Project" à <strong>"Unity Registry"</strong></li>
+</ol>
+<h3 id="etape-12-installer-ar-foundation">Étape 1.2 : Installer AR Foundation</h3>
+<ol>
+<li>Dans la barre de recherche, tapez "AR Foundation"</li>
+<li>Sélectionnez <strong>AR Foundation</strong></li>
+<li>Cliquez sur <strong>Install</strong> (en bas à droite)</li>
+<li>Attendez la fin de l'installation</li>
+</ol>
+<p><strong>Version recommandée :</strong> 5.0 ou plus récent</p>
+<h3 id="etape-13-installer-arcore-xr-plugin">Étape 1.3 : Installer ARCore XR Plugin</h3>
+<ol>
+<li>Toujours dans le Package Manager</li>
+<li>Cherchez <strong>Google ARCore XR Plugin</strong></li>
+<li>Cliquez sur <strong>Install</strong></li>
+<li>Attendez la fin de l'installation</li>
+</ol>
+<blockquote>
+<p><strong>Note :</strong> Si vous voulez aussi supporter iOS, installez également <strong>Apple ARKit XR Plugin</strong>.</p>
+</blockquote>
+<h3 id="etape-14-installer-xr-simulation">Étape 1.4 : Installer XR Simulation</h3>
+<ol>
+<li>Dans le Package Manager</li>
+<li>Cherchez <strong>XR Simulation</strong> (ou AR Simulation)</li>
+<li>Cliquez sur <strong>Install</strong></li>
+</ol>
+<p><strong>Ce package est essentiel pour tester dans l'éditeur !</strong></p>
+<hr />
+<h2 id="partie-2-configuration-du-projet-unity">Partie 2 : Configuration du projet Unity</h2>
+<h3 id="etape-21-parametres-xr-plug-in-management">Étape 2.1 : Paramètres XR Plug-in Management</h3>
+<ol>
+<li>Allez à <strong>Edit → Project Settings</strong></li>
+<li>Dans le panneau de gauche, sélectionnez <strong>XR Plug-in Management</strong></li>
+<li>Si demandé, cliquez sur <strong>Install XR Plugin Management</strong></li>
+</ol>
+<p><strong>Onglet PC, Mac &amp; Linux Standalone :</strong></p>
+<ol>
+<li>Cochez <strong>XR Simulation</strong> (ou AR Simulation)</li>
+</ol>
+<p><strong>Onglet Android :</strong></p>
+<ol>
+<li>Cochez <strong>Google ARCore</strong></li>
+</ol>
+<h3 id="etape-22-parametres-de-build-android">Étape 2.2 : Paramètres de build Android</h3>
+<p>Toujours dans <strong>Project Settings</strong> :</p>
+<ol>
+<li>Sélectionnez <strong>Player</strong> dans le panneau de gauche</li>
+<li>Cliquez sur l'onglet <strong>Android</strong> (icône Android)</li>
+<li>
+<p>Section <strong>Other Settings</strong> :</p>
+</li>
+<li>
+<p><strong>Minimum API Level</strong> : Android 7.0 (API level 24) ou plus</p>
+</li>
+<li><strong>Scripting Backend</strong> : IL2CPP (recommandé pour les performances)</li>
+<li>
+<p><strong>Target Architectures</strong> : Cochez <strong>ARM64</strong></p>
+</li>
+<li>
+<p>Dans <strong>Publishing Settings</strong> :</p>
+</li>
+<li>
+<p>Décochez <strong>Custom Main Manifest</strong> (sauf si vous savez ce que vous faites)</p>
+</li>
+</ol>
+<h3 id="etape-23-verification-de-la-configuration">Étape 2.3 : Vérification de la configuration</h3>
+<p>Dans <strong>XR Plug-in Management</strong> :</p>
+<ul>
+<li>✅ Desktop : XR Simulation activé</li>
+<li>✅ Android : Google ARCore activé</li>
+</ul>
+<hr />
+<h2 id="partie-3-creation-dune-scene-ar-de-base">Partie 3 : Création d'une scène AR de base</h2>
+<h3 id="etape-31-creer-une-nouvelle-scene">Étape 3.1 : Créer une nouvelle scène</h3>
+<ol>
+<li><strong>File → New Scene</strong></li>
+<li>Choisissez <strong>3D</strong> (pas URP ou HDRP pour simplifier)</li>
+<li><strong>File → Save As</strong> → Nommez-la "TestAR"</li>
+</ol>
+<h3 id="etape-32-supprimer-la-camera-par-defaut">Étape 3.2 : Supprimer la caméra par défaut</h3>
+<ol>
+<li>Dans la Hierarchy, <strong>clic droit sur "Main Camera"</strong></li>
+<li>Sélectionnez <strong>Delete</strong></li>
+</ol>
+<blockquote>
+<p><strong>Pourquoi?</strong> ARCore utilise sa propre caméra spéciale qui affiche le flux vidéo réel.</p>
+</blockquote>
+<h3 id="etape-33-ajouter-xr-origin">Étape 3.3 : Ajouter XR Origin</h3>
+<ol>
+<li><strong>Clic droit dans la Hierarchy</strong></li>
+<li><strong>XR → XR Origin (Mobile AR)</strong></li>
+</ol>
+<p>Ceci crée automatiquement :</p>
+<ul>
+<li><strong>XR Origin</strong> : GameObject parent qui gère le système de coordonnées</li>
+<li><strong>Camera Offset</strong> : GameObject intermédiaire</li>
+<li><strong>Main Camera</strong> : Caméra AR qui affiche le monde réel + objets virtuels</li>
+</ul>
+<h3 id="etape-34-ajouter-ar-session">Étape 3.4 : Ajouter AR Session</h3>
+<ol>
+<li><strong>Clic droit dans la Hierarchy</strong></li>
+<li><strong>XR → AR Session</strong></li>
+</ol>
+<p>Ce GameObject gère l'état de la session AR (démarrage, pause, arrêt).</p>
+<h3 id="etape-35-ajouter-les-managers-necessaires">Étape 3.5 : Ajouter les managers nécessaires</h3>
+<p>Sélectionnez le GameObject <strong>XR Origin</strong> et ajoutez les composants suivants :</p>
+<ol>
+<li><strong>Add Component → AR Plane Manager</strong></li>
+<li>
+<p>Gère la détection de plans</p>
+</li>
+<li>
+<p><strong>Add Component → AR Raycast Manager</strong></p>
+</li>
+<li>
+<p>Permet les raycasts AR</p>
+</li>
+<li>
+<p><strong>Add Component → AR Anchor Manager</strong> (optionnel pour l'instant)</p>
+</li>
+<li>Gère les ancres</li>
+</ol>
+<p><strong>Configuration AR Plane Manager :</strong></p>
+<ul>
+<li><strong>Plane Prefab</strong> : Laissez vide pour l'instant (Unity utilisera un prefab par défaut)</li>
+<li><strong>Detection Mode</strong> : Everything (détecte tous les types de plans)</li>
+</ul>
+<hr />
+<h2 id="partie-4-configuration-de-la-simulation">Partie 4 : Configuration de la simulation</h2>
+<h3 id="etape-41-acceder-aux-parametres-de-simulation">Étape 4.1 : Accéder aux paramètres de simulation</h3>
+<ol>
+<li><strong>Edit → Project Settings</strong></li>
+<li>Dans le panneau de gauche, cherchez <strong>XR Plug-in Management</strong></li>
+<li>Cliquez sur <strong>XR Simulation</strong> (sous-menu)</li>
+</ol>
+<h3 id="etape-42-choisir-un-environnement-de-simulation">Étape 4.2 : Choisir un environnement de simulation</h3>
+<p>Dans <strong>Environment Prefab</strong>, vous verrez une liste d'environnements :</p>
+<table>
+<thead>
+<tr>
+<th>Environnement</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Simulated Room</strong></td>
+<td>Pièce simple avec sol et murs</td>
+</tr>
+<tr>
+<td><strong>Simulated Office</strong></td>
+<td>Bureau avec tables et chaises</td>
+</tr>
+<tr>
+<td><strong>Simulated Outdoor</strong></td>
+<td>Environnement extérieur</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sélectionnez "Simulated Room"</strong> pour commencer.</p>
+<h3 id="etape-43-configuration-des-controles">Étape 4.3 : Configuration des contrôles</h3>
+<p>Toujours dans les paramètres XR Simulation :</p>
+<p><strong>Input Settings :</strong></p>
+<ul>
+<li><strong>Navigation Mode</strong> : Look (permet de regarder autour avec la souris)</li>
+<li><strong>Move Speed</strong> : 2.0 (vitesse de déplacement)</li>
+<li><strong>Rotate Speed</strong> : 100 (vitesse de rotation de la caméra)</li>
+</ul>
+<p><strong>Contrôles par défaut :</strong></p>
+<ul>
+<li><strong>Clic droit + mouvement souris</strong> : Regarder autour</li>
+<li><strong>WASD</strong> : Se déplacer</li>
+<li><strong>Q/E</strong> : Monter/descendre</li>
+<li><strong>Shift</strong> : Augmenter la vitesse</li>
+</ul>
+<hr />
+<h2 id="partie-5-test-de-base">Partie 5 : Test de base</h2>
+<h3 id="etape-51-lancer-la-simulation">Étape 5.1 : Lancer la simulation</h3>
+<ol>
+<li>Appuyez sur <strong>Play</strong> dans Unity</li>
+<li>La scène de simulation devrait se charger</li>
+<li>Vous devriez voir l'environnement 3D sélectionné</li>
+</ol>
+<h3 id="etape-52-verifier-la-detection-de-plans">Étape 5.2 : Vérifier la détection de plans</h3>
+<p><strong>Visuel attendu :</strong></p>
+<ul>
+<li>Des grilles blanches/grises apparaissent sur le sol et les surfaces</li>
+<li>Ces grilles représentent les plans détectés</li>
+</ul>
+<p><strong>Si rien n'apparaît :</strong></p>
+<ul>
+<li>Vérifiez que AR Plane Manager est bien sur XR Origin</li>
+<li>Vérifiez que la simulation est activée dans Project Settings</li>
+</ul>
+<h3 id="etape-53-naviguer-dans-la-simulation">Étape 5.3 : Naviguer dans la simulation</h3>
+<p>Utilisez les contrôles :</p>
+<ul>
+<li><strong>Clic droit + souris</strong> pour regarder autour</li>
+<li><strong>WASD</strong> pour vous déplacer</li>
+<li>Observez comment les plans sont détectés</li>
+</ul>
+<hr />
+<h2 id="partie-6-ajouter-un-prefab-pour-visualiser-les-plans">Partie 6 : Ajouter un prefab pour visualiser les plans</h2>
+<h3 id="etape-61-creer-le-prefab-de-plan">Étape 6.1 : Créer le prefab de plan</h3>
+<ol>
+<li><strong>GameObject → 3D Object → Quad</strong></li>
+<li>Renommez-le "ARPlanePrefab"</li>
+<li><strong>Scale</strong> : (1, 1, 1) - la taille sera automatiquement ajustée par ARCore</li>
+<li><strong>Rotation</strong> : (90, 0, 0) - pour que le quad soit horizontal</li>
+</ol>
+<h3 id="etape-62-creer-un-materiau-semi-transparent">Étape 6.2 : Créer un matériau semi-transparent</h3>
+<ol>
+<li><strong>Assets → Create → Material</strong></li>
+<li>Nommez-le "PlaneMaterial"</li>
+<li>
+<p>Configurez-le :</p>
+</li>
+<li>
+<p><strong>Rendering Mode</strong> : Transparent</p>
+</li>
+<li>
+<p><strong>Albedo Color</strong> : Bleu avec Alpha à ~0.3 (semi-transparent)</p>
+</li>
+<li>
+<p>Glissez ce matériau sur le prefab ARPlanePrefab</p>
+</li>
+</ol>
+<h3 id="etape-63-ajouter-le-composant-ar-plane">Étape 6.3 : Ajouter le composant AR Plane</h3>
+<ol>
+<li>Sélectionnez <strong>ARPlanePrefab</strong></li>
+<li><strong>Add Component → AR Plane</strong></li>
+</ol>
+<p>Ce composant permet au prefab de se mettre à jour automatiquement avec les données du plan détecté.</p>
+<h3 id="etape-64-creer-un-prefab-et-lassigner">Étape 6.4 : Créer un prefab et l'assigner</h3>
+<ol>
+<li>Glissez <strong>ARPlanePrefab</strong> de la Hierarchy vers le dossier Assets</li>
+<li>Supprimez <strong>ARPlanePrefab</strong> de la Hierarchy</li>
+<li>Sélectionnez <strong>XR Origin</strong> dans la Hierarchy</li>
+<li>
+<p>Dans le composant <strong>AR Plane Manager</strong> :</p>
+</li>
+<li>
+<p>Glissez le prefab dans le champ <strong>Plane Prefab</strong></p>
+</li>
+</ol>
+<h3 id="etape-65-tester">Étape 6.5 : Tester</h3>
+<ol>
+<li>Appuyez sur <strong>Play</strong></li>
+<li>Les plans détectés devraient maintenant apparaître en bleu semi-transparent</li>
+<li>Déplacez-vous pour voir les plans s'agrandir et fusionner</li>
+</ol>
+<hr />
+<h2 id="partie-7-creer-des-environnements-de-simulation-personnalises">Partie 7 : Créer des environnements de simulation personnalisés</h2>
+<h3 id="pourquoi-creer-vos-propres-environnements">Pourquoi créer vos propres environnements?</h3>
+<ul>
+<li>🎯 Tester des cas spécifiques (grande table, petit espace, etc.)</li>
+<li>🧪 Reproduire des bugs dans un environnement contrôlé</li>
+<li>🎨 Adapter à vos besoins de projet</li>
+</ul>
+<h3 id="etape-71-structure-de-base">Étape 7.1 : Structure de base</h3>
+<ol>
+<li><strong>GameObject → Create Empty</strong></li>
+<li>Renommez-le "CustomSimEnvironment"</li>
+</ol>
+<h3 id="etape-72-ajouter-des-surfaces">Étape 7.2 : Ajouter des surfaces</h3>
+<p>Ajoutez des GameObjects 3D pour représenter les surfaces :</p>
+<p><strong>Sol :</strong>
+1. <strong>GameObject → 3D Object → Plane</strong>
+2. Parent : CustomSimEnvironment
+3. Position : (0, 0, 0)
+4. Scale : (2, 1, 2) - pour un sol de 20x20m</p>
+<p><strong>Table :</strong>
+1. <strong>GameObject → 3D Object → Cube</strong>
+2. Parent : CustomSimEnvironment
+3. Position : (0, 0.5, 0)
+4. Scale : (1, 0.05, 0.6) - pour une table réaliste</p>
+<p><strong>Murs (optionnel) :</strong>
+- Ajoutez des cubes fins pour simuler des murs</p>
+<h3 id="etape-73-ajouter-les-composants-de-simulation">Étape 7.3 : Ajouter les composants de simulation</h3>
+<p><strong>Sur chaque surface détectable :</strong></p>
+<ol>
+<li><strong>Add Component → XR Simulated Plane</strong></li>
+<li>Configurez :</li>
+<li><strong>Classification</strong> : Floor / Table / Wall selon le cas</li>
+<li><strong>Alignment</strong> : Horizontal Up / Vertical</li>
+</ol>
+<h3 id="etape-74-creer-le-prefab">Étape 7.4 : Créer le prefab</h3>
+<ol>
+<li>Glissez <strong>CustomSimEnvironment</strong> de la Hierarchy vers Assets</li>
+<li>Supprimez l'original de la Hierarchy</li>
+</ol>
+<h3 id="etape-75-assigner-dans-les-parametres">Étape 7.5 : Assigner dans les paramètres</h3>
+<ol>
+<li><strong>Edit → Project Settings → XR Simulation</strong></li>
+<li>Dans <strong>Environment Prefab</strong>, glissez votre prefab personnalisé</li>
+</ol>
+<hr />
+<h2 id="partie-8-utilisation-du-device-simulator-complementaire">Partie 8 : Utilisation du Device Simulator (complémentaire)</h2>
+<p>Le <strong>Device Simulator</strong> permet de simuler un appareil mobile avec écran tactile.</p>
+<h3 id="etape-81-ouvrir-le-device-simulator">Étape 8.1 : Ouvrir le Device Simulator</h3>
+<ol>
+<li><strong>Window → Analysis → Device Simulator</strong></li>
+<li>Une fenêtre s'ouvre montrant un appareil mobile</li>
+</ol>
+<h3 id="etape-82-configuration">Étape 8.2 : Configuration</h3>
+<p>Dans la fenêtre Device Simulator :</p>
+<ul>
+<li>Choisissez un appareil (ex: Samsung Galaxy S10)</li>
+<li>Choisissez l'orientation (Portrait/Landscape)</li>
+</ul>
+<h3 id="etape-83-simuler-le-touch">Étape 8.3 : Simuler le touch</h3>
+<p>Quand vous êtes en Play mode :</p>
+<ul>
+<li><strong>Clic gauche</strong> dans le Device Simulator = touch sur l'écran</li>
+<li>Position du clic = position du touch dans vos scripts</li>
+</ul>
+<p><strong>Important :</strong> Les Input Actions configurées pour "Touch" fonctionneront automatiquement.</p>
+<hr />
+<h2 id="partie-9-workflow-de-developpement-recommande">Partie 9 : Workflow de développement recommandé</h2>
+<h3 id="phase-1-developpement-initial-90-du-temps">Phase 1 : Développement initial (90% du temps)</h3>
+<pre><code>Coder dans Unity
+    ↓
+Tester dans la simulation (Play dans l'éditeur)
+    ↓
+Itérer rapidement
+</code></pre>
+<p><strong>Avantages :</strong></p>
+<ul>
+<li>Cycles de test en secondes</li>
+<li>Debug facile</li>
+<li>Pas besoin d'appareil</li>
+</ul>
+<h3 id="phase-2-validation-10-du-temps">Phase 2 : Validation (10% du temps)</h3>
+<pre><code>Build Android
+    ↓
+Installer sur appareil
+    ↓
+Tester en conditions réelles
+</code></pre>
+<p><strong>Quand faire un build :</strong>
+- ✅ Fin d'une feature complète
+- ✅ Avant une démo
+- ✅ Vérification finale</p>
+<h3 id="phase-3-debug-sur-appareil-si-necessaire">Phase 3 : Debug sur appareil (si nécessaire)</h3>
+<p>Si quelque chose ne fonctionne pas sur l'appareil :</p>
+<ol>
+<li><strong>Build → Development Build + Script Debugging</strong></li>
+<li>Connectez l'appareil en USB</li>
+<li><strong>Window → Analysis → Android Logcat</strong></li>
+<li>Consultez les logs en temps réel</li>
+</ol>
+<hr />
+<h2 id="partie-10-limitations-de-la-simulation">Partie 10 : Limitations de la simulation</h2>
+<h3 id="ce-qui-fonctionne-bien">Ce qui fonctionne bien ✅</h3>
+<ul>
+<li>Détection de plans</li>
+<li>Raycasting AR</li>
+<li>Placement d'objets</li>
+<li>Gestion des ancres</li>
+<li>Input tactile (avec Device Simulator)</li>
+<li>Logique de gameplay</li>
+</ul>
+<h3 id="ce-qui-ne-fonctionne-pas">Ce qui ne fonctionne pas ⚠️</h3>
+<ul>
+<li><strong>Estimation d'éclairage réel</strong> : La simulation utilise un éclairage fixe</li>
+<li><strong>Caméra réelle</strong> : Pas de flux vidéo réel (fond virtuel)</li>
+<li><strong>Performance réelle</strong> : Un PC est plus puissant qu'un téléphone</li>
+<li><strong>Sensors spécifiques</strong> : GPS, gyroscope réel, etc.</li>
+</ul>
+<h3 id="strategie-recommandee">Stratégie recommandée</h3>
+<p>Développez en simulation, puis testez sur appareil pour :</p>
+<ul>
+<li>Valider l'intégration de la caméra réelle</li>
+<li>Vérifier les performances</li>
+<li>Tester l'estimation d'éclairage</li>
+<li>Valider l'expérience utilisateur complète</li>
+</ul>
+<hr />
+<h2 id="depannage">Dépannage</h2>
+<h3 id="no-xr-simulation-environments-found">❌ "No XR Simulation environments found"</h3>
+<p><strong>Solution :</strong></p>
+<ol>
+<li>Vérifiez que XR Simulation est bien installé (Package Manager)</li>
+<li>Rechargez les paramètres : Project Settings → XR Simulation → Reload</li>
+</ol>
+<h3 id="les-plans-ne-sont-pas-detectes">❌ Les plans ne sont pas détectés</h3>
+<p><strong>Vérifications :</strong></p>
+<ol>
+<li>AR Plane Manager est sur XR Origin ?</li>
+<li>XR Simulation est activé dans Project Settings → XR Plug-in Management (onglet Desktop) ?</li>
+<li>Un environnement de simulation est sélectionné ?</li>
+</ol>
+<h3 id="arsession-is-not-enabled">❌ "ARSession is not enabled"</h3>
+<p><strong>Solution :</strong></p>
+<ol>
+<li>Vérifiez qu'il y a un GameObject "AR Session" dans la scène</li>
+<li>Vérifiez que le composant AR Session n'est pas désactivé</li>
+</ol>
+<h3 id="la-camera-ne-bouge-pas">❌ La caméra ne bouge pas</h3>
+<p><strong>Vérifications :</strong></p>
+<ol>
+<li>Vous êtes bien en mode Play</li>
+<li>La fenêtre Game est bien sélectionnée (pas Scene)</li>
+<li>Cliquez sur la fenêtre Game avant d'utiliser les contrôles</li>
+</ol>
+<hr />
+<h2 id="checklist-de-configuration-complete">Checklist de configuration complète</h2>
+<p>Avant de commencer à développer, vérifiez :</p>
+<p><strong>Packages :</strong></p>
+<ul>
+<li>[ ] AR Foundation installé</li>
+<li>[ ] Google ARCore XR Plugin installé</li>
+<li>[ ] XR Simulation installé</li>
+</ul>
+<p><strong>Project Settings :</strong></p>
+<ul>
+<li>[ ] XR Simulation activé (onglet Desktop)</li>
+<li>[ ] ARCore activé (onglet Android)</li>
+<li>[ ] Environnement de simulation sélectionné</li>
+</ul>
+<p><strong>Scène :</strong></p>
+<ul>
+<li>[ ] Pas de Main Camera par défaut</li>
+<li>[ ] XR Origin présent</li>
+<li>[ ] AR Session présent</li>
+<li>[ ] AR Plane Manager sur XR Origin</li>
+<li>[ ] AR Raycast Manager sur XR Origin</li>
+</ul>
+<p><strong>Test :</strong></p>
+<ul>
+<li>[ ] Play fonctionne</li>
+<li>[ ] Plans détectés (grilles visibles)</li>
+<li>[ ] Navigation fonctionnelle (WASD + souris)</li>
+</ul>
+<hr />
+<h2 id="ressources-complementaires">Ressources complémentaires</h2>
+<ul>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.4/manual/index.html">Documentation AR Foundation</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.4/manual/xr-simulation/simulation.html">XR Simulation Documentation</a></li>
+<li><a href="https://developers.google.com/ar/develop">ARCore Documentation</a></li>
+</ul>
+<hr />
+<h2 id="questions-de-comprehension">Questions de compréhension</h2>
+<ol>
+<li>Quels sont les trois packages nécessaires pour développer en AR avec simulation ?</li>
+<li>Pourquoi doit-on supprimer la caméra par défaut lors de la création d'une scène AR ?</li>
+<li>Quelle est la différence entre XR Origin et AR Session ?</li>
+<li>Quels sont les avantages de développer en simulation plutôt que directement sur appareil ?</li>
+<li>Quelles sont les principales limitations de la simulation AR ?</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
