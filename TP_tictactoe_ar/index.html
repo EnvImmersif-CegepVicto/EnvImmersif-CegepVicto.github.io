@@ -1,0 +1,2204 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/TP_tictactoe_ar/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Exercice sommatif - Tic Tac Toe en Réalité Augmentée - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exercice-sommatif-tic-tac-toe-en-realite-augmentee" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exercice sommatif - Tic Tac Toe en Réalité Augmentée
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raycasting_3d_theorie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_arcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_simulation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_adaptation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TP_enonce_tictactoe_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail pratique - Tic Tac Toe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte-et-objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte et objectifs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contexte et objectifs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs pédagogiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifications-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spécifications du projet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spécifications du projet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fonctionnalites-obligatoires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonctionnalités obligatoires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fonctionnalités obligatoires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-detection-et-placement-de-la-grille" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Détection et placement de la grille
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-logique-de-jeu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Logique de jeu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-interface-utilisateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Interface utilisateur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-feedback-visuel-et-sonore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Feedback visuel et sonore
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-recommandee-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure recommandée du projet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure recommandée du projet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hierarchie-de-la-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hiérarchie de la scène
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-de-developpement-etape-par-etape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide de développement étape par étape
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide de développement étape par étape">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-configuration-de-base-30-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 : Configuration de base (30 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1 : Configuration de base (30 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-11-creation-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.1 : Création du projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-12-installation-des-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.2 : Installation des packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-13-configuration-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.3 : Configuration du projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-14-creation-de-la-scene-ar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1.4 : Création de la scène AR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-creation-des-prefabs-45-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 : Création des prefabs (45 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2 : Création des prefabs (45 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-21-prefab-de-la-grille-tictactoeboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.1 : Prefab de la grille (TicTacToeBoard)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-22-prefab-du-symbole-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.2 : Prefab du symbole X
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-23-prefab-du-symbole-o" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.3 : Prefab du symbole O
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-24-creer-les-prefabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2.4 : Créer les prefabs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-placement-ar-de-la-grille-60-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 : Placement AR de la grille (60 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3 : Placement AR de la grille (60 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-31-script-de-placement-arplacementmanagercs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.1 : Script de placement (ARPlacementManager.cs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-32-configuration-dans-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3.2 : Configuration dans Unity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-logique-du-jeu-90-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 : Logique du jeu (90 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4 : Logique du jeu (90 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-41-script-principal-gamecontrollercs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4.1 : Script principal (GameController.cs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-42-configuration-du-gamecontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4.2 : Configuration du GameController
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-5-interface-utilisateur-45-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5 : Interface utilisateur (45 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 5 : Interface utilisateur (45 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-51-creation-du-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.1 : Création du Canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-52-panel-de-statut-en-haut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.2 : Panel de statut (en haut)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-53-panel-de-fin-de-partie-centre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.3 : Panel de fin de partie (centre)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-54-panel-de-controles-en-bas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5.4 : Panel de contrôles (en bas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-6-polish-et-ameliorations-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 6 : Polish et améliorations (optionnel)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 6 : Polish et améliorations (optionnel)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-61-animations-de-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.1 : Animations de placement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-62-highlighting-de-la-ligne-gagnante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.2 : Highlighting de la ligne gagnante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-63-sons-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6.3 : Sons (optionnel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criteres-devaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critères d'évaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Critères d&#39;évaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fonctionnalites-60-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonctionnalités (60 points)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-et-ux-20-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface et UX (20 points)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-et-structure-15-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code et structure (15 points)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Livrables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Livrables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-code-source-obligatoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Code source (obligatoire)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-et-aide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources et aide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ressources et aide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation-officielle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation officielle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assets-recommandes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assets recommandés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aide-au-debogage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aide au débogage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-avant-remise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist avant remise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conseils-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conseils de développement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conseils de développement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testez-progressivement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testez progressivement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilisez-la-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilisez la simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commits-reguliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commits réguliers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demandez-de-laide-tot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Demandez de l'aide tôt
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="exercice-sommatif-tic-tac-toe-en-realite-augmentee">Exercice sommatif - Tic Tac Toe en Réalité Augmentée</h1>
+<h2 id="contexte-et-objectifs">Contexte et objectifs</h2>
+<p>Vous allez créer une <strong>application complète de Tic Tac Toe en AR</strong> qui combine tous les concepts vus durant les trois dernières semaines. Cette application permettra à deux joueurs de jouer au Tic Tac Toe sur une grille placée sur une surface réelle détectée.</p>
+<h3 id="objectifs-pedagogiques">Objectifs pédagogiques</h3>
+<ul>
+<li>✅ Maîtriser la détection de plans AR</li>
+<li>✅ Implémenter le raycasting AR pour les interactions</li>
+<li>✅ Gérer la logique de jeu (états, tours, victoire)</li>
+<li>✅ Créer une interface utilisateur claire et adaptée à l'AR</li>
+<li>✅ Respecter les principes de design des applications AR</li>
+<li>✅ Appliquer les bonnes pratiques de développement Unity</li>
+</ul>
+<hr />
+<h2 id="specifications-du-projet">Spécifications du projet</h2>
+<h3 id="fonctionnalites-obligatoires">Fonctionnalités obligatoires</h3>
+<h4 id="1-detection-et-placement-de-la-grille">1. Détection et placement de la grille</h4>
+<ul>
+<li>[ ] Détection des plans horizontaux (sols, tables)</li>
+<li>[ ] Visualisation des plans détectés (feedback visuel)</li>
+<li>[ ] Placement de la grille de jeu sur un plan par tap</li>
+<li>[ ] La grille reste fixe une fois placée (utilisation d'ancres)</li>
+<li>[ ] Option pour <strong>repositionner</strong> la grille (bouton "Réinitialiser")</li>
+</ul>
+<h4 id="2-logique-de-jeu">2. Logique de jeu</h4>
+<ul>
+<li>[ ] Alternance entre joueur X et joueur O</li>
+<li>[ ] Placement de symboles (X ou O) par tap sur une case</li>
+<li>[ ] Vérification des cases déjà occupées (tap ignoré)</li>
+<li>[ ] Détection automatique de victoire (3 alignés)</li>
+<li>[ ] Détection de match nul (grille complète sans gagnant)</li>
+<li>[ ] Possibilité de recommencer une partie</li>
+</ul>
+<h4 id="3-interface-utilisateur">3. Interface utilisateur</h4>
+<ul>
+<li>[ ] Indicateur du joueur actuel ("Tour de X" / "Tour de O")</li>
+<li>[ ] Message de fin de partie ("X a gagné!" / "Match nul!")</li>
+<li>[ ] Bouton "Nouvelle partie"</li>
+<li>[ ] Bouton "Repositionner la grille"</li>
+<li>[ ] Instructions initiales ("Scannez une surface...")</li>
+</ul>
+<h4 id="4-feedback-visuel-et-sonore">4. Feedback visuel et sonore</h4>
+<ul>
+<li>[ ] Animation de placement des symboles</li>
+<li>[ ] Mise en évidence de la ligne gagnante</li>
+<li>[ ] Son au placement d'un symbole (optionnel)</li>
+<li>[ ] Son de victoire (optionnel)</li>
+<li>[ ] Effet visuel sur la case sélectionnée</li>
+</ul>
+<hr />
+<h2 id="structure-recommandee-du-projet">Structure recommandée du projet</h2>
+<h3 id="hierarchie-de-la-scene">Hiérarchie de la scène</h3>
+<pre><code>Scene_TicTacToe
+├── XR Origin
+│   ├── Camera Offset
+│   │   └── Main Camera
+│   └── Composants :
+│       - AR Plane Manager
+│       - AR Raycast Manager
+│       - AR Anchor Manager
+│
+├── AR Session
+│
+├── GameManager (GameObject vide)
+│   └── Scripts :
+│       - GameController.cs
+│       - ARPlacementManager.cs
+│
+├── Canvas (UI)
+│   ├── StatusPanel
+│   │   ├── CurrentPlayerText
+│   │   └── InstructionsText
+│   ├── GameOverPanel (désactivé au départ)
+│   │   ├── WinnerText
+│   │   └── NewGameButton
+│   └── ControlPanel
+│       ├── ResetPlacementButton
+│       └── NewGameButton
+│
+└── Prefabs (dossier)
+    ├── TicTacToeBoard.prefab
+    ├── XSymbol.prefab
+    └── OSymbol.prefab
+</code></pre>
+<hr />
+<h2 id="guide-de-developpement-etape-par-etape">Guide de développement étape par étape</h2>
+<h3 id="phase-1-configuration-de-base-30-min">Phase 1 : Configuration de base (30 min)</h3>
+<h4 id="etape-11-creation-du-projet">Étape 1.1 : Création du projet</h4>
+<ol>
+<li>Nouveau projet</li>
+<li>Template : <strong>3D (URP)</strong></li>
+<li>Nom : <code>TicTacToe_AR_VotreDA</code></li>
+</ol>
+<h4 id="etape-12-installation-des-packages">Étape 1.2 : Installation des packages</h4>
+<p><strong>Package Manager :</strong>
+- AR Foundation 6.0+ (vérifiez la version 6.x)
+- Google ARCore XR Plugin 6.0+
+- XR Simulation </p>
+<h4 id="etape-13-configuration-du-projet">Étape 1.3 : Configuration du projet</h4>
+<p><strong>Project Settings :</strong></p>
+<ol>
+<li><strong>XR Plug-in Management</strong></li>
+<li>Desktop : XR Simulation ✓</li>
+<li>
+<p>Android : Google ARCore ✓</p>
+</li>
+<li>
+<p><strong>Player → Android</strong></p>
+</li>
+<li>Minimum API Level : Android 7.0 (API 24)</li>
+<li>Scripting Backend : IL2CPP</li>
+<li>
+<p>Target Architectures : ARM64 ✓</p>
+</li>
+<li>
+<p><strong>XR Simulation</strong></p>
+</li>
+<li>Environment : "DefaultSimulationEnvironment" ou équivalent</li>
+</ol>
+<h4 id="etape-14-creation-de-la-scene-ar">Étape 1.4 : Création de la scène AR</h4>
+<ol>
+<li><strong>Nouvelle scène</strong> → Sauvegarder comme "Game"</li>
+<li><strong>Supprimer</strong> la Main Camera par défaut</li>
+<li><strong>Ajouter XR Origin</strong> : Clic droit → XR → XR Origin (Mobile AR)</li>
+<li><strong>Ajouter AR Session</strong> : Clic droit → XR → AR Session</li>
+<li><strong>Configurer XR Origin</strong> :</li>
+<li>Add Component → AR Plane Manager</li>
+<li>Add Component → AR Raycast Manager</li>
+<li>Add Component → AR Anchor Manager</li>
+</ol>
+<hr />
+<h3 id="phase-2-creation-des-prefabs-45-min">Phase 2 : Création des prefabs (45 min)</h3>
+<h4 id="etape-21-prefab-de-la-grille-tictactoeboard">Étape 2.1 : Prefab de la grille (TicTacToeBoard)</h4>
+<p><strong>Structure :</strong></p>
+<pre><code>TicTacToeBoard
+├── BoardBase (Plane ou Quad)
+│   └── Matériau : Blanc semi-transparent
+├── GridLines (9 cubes fins pour les lignes)
+└── CellPositions (9 GameObjects vides)
+    ├── Cell_0_0 (Position : -0.15, 0.01, 0.15)
+    ├── Cell_0_1 (Position : 0, 0.01, 0.15)
+    ├── Cell_0_2 (Position : 0.15, 0.01, 0.15)
+    ├── Cell_1_0 (Position : -0.15, 0.01, 0)
+    ├── Cell_1_1 (Position : 0, 0.01, 0)
+    ├── Cell_1_2 (Position : 0.15, 0.01, 0)
+    ├── Cell_2_0 (Position : -0.15, 0.01, -0.15)
+    ├── Cell_2_1 (Position : 0, 0.01, -0.15)
+    └── Cell_2_2 (Position : 0.15, 0.01, -0.15)
+</code></pre>
+<p><strong>Dimensions suggérées :</strong>
+- Grille totale : 0.5m × 0.5m
+- Chaque case : ~0.15m × 0.15m
+- Hauteur au-dessus de la surface : 0.01m</p>
+<p><strong>Script sur la grille :</strong></p>
+<pre><code class="language-csharp">using UnityEngine;
+
+public class TicTacToeBoard : MonoBehaviour
+{
+    [SerializeField] private Transform[] cellPositions = new Transform[9];
+
+    public Transform GetCellPosition(int index)
+    {
+        if (index &gt;= 0 &amp;&amp; index &lt; cellPositions.Length)
+            return cellPositions[index];
+        return null;
+    }
+
+    public Vector3 GetCellWorldPosition(int index)
+    {
+        Transform cell = GetCellPosition(index);
+        return cell != null ? cell.position : Vector3.zero;
+    }
+}
+</code></pre>
+<h4 id="etape-22-prefab-du-symbole-x">Étape 2.2 : Prefab du symbole X</h4>
+<p><strong>Structure :</strong></p>
+<pre><code>XSymbol
+├── X_Line1 (Cube allongé en diagonale)
+└── X_Line2 (Cube allongé en diagonale opposée)
+</code></pre>
+<p><strong>Configuration :</strong>
+- Dimensions d'une ligne : 0.02 × 0.02 × 0.2 (longueur)
+- Rotation Line1 : (0, 45, 0)
+- Rotation Line2 : (0, -45, 0)
+- Matériau : Bleu vif
+- Échelle : ~0.1 pour s'adapter aux cases</p>
+<h4 id="etape-23-prefab-du-symbole-o">Étape 2.3 : Prefab du symbole O</h4>
+<p><strong>Structure :</strong></p>
+<pre><code>OSymbol
+└── O_Ring (Torus ou cylindre creux)
+</code></pre>
+<p><strong>Configuration :</strong>
+- Rayon : ~0.08m
+- Épaisseur : ~0.02m
+- Matériau : Rouge vif
+- <strong>Astuce</strong> : Utilisez un Torus du Asset Store ou créez un cylindre avec matériau transparent au centre</p>
+<h4 id="etape-24-creer-les-prefabs">Étape 2.4 : Créer les prefabs</h4>
+<ol>
+<li>Construisez chaque objet dans la scène</li>
+<li>Glissez-le dans le dossier <strong>Prefabs</strong></li>
+<li>Supprimez-le de la scène</li>
+<li>Vérifiez que les prefabs sont bien sauvegardés</li>
+</ol>
+<hr />
+<h3 id="phase-3-placement-ar-de-la-grille-60-min">Phase 3 : Placement AR de la grille (60 min)</h3>
+<h4 id="etape-31-script-de-placement-arplacementmanagercs">Étape 3.1 : Script de placement (ARPlacementManager.cs)</h4>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
+using System.Collections.Generic;
+
+public class ARPlacementManager : MonoBehaviour
+{
+    [Header(&quot;AR Components&quot;)]
+    [SerializeField] private ARRaycastManager raycastManager;
+    [SerializeField] private ARPlaneManager planeManager;
+    [SerializeField] private ARAnchorManager anchorManager;
+
+    [Header(&quot;Prefabs&quot;)]
+    [SerializeField] private GameObject boardPrefab;
+
+    [Header(&quot;Settings&quot;)]
+    [SerializeField] private bool placementEnabled = true;
+
+    private GameObject currentBoard;
+    private ARAnchor currentAnchor;
+    private List&lt;ARRaycastHit&gt; hits = new List&lt;ARRaycastHit&gt;();
+
+    public bool IsBoardPlaced =&gt; currentBoard != null;
+    public GameObject CurrentBoard =&gt; currentBoard;
+
+    void Update()
+    {
+        if (!placementEnabled || currentBoard != null)
+            return;
+
+        // Vérifier les taps (adapté pour desktop et mobile)
+        if (Input.touchCount &gt; 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                TryPlaceBoard(touch.position);
+            }
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            TryPlaceBoard(Input.mousePosition);
+        }
+    }
+
+    private void TryPlaceBoard(Vector2 screenPosition)
+    {
+        // Raycast AR vers les plans détectés
+        if (raycastManager.Raycast(screenPosition, hits, TrackableType.PlaneWithinPolygon))
+        {
+            Pose hitPose = hits[0].pose;
+
+            // Créer une ancre pour stabiliser la position
+            currentAnchor = anchorManager.AddAnchor(hitPose);
+
+            if (currentAnchor != null)
+            {
+                // Instancier la grille à la position de l'ancre
+                currentBoard = Instantiate(boardPrefab, currentAnchor.transform);
+                currentBoard.transform.localPosition = Vector3.zero;
+                currentBoard.transform.localRotation = Quaternion.identity;
+
+                // Désactiver la visualisation des plans (optionnel)
+                SetPlanesActive(false);
+
+                Debug.Log(&quot;Grille placée avec succès!&quot;);
+
+                // Notifier le GameController
+                GameController gameController = FindObjectOfType&lt;GameController&gt;();
+                if (gameController != null)
+                {
+                    gameController.OnBoardPlaced(currentBoard);
+                }
+            }
+        }
+    }
+
+    public void ResetPlacement()
+    {
+        if (currentBoard != null)
+        {
+            Destroy(currentBoard);
+            currentBoard = null;
+        }
+
+        if (currentAnchor != null)
+        {
+            Destroy(currentAnchor.gameObject);
+            currentAnchor = null;
+        }
+
+        // Réactiver la visualisation des plans
+        SetPlanesActive(true);
+        placementEnabled = true;
+
+        Debug.Log(&quot;Placement réinitialisé&quot;);
+    }
+
+    private void SetPlanesActive(bool active)
+    {
+        foreach (var plane in planeManager.trackables)
+        {
+            plane.gameObject.SetActive(active);
+        }
+    }
+}
+</code></pre>
+<h4 id="etape-32-configuration-dans-unity">Étape 3.2 : Configuration dans Unity</h4>
+<ol>
+<li>Créez un <strong>GameObject vide</strong> : "GameManager"</li>
+<li>Ajoutez le script <strong>ARPlacementManager</strong></li>
+<li>Assignez les références :</li>
+<li>AR Raycast Manager (depuis XR Origin)</li>
+<li>AR Plane Manager (depuis XR Origin)</li>
+<li>AR Anchor Manager (depuis XR Origin)</li>
+<li>Board Prefab (votre prefab TicTacToeBoard)</li>
+</ol>
+<hr />
+<h3 id="phase-4-logique-du-jeu-90-min">Phase 4 : Logique du jeu (90 min)</h3>
+<h4 id="etape-41-script-principal-gamecontrollercs">Étape 4.1 : Script principal (GameController.cs)</h4>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
+
+public class GameController : MonoBehaviour
+{
+    [Header(&quot;References&quot;)]
+    [SerializeField] private ARRaycastManager raycastManager;
+    [SerializeField] private ARPlacementManager placementManager;
+
+    [Header(&quot;Prefabs&quot;)]
+    [SerializeField] private GameObject xSymbolPrefab;
+    [SerializeField] private GameObject oSymbolPrefab;
+
+    [Header(&quot;UI&quot;)]
+    [SerializeField] private TextMeshProUGUI currentPlayerText;
+    [SerializeField] private TextMeshProUGUI instructionsText;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private TextMeshProUGUI winnerText;
+
+    private TicTacToeBoard board;
+    private GameObject[,] grid = new GameObject[3, 3];
+    private int[,] gameState = new int[3, 3]; // 0 = vide, 1 = X, 2 = O
+    private bool isXTurn = true;
+    private bool gameActive = false;
+    private List&lt;ARRaycastHit&gt; hits = new List&lt;ARRaycastHit&gt;();
+
+    void Start()
+    {
+        UpdateInstructions(&quot;Scannez une surface pour placer la grille...&quot;);
+        gameOverPanel.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (!gameActive || !placementManager.IsBoardPlaced)
+            return;
+
+        // Détection des taps pour placer les symboles
+        if (Input.touchCount &gt; 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                HandleTap(touch.position);
+            }
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            HandleTap(Input.mousePosition);
+        }
+    }
+
+    public void OnBoardPlaced(GameObject placedBoard)
+    {
+        board = placedBoard.GetComponent&lt;TicTacToeBoard&gt;();
+        gameActive = true;
+        UpdateInstructions(&quot;&quot;);
+        UpdateCurrentPlayerDisplay();
+    }
+
+    private void HandleTap(Vector2 screenPosition)
+    {
+        // Raycast classique pour toucher les cases
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            // Vérifier si on a touché une case
+            int cellIndex = GetCellIndex(hit.point);
+
+            if (cellIndex != -1)
+            {
+                int row = cellIndex / 3;
+                int col = cellIndex % 3;
+
+                PlaceSymbol(row, col);
+            }
+        }
+    }
+
+    private int GetCellIndex(Vector3 hitPoint)
+    {
+        // Trouver la case la plus proche du point touché
+        float minDistance = float.MaxValue;
+        int closestIndex = -1;
+
+        for (int i = 0; i &lt; 9; i++)
+        {
+            Vector3 cellPos = board.GetCellWorldPosition(i);
+            float distance = Vector3.Distance(hitPoint, cellPos);
+
+            if (distance &lt; minDistance &amp;&amp; distance &lt; 0.1f) // Seuil de 10cm
+            {
+                minDistance = distance;
+                closestIndex = i;
+            }
+        }
+
+        return closestIndex;
+    }
+
+    private void PlaceSymbol(int row, int col)
+    {
+        // Vérifier si la case est vide
+        if (gameState[row, col] != 0)
+        {
+            Debug.Log(&quot;Case déjà occupée!&quot;);
+            return;
+        }
+
+        // Créer le symbole
+        GameObject symbolPrefab = isXTurn ? xSymbolPrefab : oSymbolPrefab;
+        int cellIndex = row * 3 + col;
+        Vector3 cellPosition = board.GetCellWorldPosition(cellIndex);
+
+        GameObject symbol = Instantiate(symbolPrefab, cellPosition, Quaternion.identity);
+        symbol.transform.parent = board.transform;
+
+        // Mettre à jour l'état du jeu
+        grid[row, col] = symbol;
+        gameState[row, col] = isXTurn ? 1 : 2;
+
+        // Vérifier victoire ou match nul
+        if (CheckWin())
+        {
+            EndGame(isXTurn ? &quot;X a gagné!&quot; : &quot;O a gagné!&quot;);
+            return;
+        }
+
+        if (CheckDraw())
+        {
+            EndGame(&quot;Match nul!&quot;);
+            return;
+        }
+
+        // Changer de joueur
+        isXTurn = !isXTurn;
+        UpdateCurrentPlayerDisplay();
+    }
+
+    private bool CheckWin()
+    {
+        int player = isXTurn ? 1 : 2;
+
+        // Vérifier lignes
+        for (int row = 0; row &lt; 3; row++)
+        {
+            if (gameState[row, 0] == player &amp;&amp; 
+                gameState[row, 1] == player &amp;&amp; 
+                gameState[row, 2] == player)
+                return true;
+        }
+
+        // Vérifier colonnes
+        for (int col = 0; col &lt; 3; col++)
+        {
+            if (gameState[0, col] == player &amp;&amp; 
+                gameState[1, col] == player &amp;&amp; 
+                gameState[2, col] == player)
+                return true;
+        }
+
+        // Vérifier diagonales
+        if (gameState[0, 0] == player &amp;&amp; 
+            gameState[1, 1] == player &amp;&amp; 
+            gameState[2, 2] == player)
+            return true;
+
+        if (gameState[0, 2] == player &amp;&amp; 
+            gameState[1, 1] == player &amp;&amp; 
+            gameState[2, 0] == player)
+            return true;
+
+        return false;
+    }
+
+    private bool CheckDraw()
+    {
+        for (int row = 0; row &lt; 3; row++)
+        {
+            for (int col = 0; col &lt; 3; col++)
+            {
+                if (gameState[row, col] == 0)
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private void EndGame(string message)
+    {
+        gameActive = false;
+        winnerText.text = message;
+        gameOverPanel.SetActive(true);
+    }
+
+    public void NewGame()
+    {
+        // Nettoyer les symboles existants
+        for (int row = 0; row &lt; 3; row++)
+        {
+            for (int col = 0; col &lt; 3; col++)
+            {
+                if (grid[row, col] != null)
+                {
+                    Destroy(grid[row, col]);
+                    grid[row, col] = null;
+                }
+                gameState[row, col] = 0;
+            }
+        }
+
+        isXTurn = true;
+        gameActive = true;
+        gameOverPanel.SetActive(false);
+        UpdateCurrentPlayerDisplay();
+    }
+
+    public void ResetPlacement()
+    {
+        NewGame();
+        placementManager.ResetPlacement();
+        UpdateInstructions(&quot;Scannez une surface pour placer la grille...&quot;);
+    }
+
+    private void UpdateCurrentPlayerDisplay()
+    {
+        currentPlayerText.text = isXTurn ? &quot;Tour de X&quot; : &quot;Tour de O&quot;;
+        currentPlayerText.color = isXTurn ? Color.blue : Color.red;
+    }
+
+    private void UpdateInstructions(string text)
+    {
+        instructionsText.text = text;
+    }
+}
+</code></pre>
+<h4 id="etape-42-configuration-du-gamecontroller">Étape 4.2 : Configuration du GameController</h4>
+<ol>
+<li>Sélectionnez le GameObject "GameManager"</li>
+<li>Ajoutez le script <strong>GameController</strong></li>
+<li>Assignez toutes les références :</li>
+<li>AR Raycast Manager</li>
+<li>AR Placement Manager (script sur ce même GameObject)</li>
+<li>X Symbol Prefab</li>
+<li>O Symbol Prefab</li>
+<li>Tous les éléments UI (à créer dans la phase suivante)</li>
+</ol>
+<hr />
+<h3 id="phase-5-interface-utilisateur-45-min">Phase 5 : Interface utilisateur (45 min)</h3>
+<h4 id="etape-51-creation-du-canvas">Étape 5.1 : Création du Canvas</h4>
+<ol>
+<li><strong>Clic droit → UI → Canvas</strong></li>
+<li>Canvas Scaler :</li>
+<li>UI Scale Mode : Scale With Screen Size</li>
+<li>Reference Resolution : 1080 × 1920 (portrait)</li>
+</ol>
+<h4 id="etape-52-panel-de-statut-en-haut">Étape 5.2 : Panel de statut (en haut)</h4>
+<pre><code>StatusPanel (Panel)
+├── CurrentPlayerText (TextMeshPro)
+│   └── Text : &quot;Tour de X&quot;
+│   └── Font Size : 48
+│   └── Alignment : Center
+│   └── Position : Haut de l'écran
+│
+└── InstructionsText (TextMeshPro)
+    └── Text : &quot;Scannez une surface...&quot;
+    └── Font Size : 32
+    └── Alignment : Center
+    └── Position : Sous CurrentPlayerText
+</code></pre>
+<h4 id="etape-53-panel-de-fin-de-partie-centre">Étape 5.3 : Panel de fin de partie (centre)</h4>
+<pre><code>GameOverPanel (Panel)
+├── Background : Noir semi-transparent
+├── WinnerText (TextMeshPro)
+│   └── Font Size : 64
+│   └── Alignment : Center
+│
+└── NewGameButton (Button)
+    └── Text : &quot;Nouvelle Partie&quot;
+    └── OnClick : GameController.NewGame()
+</code></pre>
+<p><strong>Important</strong> : Désactivez ce panel par défaut (checkbox dans Inspector)</p>
+<h4 id="etape-54-panel-de-controles-en-bas">Étape 5.4 : Panel de contrôles (en bas)</h4>
+<pre><code>ControlPanel (Panel)
+├── ResetPlacementButton (Button)
+│   └── Text : &quot;Repositionner&quot;
+│   └── OnClick : GameController.ResetPlacement()
+│
+└── NewGameButton (Button)
+    └── Text : &quot;Nouvelle Partie&quot;
+    └── OnClick : GameController.NewGame()
+</code></pre>
+<hr />
+<h3 id="phase-6-polish-et-ameliorations-optionnel">Phase 6 : Polish et améliorations (optionnel)</h3>
+<h4 id="etape-61-animations-de-placement">Étape 6.1 : Animations de placement</h4>
+<p>Ajoutez ce script sur les prefabs de symboles :</p>
+<pre><code class="language-csharp">using UnityEngine;
+
+public class SymbolAnimation : MonoBehaviour
+{
+    [SerializeField] private float animationDuration = 0.3f;
+
+    void Start()
+    {
+        // Animation d'apparition
+        transform.localScale = Vector3.zero;
+        LeanTween.scale(gameObject, Vector3.one, animationDuration)
+            .setEaseOutBack();
+    }
+}
+</code></pre>
+<p><strong>Note</strong> : Nécessite le package LeanTween ou utilisez une coroutine simple.</p>
+<h4 id="etape-62-highlighting-de-la-ligne-gagnante">Étape 6.2 : Highlighting de la ligne gagnante</h4>
+<p>Ajoutez une méthode dans GameController :</p>
+<pre><code class="language-csharp">private void HighlightWinningLine(int[,] winningCells)
+{
+    // Créer une ligne visuelle entre les cases gagnantes
+    // ou changer la couleur des symboles gagnants
+}
+</code></pre>
+<h4 id="etape-63-sons-optionnel">Étape 6.3 : Sons (optionnel)</h4>
+<ol>
+<li>Importez des clips audio (placement, victoire)</li>
+<li>Ajoutez un AudioSource au GameManager</li>
+<li>Jouez les sons aux moments appropriés</li>
+</ol>
+<hr />
+<h2 id="criteres-devaluation">Critères d'évaluation</h2>
+<h3 id="fonctionnalites-60-points">Fonctionnalités (60 points)</h3>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Détection de plans fonctionnelle</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Placement de la grille sur un plan</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Utilisation d'ancres AR</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Alternance X et O fonctionnelle</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Détection des cases occupées</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Détection de victoire (3 alignés)</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Détection de match nul</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Bouton "Nouvelle partie" fonctionnel</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Bouton "Repositionner" fonctionnel</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Raycasting AR correct</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interface-et-ux-20-points">Interface et UX (20 points)</h3>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UI claire et lisible</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Instructions pour l'utilisateur</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Feedback visuel (joueur actuel, fin de partie)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Respect des principes de design AR</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="code-et-structure-15-points">Code et structure (15 points)</h3>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code propre et commenté</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Organisation du projet (dossiers, nommage)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Utilisation appropriée des prefabs</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total : 100 points</strong></p>
+<hr />
+<h2 id="livrables">Livrables</h2>
+<h3 id="1-code-source-obligatoire">1. Code source (obligatoire)</h3>
+<ul>
+<li>Dépôt GitHub <strong>public</strong> </li>
+<li><strong>README.md</strong> incluant :</li>
+<li>Nom du projet et auteur</li>
+<li>Description brève</li>
+<li>Versions Unity et packages utilisés</li>
+<li>Captures d'écran</li>
+<li>Défis rencontrés et solutions</li>
+</ul>
+<hr />
+<h2 id="ressources-et-aide">Ressources et aide</h2>
+<h3 id="documentation-officielle">Documentation officielle</h3>
+<ul>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/">AR Foundation 6.0</a></li>
+<li><a href="https://developers.google.com/ar">ARCore Developer Guide</a></li>
+<li><a href="https://developers.google.com/ar/design">AR Design Guidelines</a></li>
+</ul>
+<h3 id="assets-recommandes">Assets recommandés</h3>
+<ul>
+<li>Générateur de Torus : <a href="https://unity.com/features/probuilder">ProBuilder</a></li>
+<li>Sons gratuits : <a href="https://freesound.org/">Freesound.org</a></li>
+<li>Polices : <a href="https://fonts.google.com/">Google Fonts</a></li>
+</ul>
+<h3 id="aide-au-debogage">Aide au débogage</h3>
+<p><strong>Simulation ne fonctionne pas :</strong>
+1. Vérifiez XR Plug-in Management → Desktop → XR Simulation ✓
+2. Vérifiez qu'un environnement est sélectionné</p>
+<p><strong>Raycast ne détecte rien :</strong>
+1. Vérifiez que AR Raycast Manager est sur XR Origin
+2. Vérifiez que les plans sont détectés (grilles visibles)
+3. Console : regardez les erreurs</p>
+<p><strong>Symboles n'apparaissent pas :</strong>
+1. Vérifiez que les prefabs sont assignés
+2. Vérifiez que le raycast touche bien une case (Debug.Log)
+3. Vérifiez que la caméra voit les symboles (position Y)</p>
+<hr />
+<h2 id="checklist-avant-remise">Checklist avant remise</h2>
+<p><strong>Fonctionnalités :</strong>
+- [ ] Détection de plans visible
+- [ ] Placement de grille fonctionnel
+- [ ] Jeu complet possible (9 tours minimum)
+- [ ] Détection de victoire testée (3 scénarios)
+- [ ] Détection de match nul testée
+- [ ] Boutons UI fonctionnels
+- [ ] Application ne crashe pas</p>
+<p><strong>Code :</strong>
+- [ ] Scripts commentés
+- [ ] Pas d'erreurs dans la console
+- [ ] Pas de warnings critiques
+- [ ] Variables nommées clairement</p>
+<p><strong>Projet :</strong>
+- [ ] Dossiers organisés (Scripts, Prefabs, Materials, etc.)
+- [ ] Scène sauvegardée
+- [ ] README.md présent et complet</p>
+<p><strong>Livrables :</strong>
+- [ ] GitHub accessible
+- [ ] Tout fonctionne tel que démontré</p>
+<hr />
+<h2 id="conseils-de-developpement">Conseils de développement</h2>
+<h3 id="testez-progressivement">Testez progressivement</h3>
+<p>Ne construisez pas tout d'un coup. Testez après chaque phase :
+1. Placement de grille → Test
+2. Ajout d'un symbole → Test
+3. Logique de victoire → Test
+4. UI → Test</p>
+<h3 id="utilisez-la-simulation">Utilisez la simulation</h3>
+<p>Développez 100% en simulation</p>
+<h3 id="commits-reguliers">Commits réguliers</h3>
+<p>Faites des commits GitHub à chaque étape fonctionnelle :
+- "Détection de plans fonctionnelle"
+- "Placement de grille implémenté"
+- "Logique de jeu complétée"</p>
+<h3 id="demandez-de-laide-tot">Demandez de l'aide tôt</h3>
+<p>Ne restez pas bloqué 2 heures sur un problème. Demandez de l'aide après 30 minutes.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
