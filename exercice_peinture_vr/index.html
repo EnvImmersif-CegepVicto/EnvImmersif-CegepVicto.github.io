@@ -1,0 +1,2121 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/exercice_peinture_vr/">
+      
+      
+        <link rel="prev" href="../exercice_adaptation_ar/">
+      
+      
+        <link rel="next" href="../TP_enonce_tictactoe_ar/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Exercice 3 - Peinture VR - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exercice-guide-peinture-vr-avec-near-far-interactor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exercice 3 - Peinture VR
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raycasting_3d_theorie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_arcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_simulation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_meta_quest_unity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration VR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_adaptation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3 - Peinture VR
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3 - Peinture VR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-de-lexercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de l'exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-qui-change-par-rapport-aux-exercices-precedents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui change par rapport aux exercices précédents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-1-preparer-la-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Préparer la scène
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 1 : Préparer la scène">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-ouvrir-le-projet-vr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Ouvrir le projet VR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-construire-la-salle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Construire la salle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-creer-le-mur-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Créer le mur canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-creer-le-prefab-de-cube-de-peinture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Créer le prefab de cube de peinture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-creer-les-cubes-de-selection-de-couleur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Créer les cubes de sélection de couleur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-positionner-le-joueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Positionner le joueur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-comprendre-le-near-far-interactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Comprendre le Near-Far Interactor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 2 : Comprendre le Near-Far Interactor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-reperer-le-near-far-interactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Repérer le Near-Far Interactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ce-que-fait-le-near-far-interactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Ce que fait le Near-Far Interactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ce-que-ca-change-pour-notre-exercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Ce que ça change pour notre exercice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-script-de-peinture-physicsraycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Script de peinture (Physics.Raycast)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 3 : Script de peinture (Physics.Raycast)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-creer-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Créer le script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-points-importants-a-noter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Points importants à noter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-attacher-le-script-a-la-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Attacher le script à la scène
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-4-script-de-selection-de-couleur-xr-interactable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Script de sélection de couleur (XR Interactable)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 4 : Script de sélection de couleur (XR Interactable)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-creer-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Créer le script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-points-importants-a-noter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Points importants à noter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-configurer-chaque-cube-de-couleur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Configurer chaque cube de couleur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-5-build-et-test-sur-le-casque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Build et test sur le casque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 5 : Build et test sur le casque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-preparer-le-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Préparer le build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-verifications-dans-le-casque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Vérifications dans le casque
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif-des-concepts-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif des concepts utilisés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Récapitulatif des concepts utilisés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-deux-approches-cote-a-cote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les deux approches côte à côte
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de réflexion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remise-de-lexercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remise de l'exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depannage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépannage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dépannage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-gachettes-ne-declenchent-rien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les gâchettes ne déclenchent rien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-bouton-a-ne-change-pas-la-couleur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Le bouton A ne change pas la couleur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-raycast-touche-tout-sauf-le-mur-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Le raycast touche tout sauf le mur canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-cubes-de-couleur-ne-reagissent-pas-au-pointage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les cubes de couleur ne réagissent pas au pointage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreur-de-compilation-sur-xrsimpleinteractable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Erreur de compilation sur XRSimpleInteractable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-cubes-apparaissent-a-linterieur-du-mur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les cubes apparaissent à l'intérieur du mur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TP_enonce_tictactoe_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail pratique - Tic Tac Toe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-de-lexercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de l'exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-qui-change-par-rapport-aux-exercices-precedents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui change par rapport aux exercices précédents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-1-preparer-la-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Préparer la scène
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 1 : Préparer la scène">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-ouvrir-le-projet-vr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Ouvrir le projet VR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-construire-la-salle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Construire la salle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-creer-le-mur-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Créer le mur canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-creer-le-prefab-de-cube-de-peinture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Créer le prefab de cube de peinture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-creer-les-cubes-de-selection-de-couleur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Créer les cubes de sélection de couleur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-positionner-le-joueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Positionner le joueur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-comprendre-le-near-far-interactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Comprendre le Near-Far Interactor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 2 : Comprendre le Near-Far Interactor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-reperer-le-near-far-interactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Repérer le Near-Far Interactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ce-que-fait-le-near-far-interactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Ce que fait le Near-Far Interactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ce-que-ca-change-pour-notre-exercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Ce que ça change pour notre exercice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-script-de-peinture-physicsraycast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Script de peinture (Physics.Raycast)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 3 : Script de peinture (Physics.Raycast)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-creer-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Créer le script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-points-importants-a-noter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Points importants à noter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-attacher-le-script-a-la-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Attacher le script à la scène
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-4-script-de-selection-de-couleur-xr-interactable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Script de sélection de couleur (XR Interactable)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 4 : Script de sélection de couleur (XR Interactable)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-creer-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Créer le script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-points-importants-a-noter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Points importants à noter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-configurer-chaque-cube-de-couleur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Configurer chaque cube de couleur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-5-build-et-test-sur-le-casque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Build et test sur le casque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 5 : Build et test sur le casque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-preparer-le-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Préparer le build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-verifications-dans-le-casque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Vérifications dans le casque
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif-des-concepts-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif des concepts utilisés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Récapitulatif des concepts utilisés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-deux-approches-cote-a-cote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les deux approches côte à côte
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de réflexion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remise-de-lexercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remise de l'exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depannage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépannage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dépannage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-gachettes-ne-declenchent-rien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les gâchettes ne déclenchent rien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-bouton-a-ne-change-pas-la-couleur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Le bouton A ne change pas la couleur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-raycast-touche-tout-sauf-le-mur-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Le raycast touche tout sauf le mur canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-cubes-de-couleur-ne-reagissent-pas-au-pointage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les cubes de couleur ne réagissent pas au pointage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreur-de-compilation-sur-xrsimpleinteractable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Erreur de compilation sur XRSimpleInteractable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-cubes-apparaissent-a-linterieur-du-mur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Les cubes apparaissent à l'intérieur du mur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="exercice-guide-peinture-vr-avec-near-far-interactor">Exercice guidé - Peinture VR avec Near-Far Interactor</h1>
+<h2 id="objectifs-de-lexercice">Objectifs de l'exercice</h2>
+<p>Dans cet exercice, vous allez recréer la mécanique de peinture 3D vue précédemment, mais cette fois en réalité virtuelle avec les contrôleurs du Meta Quest 2. Concrètement, vous allez :</p>
+<ol>
+<li>✅ Configurer une scène VR de base et la déployer sur le casque</li>
+<li>✅ Peindre sur un mur en utilisant un <code>Physics.Raycast</code> depuis le contrôleur droit</li>
+<li>✅ Supprimer des cubes avec la gâchette gauche</li>
+<li>✅ Changer la couleur active en pointant vers des cubes flottants avec le Near-Far Interactor</li>
+</ol>
+<p><strong>Durée approximative :</strong> 2 heures</p>
+<p><strong>Prérequis :</strong> Avoir complété la configuration du projet VR (document de mise en route)</p>
+<hr />
+<h2 id="ce-qui-change-par-rapport-aux-exercices-precedents">Ce qui change par rapport aux exercices précédents</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Raycasting 3D / AR</th>
+<th>Raycasting VR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Origine du rayon</strong></td>
+<td>Caméra ou position écran</td>
+<td>Contrôleur physique</td>
+</tr>
+<tr>
+<td><strong>Déclencheur</strong></td>
+<td>Clic souris / tap écran</td>
+<td>Gâchette du contrôleur</td>
+</tr>
+<tr>
+<td><strong>Interaction objet</strong></td>
+<td>Script manuel</td>
+<td>Near-Far Interactor (toolkit)</td>
+</tr>
+<tr>
+<td><strong>Retour utilisateur</strong></td>
+<td>Visuel seulement</td>
+<td>Visuel + haptique possible</td>
+</tr>
+</tbody>
+</table>
+<p>Dans cet exercice, nous utilisons <strong>deux approches en parallèle</strong> :</p>
+<ul>
+<li><strong><code>Physics.Raycast</code></strong> depuis le contrôleur → pour peindre sur le mur (même logique que les exercices précédents)</li>
+<li><strong>Near-Far Interactor</strong> du toolkit → pour sélectionner les cubes de couleur (interaction standard VR)</li>
+</ul>
+<blockquote>
+<p><strong>Note :</strong> Dans XR Interaction Toolkit 3.x, le <strong>Near-Far Interactor</strong> remplace l'ancien XR Ray Interactor. Il gère à la fois les interactions proches (grab direct) et lointaines (rayon), et il est déjà configuré dans le prefab <strong>XR Origin (XR Rig)</strong> des Starter Assets.</p>
+</blockquote>
+<hr />
+<h2 id="etape-1-preparer-la-scene">Étape 1 : Préparer la scène</h2>
+<h3 id="11-ouvrir-le-projet-vr">1.1 Ouvrir le projet VR</h3>
+<p>Ouvrez votre projet VR créé lors de la mise en route. Créez une nouvelle scène et nommez-la <code>PeintureVR</code>.</p>
+<p>Vérifiez que votre scène contient déjà :
+- Le prefab <strong>XR Origin (XR Rig)</strong>
+- Un <strong>XR Interaction Manager</strong></p>
+<p>Retirez le prefab <strong>XR Interaction Simulator</strong> si vous l'aviez ajouté — nous testerons directement sur le casque.</p>
+<h3 id="12-construire-la-salle">1.2 Construire la salle</h3>
+<p>Nous allons créer une salle fermée simple avec quatre murs, un sol et un plafond.</p>
+<ol>
+<li>Créez un GameObject vide et nommez-le <strong>Salle</strong></li>
+<li>À l'intérieur, créez les éléments suivants avec des <strong>Cubes</strong> (GameObject → 3D Object → Cube) :</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Position</th>
+<th>Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sol</td>
+<td>(0, 0, 0)</td>
+<td>(8, 0.1, 8)</td>
+</tr>
+<tr>
+<td>Plafond</td>
+<td>(0, 3, 0)</td>
+<td>(8, 0.1, 8)</td>
+</tr>
+<tr>
+<td>Mur arrière</td>
+<td>(0, 1.5, 4)</td>
+<td>(8, 3, 0.1)</td>
+</tr>
+<tr>
+<td>Mur avant</td>
+<td>(0, 1.5, -4)</td>
+<td>(8, 3, 0.1)</td>
+</tr>
+<tr>
+<td>Mur gauche</td>
+<td>(-4, 1.5, 0)</td>
+<td>(0.1, 3, 8)</td>
+</tr>
+<tr>
+<td>Mur droit</td>
+<td>(4, 1.5, 0)</td>
+<td>(0.1, 3, 8)</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Attribuez un matériau gris neutre à tous ces éléments sauf un.</li>
+</ol>
+<h3 id="13-creer-le-mur-canvas">1.3 Créer le mur canvas</h3>
+<p>Le <strong>mur avant</strong> (Position <code>(0, 1.5, -4)</code>) sera notre canvas de peinture.</p>
+<ol>
+<li>Sélectionnez le mur avant</li>
+<li>Créez un nouveau matériau nommé <code>MatCanvas</code> — choisissez une couleur distinctive, par exemple <strong>beige clair</strong> ou <strong>blanc cassé</strong></li>
+<li>Assignez ce matériau au mur avant</li>
+<li>Dans l'Inspector, assignez-lui le <strong>Tag</strong> <code>Canvas</code></li>
+</ol>
+<blockquote>
+<p><strong>Pourquoi un tag ?</strong> Le <code>Physics.Raycast</code> touche tous les objets avec un collider. Le tag nous permet de réagir uniquement quand on touche ce mur précis, et d'ignorer le sol, le plafond et les autres murs.</p>
+</blockquote>
+<h3 id="14-creer-le-prefab-de-cube-de-peinture">1.4 Créer le prefab de cube de peinture</h3>
+<ol>
+<li>Créez un Cube dans la scène, Scale <code>(0.15, 0.15, 0.15)</code></li>
+<li>Renommez-le <code>CubePeinture</code></li>
+<li>Assignez-lui le <strong>Tag</strong> <code>CubePeint</code></li>
+<li>Glissez-le dans le dossier <code>Assets/Prefabs</code> pour en faire un prefab</li>
+<li>Supprimez-le de la scène</li>
+</ol>
+<h3 id="15-creer-les-cubes-de-selection-de-couleur">1.5 Créer les cubes de sélection de couleur</h3>
+<p>Ces cubes flottants permettront de changer la couleur active en les pointant avec le contrôleur.</p>
+<ol>
+<li>Créez 4 Cubes, Scale <code>(0.2, 0.2, 0.2)</code>, positionnés en rangée devant et légèrement en dessous du mur canvas :</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Cube</th>
+<th>Position</th>
+<th>Couleur du matériau</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CouleurRouge</td>
+<td>(-1.5, 0.8, -3.5)</td>
+<td>Rouge</td>
+</tr>
+<tr>
+<td>CouleurVert</td>
+<td>(-0.5, 0.8, -3.5)</td>
+<td>Vert</td>
+</tr>
+<tr>
+<td>CouleurBleu</td>
+<td>(0.5, 0.8, -3.5)</td>
+<td>Bleu</td>
+</tr>
+<tr>
+<td>CouleurJaune</td>
+<td>(1.5, 0.8, -3.5)</td>
+<td>Jaune</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Sur chacun de ces cubes, ajoutez le composant <strong>XR Simple Interactable</strong> (Add Component → XR → XR Simple Interactable)</li>
+</ol>
+<blockquote>
+<p><strong>XR Simple Interactable</strong> indique au toolkit que cet objet peut être ciblé par un Ray Interactor. C'est la version légère — elle gère le hover et la sélection sans ajouter de physique.</p>
+</blockquote>
+<h3 id="16-positionner-le-joueur">1.6 Positionner le joueur</h3>
+<p>Vérifiez que votre <strong>XR Origin</strong> est positionné à <code>(0, 0, 0)</code> — le joueur démarrera au centre de la salle, face au mur canvas.</p>
+<hr />
+<h2 id="etape-2-comprendre-le-near-far-interactor">Étape 2 : Comprendre le Near-Far Interactor</h2>
+<p>Dans XRI 3.x, c'est le <strong>Near-Far Interactor</strong> qui gère les interactions à distance avec les objets <code>XR Interactable</code>. Il est déjà présent et configuré dans le prefab — pas besoin de l'ajouter.</p>
+<h3 id="21-reperer-le-near-far-interactor">2.1 Repérer le Near-Far Interactor</h3>
+<ol>
+<li>Dans la Hierarchy, dépliez <strong>XR Origin (XR Rig) → Camera Offset → Right Controller</strong></li>
+<li>Vous y trouverez un enfant <strong>Near-Far Interactor</strong> avec ses composants, dont <strong>XR Interactor Line Visual</strong> — la ligne visible qui part du contrôleur</li>
+</ol>
+<h3 id="22-ce-que-fait-le-near-far-interactor">2.2 Ce que fait le Near-Far Interactor</h3>
+<p>Le Near-Far Interactor gère automatiquement :</p>
+<ul>
+<li>La détection des objets <code>XR Interactable</code> dans sa trajectoire</li>
+<li>Les événements <code>Hover</code> (pointé) et <code>Select</code> (sélectionné)</li>
+<li>La ligne visuelle qui indique la direction du rayon</li>
+<li>La transition entre interaction proche (grab direct) et lointaine (rayon)</li>
+</ul>
+<p>Ce que le Near-Far Interactor <strong>ne fait pas</strong> : toucher des objets ordinaires sans composant <code>XR Interactable</code>. C'est pourquoi nous avons besoin d'un <code>Physics.Raycast</code> séparé pour la peinture sur le mur.</p>
+<h3 id="23-ce-que-ca-change-pour-notre-exercice">2.3 Ce que ça change pour notre exercice</h3>
+<p>Le Near-Far Interactor met à jour automatiquement l'état <code>isHovered</code> sur les <code>XR Simple Interactable</code> qu'il pointe. Notre script <code>SelecteurCouleur</code> s'appuiera sur cet état pour savoir si le cube de couleur est pointé au moment où le bouton A est pressé — exactement comme on aurait utilisé le XR Ray Interactor dans les versions précédentes du toolkit.</p>
+<hr />
+<h2 id="etape-3-script-de-peinture-physicsraycast">Étape 3 : Script de peinture (Physics.Raycast)</h2>
+<h3 id="31-creer-le-script">3.1 Créer le script</h3>
+<p>Créez un script C# nommé <code>PeintureVR</code> dans votre dossier Scripts.</p>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+
+public class PeintureVR : MonoBehaviour
+{
+    [Header(&quot;Références&quot;)]
+    [SerializeField] private GameObject cubePrefab;
+    [SerializeField] private Transform originRayonDroit;
+    [SerializeField] private Transform originRayonGauche;
+
+    [Header(&quot;Input Actions&quot;)]
+    [SerializeField] private InputActionReference actionGachetteDroite;
+    [SerializeField] private InputActionReference actionGachetteGauche;
+
+    [Header(&quot;Paramètres&quot;)]
+    [SerializeField] private float porteeRayon = 5f;
+
+    private Color couleurActive = Color.red;
+
+    void OnEnable()
+    {
+        actionGachetteDroite.action.performed += OnGachetteDroite;
+        actionGachetteGauche.action.performed += OnGachetteGauche;
+    }
+
+    void OnDisable()
+    {
+        actionGachetteDroite.action.performed -= OnGachetteDroite;
+        actionGachetteGauche.action.performed -= OnGachetteGauche;
+    }
+
+    private void OnGachetteDroite(InputAction.CallbackContext context)
+    {
+        Ray rayon = new Ray(originRayonDroit.position, originRayonDroit.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayon, out hit, porteeRayon))
+        {
+            if (hit.collider.CompareTag(&quot;Canvas&quot;))
+            {
+                PlacerCube(hit.point, hit.normal);
+            }
+        }
+    }
+
+    private void OnGachetteGauche(InputAction.CallbackContext context)
+    {
+        Ray rayon = new Ray(originRayonGauche.position, originRayonGauche.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayon, out hit, porteeRayon))
+        {
+            if (hit.collider.CompareTag(&quot;CubePeint&quot;))
+            {
+                Destroy(hit.collider.gameObject);
+            }
+        }
+    }
+
+    private void PlacerCube(Vector3 point, Vector3 normale)
+    {
+        Vector3 position = point + normale * 0.08f;
+        Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, -normale);
+
+        GameObject cube = Instantiate(cubePrefab, position, rotation);
+        cube.GetComponent&lt;Renderer&gt;().material.color = couleurActive;
+        cube.tag = &quot;CubePeint&quot;;
+    }
+
+    public void ChangerCouleur(Color nouvelleCouleur)
+    {
+        couleurActive = nouvelleCouleur;
+    }
+
+    void Update()
+    {
+        Debug.DrawRay(originRayonDroit.position,
+                      originRayonDroit.forward * porteeRayon,
+                      couleurActive);
+    }
+}
+</code></pre>
+<h3 id="32-points-importants-a-noter">3.2 Points importants à noter</h3>
+<p><strong><code>InputActionReference</code> plutôt que <code>InputAction</code> en code</strong></p>
+<p>Au lieu de définir les bindings directement dans le script comme dans les exercices précédents, on utilise une <code>InputActionReference</code> — une référence vers une action déjà définie dans l'asset <strong>XRI Default Input Actions</strong>. Le toolkit gère le cycle de vie de cet asset, on se branche dessus en lecture seulement.</p>
+<p>C'est la bonne pratique en VR avec XRI : on ne crée pas une deuxième instance de l'asset, on pointe vers celui qui existe déjà.</p>
+<p><strong><code>action.performed</code> via la référence</strong></p>
+<p>On accède à l'action via <code>.action</code> avant de s'abonner à l'événement. Il n'est pas nécessaire d'appeler <code>Enable()</code> / <code>Disable()</code> sur les actions — c'est le toolkit qui s'en occupe puisqu'il gère l'asset.</p>
+<p><strong><code>originRayonDroit.forward</code></strong></p>
+<p>En VR, le rayon part de la position du contrôleur dans la direction où il pointe. C'est l'équivalent de <code>Camera.main.ScreenPointToRay()</code> qu'on utilisait avec la souris — mais l'origine est maintenant la main du joueur.</p>
+<p><strong><code>hit.normal * 0.08f</code></strong></p>
+<p>On décale le cube légèrement devant la surface pour éviter qu'il soit à moitié dans le mur. La normale pointe vers l'extérieur de la surface — la même logique que dans l'exercice de raycasting 3D.</p>
+<p><strong><code>ChangerCouleur()</code></strong></p>
+<p>Cette méthode publique sera appelée par le script de sélection de couleur à l'étape suivante. Le script de peinture ne sait pas comment la couleur est choisie — il reçoit juste la nouvelle couleur.</p>
+<h3 id="33-attacher-le-script-a-la-scene">3.3 Attacher le script à la scène</h3>
+<ol>
+<li>Créez un GameObject vide, nommez-le <strong>GestionnaireVR</strong></li>
+<li>Attachez le script <code>PeintureVR</code></li>
+<li>Dans l'Inspector, assignez :</li>
+<li><strong>Cube Prefab</strong> → votre prefab <code>CubePeinture</code></li>
+<li><strong>Origin Rayon Droit</strong> → <code>XR Origin (XR Rig) → Camera Offset → Right Controller</code></li>
+<li><strong>Origin Rayon Gauche</strong> → <code>XR Origin (XR Rig) → Camera Offset → Left Controller</code></li>
+<li><strong>Action Gachette Droite</strong> → <code>XRI Right Interaction / Select</code> (depuis l'asset XRI Default Input Actions)</li>
+<li><strong>Action Gachette Gauche</strong> → <code>XRI Left Interaction / Select</code></li>
+</ol>
+<hr />
+<h2 id="etape-4-script-de-selection-de-couleur-xr-interactable">Étape 4 : Script de sélection de couleur (XR Interactable)</h2>
+<h3 id="41-creer-le-script">4.1 Créer le script</h3>
+<p>Créez un script C# nommé <code>SelecteurCouleur</code>.</p>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+
+public class SelecteurCouleur : MonoBehaviour
+{
+    [SerializeField] private Color couleur = Color.red;
+    [SerializeField] private PeintureVR gestionnaire;
+    [SerializeField] private InputActionReference actionBoutonA;
+
+    private XRSimpleInteractable interactable;
+
+    void Awake()
+    {
+        interactable = GetComponent&lt;XRSimpleInteractable&gt;();
+    }
+
+    void OnEnable()
+    {
+        actionBoutonA.action.performed += OnBoutonA;
+    }
+
+    void OnDisable()
+    {
+        actionBoutonA.action.performed -= OnBoutonA;
+    }
+
+    private void OnBoutonA(InputAction.CallbackContext context)
+    {
+        // On change la couleur seulement si ce cube est pointé (hovered)
+        if (interactable.isHovered)
+        {
+            gestionnaire.ChangerCouleur(couleur);
+            Debug.Log($&quot;Couleur changée : {couleur}&quot;);
+        }
+    }
+}
+</code></pre>
+<h3 id="42-points-importants-a-noter">4.2 Points importants à noter</h3>
+<p><strong><code>InputActionReference</code> sur le bouton A</strong></p>
+<p>Même approche que dans <code>PeintureVR</code> — on pointe vers l'action <strong>UI Press</strong> de <strong>XRI Right Interaction</strong> dans l'asset, à laquelle on a ajouté le binding <code>primaryButton</code> plus tôt. Le script est ainsi découplé du binding physique : si on voulait changer le bouton plus tard, on n'a qu'à modifier l'asset.</p>
+<p><strong><code>interactable.isHovered</code></strong></p>
+<p>Le Near-Far Interactor du toolkit met à jour automatiquement l'état <code>isHovered</code> quand il pointe vers un <code>XR Simple Interactable</code>. On s'en sert comme condition : le bouton A ne change la couleur que si le contrôleur pointe effectivement vers ce cube.</p>
+<p>C'est la combinaison des deux approches en action — le toolkit gère le hover, notre code gère la réaction au bouton.</p>
+<h3 id="43-configurer-chaque-cube-de-couleur">4.3 Configurer chaque cube de couleur</h3>
+<p>Pour chacun des 4 cubes de couleur :</p>
+<ol>
+<li>Attachez le script <code>SelecteurCouleur</code></li>
+<li>Dans l'Inspector, assignez :</li>
+<li><strong>Couleur</strong> → la couleur correspondante (rouge, vert, bleu, jaune)</li>
+<li><strong>Gestionnaire</strong> → le GameObject <strong>GestionnaireVR</strong></li>
+<li><strong>Action Bouton A</strong> → <code>XRI Right Interaction / UI Press</code> (depuis l'asset XRI Default Input Actions)</li>
+</ol>
+<hr />
+<h2 id="etape-5-build-et-test-sur-le-casque">Étape 5 : Build et test sur le casque</h2>
+<h3 id="51-preparer-le-build">5.1 Préparer le build</h3>
+<ol>
+<li>Vérifiez que le prefab <strong>XR Interaction Simulator</strong> est absent de la scène</li>
+<li><strong>File → Build Settings</strong> → vérifiez que la plateforme est Android et que <code>PeintureVR</code> est dans Scenes In Build</li>
+<li>Cochez <strong>Development Build</strong></li>
+<li>Connectez le casque en USB</li>
+<li>Cliquez <strong>Build And Run</strong></li>
+</ol>
+<h3 id="52-verifications-dans-le-casque">5.2 Vérifications dans le casque</h3>
+<p>Une fois l'application lancée :</p>
+<p>✅ Vous êtes à l'intérieur de la salle ?
+✅ Une ligne est visible depuis le contrôleur droit ?
+✅ La ligne s'arrête sur les cubes flottants quand vous les pointez ?
+✅ Appuyer sur la gâchette droite en visant le mur canvas place un cube ?
+✅ La couleur du cube correspond à la couleur active ?
+✅ Pointer un cube de couleur et appuyer sur A change la couleur active ?
+✅ Appuyer sur la gâchette gauche en visant un cube peint le supprime ?
+✅ Viser le sol ou les autres murs ne place rien ?</p>
+<hr />
+<h2 id="recapitulatif-des-concepts-utilises">Récapitulatif des concepts utilisés</h2>
+<p>✅ <strong>Physics.Raycast depuis un contrôleur</strong> : même logique que la souris, mais l'origine est la main du joueur
+✅ <strong>Transform.forward</strong> : direction dans laquelle pointe le contrôleur
+✅ <strong>Tags</strong> : distinguer le mur canvas des autres surfaces
+✅ <strong>XR Simple Interactable</strong> : rendre un objet détectable par le Near-Far Interactor du toolkit
+✅ <strong>isHovered</strong> : état géré automatiquement par le toolkit quand le contrôleur pointe vers un interactable
+✅ <strong>InputActionReference</strong> : brancher une action de l'asset XRI Default Input Actions sans l'instancier
+✅ <strong>Méthode publique inter-scripts</strong> : <code>ChangerCouleur()</code> comme pont entre les deux scripts</p>
+<h3 id="les-deux-approches-cote-a-cote">Les deux approches côte à côte</h3>
+<pre><code>Gâchette droite → Physics.Raycast → CompareTag(&quot;Canvas&quot;) → PlacerCube()
+                                                                    ↑
+Bouton A ──────→ isHovered (Near-Far Interactor) ──────→ ChangerCouleur()
+</code></pre>
+<hr />
+<h2 id="questions-de-reflexion">Questions de réflexion</h2>
+<ol>
+<li>Pourquoi utilise-t-on <code>Physics.Raycast</code> pour la peinture et le Near-Far Interactor du toolkit pour la sélection de couleur ? Aurait-on pu tout faire avec l'un ou l'autre ?</li>
+<li>Que se passerait-il si on oubliait le tag <code>Canvas</code> sur le mur et qu'on peignait sur n'importe quelle surface touchée ?</li>
+<li>Pourquoi décale-t-on le cube de <code>hit.normal * 0.08f</code> lors du placement ?</li>
+<li><code>isHovered</code> est géré automatiquement par le toolkit. Quel avantage cela représente-t-il par rapport à gérer ce comportement manuellement ?</li>
+<li>Comment faudrait-il modifier le code pour que la peinture fonctionne aussi sur le mur gauche et le mur droit, mais pas sur le sol ni le plafond ?</li>
+</ol>
+<hr />
+<h2 id="remise-de-lexercice">Remise de l'exercice</h2>
+<p><strong>À remettre :</strong></p>
+<ul>
+<li>Lien public vers le dépôt Github du projet</li>
+<li>Captures d'écran montrant :</li>
+<li>La salle avec des cubes de différentes couleurs peints sur le mur canvas</li>
+<li>Un cube de couleur pointé par le Near-Far Interactor (ligne visible)</li>
+<li>
+<p>La vue Scene avec le <code>Debug.DrawRay</code> visible</p>
+</li>
+<li>
+<p>Courte vidéo (30-60 secondes) filmée depuis le casque ou l'éditeur démontrant :</p>
+</li>
+<li>Le changement de couleur via les cubes flottants</li>
+<li>La peinture sur le mur canvas</li>
+<li>La suppression d'un cube</li>
+</ul>
+<hr />
+<h2 id="depannage">Dépannage</h2>
+<h3 id="les-gachettes-ne-declenchent-rien">❌ Les gâchettes ne déclenchent rien</h3>
+<ul>
+<li>Vérifiez que les champs <strong>Action Gachette Droite</strong> et <strong>Action Gachette Gauche</strong> sont bien assignés dans l'Inspector du GestionnaireVR</li>
+<li>Vérifiez que les actions pointent vers <code>XRI Right Interaction / Select</code> et <code>XRI Left Interaction / Select</code></li>
+<li>Consultez <strong>Window → Analysis → Android Logcat</strong> pour voir les erreurs en temps réel</li>
+</ul>
+<h3 id="le-bouton-a-ne-change-pas-la-couleur">❌ Le bouton A ne change pas la couleur</h3>
+<ul>
+<li>Vérifiez que le binding <code>primaryButton [RightHand]</code> a bien été ajouté à <strong>UI Press</strong> dans l'asset XRI Default Input Actions et que l'asset a été sauvegardé</li>
+<li>Vérifiez que le champ <strong>Action Bouton A</strong> est assigné dans l'Inspector de chaque cube de couleur</li>
+<li>Vérifiez que vous pointez bien vers le cube avant d'appuyer sur A — <code>isHovered</code> doit être vrai</li>
+</ul>
+<h3 id="le-raycast-touche-tout-sauf-le-mur-canvas">❌ Le raycast touche tout sauf le mur canvas</h3>
+<ul>
+<li>Vérifiez que le tag <code>Canvas</code> est bien assigné au bon mur dans l'Inspector</li>
+<li>Vérifiez que <code>CompareTag("Canvas")</code> est orthographié exactement comme le tag (sensible à la casse)</li>
+</ul>
+<h3 id="les-cubes-de-couleur-ne-reagissent-pas-au-pointage">❌ Les cubes de couleur ne réagissent pas au pointage</h3>
+<ul>
+<li>Vérifiez que <strong>XR Simple Interactable</strong> est bien présent sur chaque cube de couleur</li>
+<li>Vérifiez que <strong>XR Interaction Manager</strong> est dans la scène</li>
+<li>Vérifiez que le Near-Far Interactor est bien présent dans le Right Controller du prefab</li>
+</ul>
+<h3 id="erreur-de-compilation-sur-xrsimpleinteractable">❌ Erreur de compilation sur XRSimpleInteractable</h3>
+<ul>
+<li>Vérifiez que le namespace utilisé est <code>UnityEngine.XR.Interaction.Toolkit.Interactables</code> et non l'ancien <code>UnityEngine.XR.Interaction.Toolkit</code></li>
+</ul>
+<h3 id="les-cubes-apparaissent-a-linterieur-du-mur">❌ Les cubes apparaissent à l'intérieur du mur</h3>
+<ul>
+<li>Augmentez le décalage : <code>hit.normal * 0.08f</code> → essayez <code>0.1f</code></li>
+<li>Vérifiez que le Scale du cube prefab est bien <code>(0.15, 0.15, 0.15)</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

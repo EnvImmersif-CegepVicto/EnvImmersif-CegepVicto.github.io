@@ -1,0 +1,1856 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/config_meta_quest_unity/">
+      
+      
+        <link rel="prev" href="../config_simulation_ar/">
+      
+      
+        <link rel="next" href="../exercice_raycasting_peinture3d/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Configuration VR dans Unity - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developpement-vr-avec-meta-quest-2-et-unity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration VR dans Unity
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raycasting_3d_theorie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_arcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_simulation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration VR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration VR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-cles-avant-de-commencer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts clés avant de commencer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts clés avant de commencer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-meta-quest-2-est-un-ordinateur-android-autonome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Meta Quest 2 est un ordinateur Android autonome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openxr-le-standard-ouvert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenXR : le standard ouvert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xr-interaction-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        XR Interaction Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-1-preparer-le-casque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 1 : Préparer le casque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 1 : Préparer le casque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-activer-le-mode-developpeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Activer le mode développeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-installer-les-drivers-usb-sur-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Installer les drivers USB sur Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-autoriser-la-connexion-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Autoriser la connexion USB
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-2-configurer-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 2 : Configurer Unity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 2 : Configurer Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-verifier-le-module-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Vérifier le module Android
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-creer-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Créer le projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-installer-les-packages-necessaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Installer les packages nécessaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-configurer-xr-plugin-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Configurer XR Plugin Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-configurer-les-parametres-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Configurer les paramètres Android
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-adapter-la-qualite-graphique-pour-le-quest-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Adapter la qualité graphique pour le Quest 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-3-preparer-la-scene-vr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 3 : Préparer la scène VR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 3 : Préparer la scène VR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-structure-de-scene-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Structure de scène de base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ajouter-un-environnement-minimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Ajouter un environnement minimal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tester-sans-casque-xr-interaction-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Tester sans casque — XR Interaction Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-4-deployer-sur-le-quest-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 4 : Déployer sur le Quest 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 4 : Déployer sur le Quest 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-preparer-le-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Préparer le build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-deployer-via-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Déployer via USB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-consulter-les-logs-depuis-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Consulter les logs depuis Unity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-5-depannage-courant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 5 : Dépannage courant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 5 : Dépannage courant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-casque-napparait-pas-dans-build-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le casque n'apparaît pas dans Build Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lapplication-plante-immediatement-au-demarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'application plante immédiatement au démarrage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lecran-reste-noir-dans-le-casque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'écran reste noir dans le casque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-controleurs-ne-bougent-pas-ne-repondent-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les contrôleurs ne bougent pas / ne répondent pas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume-checklist-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé — Checklist de configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_adaptation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_peinture_vr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3 - Peinture VR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TP_enonce_tictactoe_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail pratique - Tic Tac Toe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-cles-avant-de-commencer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts clés avant de commencer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts clés avant de commencer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-meta-quest-2-est-un-ordinateur-android-autonome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Meta Quest 2 est un ordinateur Android autonome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openxr-le-standard-ouvert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenXR : le standard ouvert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xr-interaction-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        XR Interaction Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-1-preparer-le-casque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 1 : Préparer le casque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 1 : Préparer le casque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-activer-le-mode-developpeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Activer le mode développeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-installer-les-drivers-usb-sur-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Installer les drivers USB sur Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-autoriser-la-connexion-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Autoriser la connexion USB
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-2-configurer-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 2 : Configurer Unity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 2 : Configurer Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-verifier-le-module-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Vérifier le module Android
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-creer-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Créer le projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-installer-les-packages-necessaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Installer les packages nécessaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-configurer-xr-plugin-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Configurer XR Plugin Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-configurer-les-parametres-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Configurer les paramètres Android
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-adapter-la-qualite-graphique-pour-le-quest-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Adapter la qualité graphique pour le Quest 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-3-preparer-la-scene-vr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 3 : Préparer la scène VR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 3 : Préparer la scène VR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-structure-de-scene-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Structure de scène de base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ajouter-un-environnement-minimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Ajouter un environnement minimal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tester-sans-casque-xr-interaction-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Tester sans casque — XR Interaction Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-4-deployer-sur-le-quest-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 4 : Déployer sur le Quest 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 4 : Déployer sur le Quest 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-preparer-le-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Préparer le build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-deployer-via-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Déployer via USB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-consulter-les-logs-depuis-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Consulter les logs depuis Unity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-5-depannage-courant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 5 : Dépannage courant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 5 : Dépannage courant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-casque-napparait-pas-dans-build-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le casque n'apparaît pas dans Build Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lapplication-plante-immediatement-au-demarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'application plante immédiatement au démarrage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lecran-reste-noir-dans-le-casque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'écran reste noir dans le casque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-controleurs-ne-bougent-pas-ne-repondent-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les contrôleurs ne bougent pas / ne répondent pas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume-checklist-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé — Checklist de configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="developpement-vr-avec-meta-quest-2-et-unity">Développement VR avec Meta Quest 2 et Unity</h1>
+<h2 id="vue-densemble">Vue d'ensemble</h2>
+<p>Cette semaine, nous passons de la réalité augmentée sur mobile à la réalité virtuelle sur casque autonome. Le Meta Quest 2 est un casque Android autonome — il tourne sous une version d'Android, ce qui signifie que plusieurs concepts vus précédemment (build Android, déploiement, ARM64) restent pertinents.</p>
+<p>L'objectif de la première heure est de configurer votre environnement de développement de A à Z : casque, Unity et outils de débogage. Tout le déploiement se fait via <strong>câble USB</strong>, ce qui est plus stable et plus simple en classe.</p>
+<hr />
+<h2 id="concepts-cles-avant-de-commencer">Concepts clés avant de commencer</h2>
+<h3 id="le-meta-quest-2-est-un-ordinateur-android-autonome">Le Meta Quest 2 est un ordinateur Android autonome</h3>
+<p>Contrairement à un casque PC-VR branché à un ordinateur puissant, le Quest 2 fait tourner les applications directement sur son propre processeur (Snapdragon XR2). Cela implique :</p>
+<ul>
+<li>Les builds sont des <code>.apk</code> Android, comme une app mobile</li>
+<li>Les performances sont limitées — optimiser est crucial</li>
+<li>Le déploiement se fait via USB, directement depuis Unity</li>
+</ul>
+<h3 id="openxr-le-standard-ouvert">OpenXR : le standard ouvert</h3>
+<p>Meta a migré vers <strong>OpenXR</strong> comme standard d'industrie. C'est ce que nous utiliserons. OpenXR est à la VR ce qu'AR Foundation est à l'AR : une couche d'abstraction qui fonctionne sur plusieurs plateformes (Quest, Pico, HTC Vive, etc.), avec un seul code.</p>
+<h3 id="xr-interaction-toolkit">XR Interaction Toolkit</h3>
+<p>Unity fournit le <strong>XR Interaction Toolkit (XRI)</strong> pour gérer les interactions VR : raycasting avec les contrôleurs, saisie d'objets, UI en espace 3D. C'est l'équivalent du Input System, mais conçu spécifiquement pour les casques.</p>
+<hr />
+<h2 id="partie-1-preparer-le-casque">Partie 1 : Préparer le casque</h2>
+<h3 id="11-activer-le-mode-developpeur">1.1 Activer le mode développeur</h3>
+<p>Le mode développeur est nécessaire pour installer des applications non publiées sur le Quest.</p>
+<ol>
+<li>Créez un compte sur <a href="https://developer.oculus.com/">developer.oculus.com</a> et liez-le à votre compte Meta</li>
+<li>Dans l'application <strong>Meta Quest</strong> sur votre téléphone :</li>
+<li>Sélectionnez votre casque</li>
+<li><strong>Paramètres → Mode développeur</strong> → Activez</li>
+<li>Redémarrez le casque si demandé</li>
+</ol>
+<blockquote>
+<p><strong>Sans téléphone :</strong> Le mode développeur peut aussi être activé depuis <a href="https://developer.oculus.com/">developer.oculus.com</a> dans un navigateur, sous la section de votre organisation.</p>
+</blockquote>
+<h3 id="12-installer-les-drivers-usb-sur-windows">1.2 Installer les drivers USB sur Windows</h3>
+<p>Pour que Windows reconnaisse le Quest en USB, installez les drivers Oculus :</p>
+<ol>
+<li>Téléchargez les <strong><a href="https://developer.oculus.com/downloads/package/oculus-adb-drivers/">Oculus ADB Drivers</a></strong></li>
+<li>Décompressez et exécutez l'installateur</li>
+<li>Redémarrez si demandé</li>
+</ol>
+<h3 id="13-autoriser-la-connexion-usb">1.3 Autoriser la connexion USB</h3>
+<ol>
+<li>Connectez le casque à votre ordinateur via le câble USB-C fourni</li>
+<li><strong>Mettez le casque</strong> — une boîte de dialogue apparaît pour autoriser le débogage USB</li>
+<li><strong>Autorisez</strong> et cochez "Toujours faire confiance à cet ordinateur"</li>
+</ol>
+<p>Pour vérifier que la connexion fonctionne, ouvrez l'<strong>Invite de commandes</strong> (Win + R → <code>cmd</code>) et tapez :</p>
+<pre><code>adb devices
+</code></pre>
+<p>Vous devriez voir votre casque dans la liste avec le statut <code>device</code>.</p>
+<blockquote>
+<p><strong>Si <code>adb</code> n'est pas reconnu :</strong> Téléchargez les <a href="https://developer.android.com/tools/releases/platform-tools">Android Platform Tools</a>, décompressez dans un dossier (ex: <code>C:\adb</code>), et ajoutez ce chemin aux variables d'environnement Windows (Système → Variables d'environnement → Path).</p>
+<p><strong>Si le casque apparaît comme <code>unauthorized</code> :</strong> Remettez le casque, une nouvelle boîte de dialogue d'autorisation devrait apparaître.</p>
+</blockquote>
+<hr />
+<h2 id="partie-2-configurer-unity">Partie 2 : Configurer Unity</h2>
+<h3 id="21-verifier-le-module-android">2.1 Vérifier le module Android</h3>
+<p>Dans <strong>Unity Hub → Installs</strong>, vérifiez que votre Unity 6.3 a le module <strong>Android Build Support</strong> installé. Si non, cliquez sur l'icône ⚙️ à côté de la version → <strong>Add Modules</strong>.</p>
+<h3 id="22-creer-le-projet">2.2 Créer le projet</h3>
+<ol>
+<li>Dans Unity Hub, créez un nouveau projet</li>
+<li>Choisissez le template <strong>3D (URP)</strong> — Universal Render Pipeline est recommandé pour la VR</li>
+<li>Nommez-le (ex: <code>VRQuest</code>)</li>
+</ol>
+<h3 id="23-installer-les-packages-necessaires">2.3 Installer les packages nécessaires</h3>
+<p>Dans <strong>Window → Package Manager → Unity Registry</strong>, installez dans l'ordre :</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Remarque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>XR Plugin Management</strong></td>
+<td>Gestion des plugins XR</td>
+</tr>
+<tr>
+<td><strong>OpenXR Plugin</strong></td>
+<td>Backend OpenXR pour Quest</td>
+</tr>
+<tr>
+<td><strong>XR Interaction Toolkit</strong></td>
+<td>Interactions VR (grab, ray, UI)</td>
+</tr>
+</tbody>
+</table>
+<p>Une fois XR Interaction Toolkit installé, restez dans le Package Manager, sélectionnez le package et ouvrez l'onglet <strong>Samples</strong>. Importez manuellement :</p>
+<ul>
+<li><strong>Starter Assets</strong> — prefabs préconfigurés pour les contrôleurs et la scène VR</li>
+<li><strong>XR Device Simulator</strong> — outil de simulation dans l'éditeur</li>
+</ul>
+<h3 id="24-configurer-xr-plugin-management">2.4 Configurer XR Plugin Management</h3>
+<ol>
+<li><strong>Edit → Project Settings → XR Plug-in Management</strong></li>
+<li>Onglet <strong>PC, Mac &amp; Linux</strong> : cochez <strong>OpenXR</strong> (pour le simulateur éditeur)</li>
+<li>Onglet <strong>Android</strong> : cochez <strong>OpenXR</strong></li>
+<li>
+<p>Sous l'onglet Android, cliquez sur <strong>OpenXR</strong> dans le menu de gauche → activez les features :</p>
+</li>
+<li>
+<p><strong>Meta Quest Support</strong> ✅</p>
+</li>
+<li><strong>Oculus Touch Controller Profile</strong> ✅</li>
+<li><strong>Hand Tracking</strong> (optionnel)</li>
+</ol>
+<blockquote>
+<p><strong>Icône ⚠️ jaune :</strong> Si Unity affiche des avertissements, cliquez dessus — il vous proposera de corriger automatiquement les paramètres (API Level, architecture, etc.).</p>
+</blockquote>
+<h3 id="25-configurer-les-parametres-android">2.5 Configurer les paramètres Android</h3>
+<p>Dans <strong>Edit → Project Settings → Player → onglet Android</strong> (icône robot) :</p>
+<ul>
+<li><strong>Minimum API Level</strong> : Android 10 (API 29)</li>
+<li><strong>Scripting Backend</strong> : IL2CPP</li>
+<li><strong>Target Architectures</strong> : ARM64 uniquement</li>
+<li><strong>Graphics APIs</strong> : Vulkan en premier (supprimez OpenGL ES si présent)</li>
+</ul>
+<h3 id="26-adapter-la-qualite-graphique-pour-le-quest-2">2.6 Adapter la qualité graphique pour le Quest 2</h3>
+<p>Le Quest 2 n'est pas un PC de gaming. Dans <strong>Edit → Project Settings → Quality</strong> :</p>
+<ul>
+<li>Utilisez un niveau de qualité <strong>Medium</strong> ou créez-en un dédié</li>
+<li>Désactivez ou réduisez : ombres temps réel, ambient occlusion, bloom</li>
+<li>Le Quest 2 vise <strong>72 Hz</strong> (90 Hz en mode performance activé dans les paramètres du casque)</li>
+</ul>
+<hr />
+<h2 id="partie-3-preparer-la-scene-vr">Partie 3 : Préparer la scène VR</h2>
+<h3 id="31-structure-de-scene-de-base">3.1 Structure de scène de base</h3>
+<p>Une scène VR diffère d'une scène 3D classique — la caméra est gérée par le casque, pas par Unity directement.</p>
+<ol>
+<li>
+<p>Supprimez la <strong>Main Camera</strong> par défaut de la Hierarchy</p>
+</li>
+<li>
+<p>Dans le Project, naviguez vers <code>Assets/Samples/XR Interaction Toolkit/3.3.1/Starter Assets/Prefabs</code> et glissez le prefab <strong>XR Origin (XR Rig)</strong> dans la Hierarchy</p>
+</li>
+</ol>
+<p>Ce prefab inclut :</p>
+<ul>
+<li><strong>XR Origin</strong> : le point de référence spatial de la scène</li>
+<li><strong>Camera Offset</strong> : ajuste la hauteur en fonction du mode de tracking</li>
+<li><strong>Main Camera</strong> : la caméra VR liée au casque</li>
+<li><strong>Left/Right Hand Controller</strong> : les deux contrôleurs préconfigurés</li>
+</ul>
+<blockquote>
+<p><strong>Pourquoi ce prefab plutôt que le menu XR → XR Origin (VR) ?</strong> Le menu crée une structure vide sans contrôleurs. Le prefab Starter Assets est la méthode recommandée dans XRI 3.x — tout est déjà câblé.</p>
+</blockquote>
+<ol>
+<li>Clic droit dans la Hierarchy → <strong>XR → XR Interaction Manager</strong></li>
+</ol>
+<p>Ce singleton coordonne toutes les interactions XR de la scène. Il n'est pas inclus dans le prefab et doit être ajouté séparément. Sans lui, rien ne fonctionne.</p>
+<h3 id="32-ajouter-un-environnement-minimal">3.2 Ajouter un environnement minimal</h3>
+<p>Pour le premier test, ajoutez simplement :</p>
+<ul>
+<li><strong>GameObject → 3D Object → Plane</strong> — le sol (Scale 5, 1, 5)</li>
+<li>Vérifiez qu'une <strong>Directional Light</strong> est présente dans la scène</li>
+</ul>
+<h3 id="33-tester-sans-casque-xr-interaction-simulator">3.3 Tester sans casque — XR Interaction Simulator</h3>
+<p>Unity permet de simuler le casque et les contrôleurs dans l'éditeur :</p>
+<ol>
+<li>Dans le Project, naviguez vers <code>Assets/Samples/XR Interaction Toolkit/3.3.1/XR Device Simulator</code></li>
+<li>Glissez le prefab <strong>XR Interaction Simulator</strong> dans la Hierarchy</li>
+<li>En mode Play, utilisez la souris et le clavier pour simuler les mouvements</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Action simulée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clic droit + souris</td>
+<td>Orienter la tête</td>
+</tr>
+<tr>
+<td>WASD</td>
+<td>Déplacer</td>
+</tr>
+<tr>
+<td>T / G</td>
+<td>Activer simulation main gauche / droite</td>
+</tr>
+<tr>
+<td>Clic gauche (main active)</td>
+<td>Gâchette</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Important :</strong> Retirez le prefab <strong>XR Interaction Simulator</strong> de la scène avant de faire un build pour le casque. Le laisser dans la scène peut causer des conflits avec les vrais contrôleurs.</p>
+</blockquote>
+<hr />
+<h2 id="partie-4-deployer-sur-le-quest-2">Partie 4 : Déployer sur le Quest 2</h2>
+<h3 id="41-preparer-le-build">4.1 Préparer le build</h3>
+<ol>
+<li><strong>Retirez le prefab XR Interaction Simulator</strong> de la Hierarchy s'il est présent</li>
+<li><strong>File → Build Settings</strong></li>
+<li>Cliquez sur <strong>Switch Platform → Android</strong> (le premier switch est long, ~5 min)</li>
+<li>Vérifiez que votre scène est dans la liste <strong>Scenes In Build</strong> — sinon cliquez <strong>Add Open Scenes</strong></li>
+<li>Cochez <strong>Development Build</strong> pour avoir accès aux logs</li>
+</ol>
+<h3 id="42-deployer-via-usb">4.2 Déployer via USB</h3>
+<p>Avec le casque connecté et reconnu :</p>
+<ol>
+<li>Dans Build Settings, cliquez sur <strong>Refresh</strong> à côté de <strong>Run Device</strong></li>
+<li>Votre Quest apparaît dans la liste — sélectionnez-le</li>
+<li>Cliquez <strong>Build And Run</strong></li>
+</ol>
+<p>Unity compile, installe et lance l'application directement dans le casque. Le <strong>premier build prend 10-20 minutes</strong> à cause de la compilation IL2CPP. Les suivants sont beaucoup plus rapides (~2-5 min) grâce au cache.</p>
+<blockquote>
+<p><strong>Conseil :</strong> Pendant que ça compile, préparez votre casque et lisez les sections suivantes.</p>
+</blockquote>
+<h3 id="43-consulter-les-logs-depuis-unity">4.3 Consulter les logs depuis Unity</h3>
+<p>Avec le casque connecté en USB et l'app qui tourne, ouvrez dans Unity :</p>
+<p><strong>Window → Analysis → Android Logcat</strong></p>
+<p>Filtrez sur <code>Unity</code> pour ne voir que les messages de votre application. C'est ici que vos <code>Debug.Log()</code> apparaissent et que les erreurs sont visibles.</p>
+<blockquote>
+<p><strong>Si Android Logcat n'apparaît pas :</strong> Installez le package <strong>Android Logcat</strong> depuis le Package Manager.</p>
+</blockquote>
+<hr />
+<h2 id="partie-5-depannage-courant">Partie 5 : Dépannage courant</h2>
+<h3 id="le-casque-napparait-pas-dans-build-settings">Le casque n'apparaît pas dans Build Settings</h3>
+<ul>
+<li>Vérifiez la connexion USB et que le mode développeur est activé</li>
+<li>Mettez le casque — une boîte de dialogue d'autorisation attend peut-être votre réponse</li>
+<li>Essayez un autre port USB ou un autre câble (les câbles charge-only ne fonctionnent pas)</li>
+<li>Réinstallez les <a href="https://developer.oculus.com/downloads/package/oculus-adb-drivers/">Oculus ADB Drivers</a></li>
+</ul>
+<h3 id="lapplication-plante-immediatement-au-demarrage">L'application plante immédiatement au démarrage</h3>
+<p>Les causes les plus fréquentes :</p>
+<ul>
+<li>Architecture non supportée → vérifiez ARM64 uniquement dans Player Settings</li>
+<li>API Level trop bas → minimum API 29</li>
+<li>OpenXR non configuré sur l'onglet Android de XR Plug-in Management</li>
+</ul>
+<h3 id="lecran-reste-noir-dans-le-casque">L'écran reste noir dans le casque</h3>
+<ul>
+<li>XR Origin absent de la scène</li>
+<li>La caméra est à l'intérieur d'un objet opaque</li>
+<li>OpenXR ou Meta Quest Support non activés</li>
+</ul>
+<h3 id="les-controleurs-ne-bougent-pas-ne-repondent-pas">Les contrôleurs ne bougent pas / ne répondent pas</h3>
+<ul>
+<li><strong>Oculus Touch Controller Profile</strong> non activé dans les features OpenXR</li>
+<li>XR Interaction Manager absent de la scène</li>
+<li>Vérifiez que les GameObjects des contrôleurs ont bien le composant <strong>XR Controller</strong></li>
+</ul>
+<hr />
+<h2 id="resume-checklist-de-configuration">Résumé — Checklist de configuration</h2>
+<p><strong>Casque :</strong></p>
+<ul>
+<li>[ ] Compte développeur Meta créé</li>
+<li>[ ] Mode développeur activé</li>
+<li>[ ] Drivers Oculus installés sur Windows</li>
+<li>[ ] Connexion USB autorisée dans le casque</li>
+<li>[ ] Casque visible dans l'Invite de commandes avec <code>adb devices</code></li>
+</ul>
+<p><strong>Unity :</strong></p>
+<ul>
+<li>[ ] Module Android Build Support présent dans Unity 6.3</li>
+<li>[ ] Packages installés : XR Plugin Management, OpenXR, XR Interaction Toolkit</li>
+<li>[ ] OpenXR activé sur les onglets PC et Android</li>
+<li>[ ] Meta Quest Support + Oculus Touch Controller Profile activés</li>
+<li>[ ] Minimum API 29, IL2CPP, ARM64 uniquement, Vulkan</li>
+</ul>
+<p><strong>Scène :</strong></p>
+<ul>
+<li>[ ] Main Camera par défaut supprimée</li>
+<li>[ ] Prefab <strong>XR Origin (XR Rig)</strong> (Starter Assets) présent</li>
+<li>[ ] XR Interaction Manager présent (ajouté via menu XR)</li>
+<li>[ ] Sol et éclairage de base présents</li>
+<li>[ ] XR Interaction Simulator retiré avant le build</li>
+</ul>
+<p><strong>Déploiement :</strong></p>
+<ul>
+<li>[ ] Plateforme Android sélectionnée (Switch Platform)</li>
+<li>[ ] Scène ajoutée dans Build Settings</li>
+<li>[ ] Quest visible dans Run Device</li>
+<li>[ ] Premier build réussi — application visible dans le casque</li>
+</ul>
+<hr />
+<h2 id="ressources">Ressources</h2>
+<ul>
+<li><a href="https://developers.meta.com/horizon/documentation/unity/unity-gs-overview/">Documentation Meta pour Unity</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.xr.openxr@latest">OpenXR Plugin Unity</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@latest">XR Interaction Toolkit</a></li>
+<li><a href="https://developer.oculus.com/downloads/package/oculus-adb-drivers/">Oculus ADB Drivers (Windows)</a></li>
+<li><a href="https://developer.android.com/tools/releases/platform-tools">Android Platform Tools</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
