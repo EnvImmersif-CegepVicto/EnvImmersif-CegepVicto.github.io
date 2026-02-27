@@ -1,0 +1,1760 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/exercice_tri_vr/">
+      
+      
+        <link rel="prev" href="../exercice_approfondissement_interactable/">
+      
+      
+        <link rel="next" href="../TP_enonce_tictactoe_ar/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Exercice 4 - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exercice-tri-spatial-vr-grab-et-socket-interactors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exercice 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raycasting_3d_theorie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_arcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_simulation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_meta_quest_unity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration VR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_adaptation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_peinture_vr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3 - Peinture VR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_approfondissement_interactable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3.1 - Approfondissement Peinture VR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 4
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-1-comprendre-les-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 1 — Comprendre les concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 1 — Comprendre les concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-xr-grab-interactable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le XR Grab Interactable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-xr-socket-interactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le XR Socket Interactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-interaction-layer-masks-filtrer-ce-quun-socket-accepte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Interaction Layer Masks — filtrer ce qu'un socket accepte
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-2-exemple-de-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 2 — Exemple de référence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 2 — Exemple de référence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scene-de-lexemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scène de l'exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-de-reaction-au-depot-reactiondepotcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script de réaction au dépôt — ReactionDepot.cs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-la-balle-dans-lexemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration de la balle dans l'exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-support-dans-lexemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration du Support dans l'exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-3-votre-jeu-tri-spatial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 3 — Votre jeu : Tri spatial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 3 — Votre jeu : Tri spatial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-vous-devez-produire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que vous devez produire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-1-mettre-en-place-la-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 1 — Mettre en place la scène
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-2-creer-les-interaction-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 2 — Créer les Interaction Layers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-3-creer-les-objets-grabbables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 3 — Créer les objets grabbables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-4-creer-les-receptacles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 4 — Créer les réceptacles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-5-script-de-gestion-du-tri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 5 — Script de gestion du tri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-6-tester-avec-le-simulateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 6 — Tester avec le simulateur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aller-plus-loin-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aller plus loin (optionnel)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aller plus loin (optionnel)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minuterie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minuterie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#score-base-sur-le-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Score basé sur le temps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reapparition-des-objets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réapparition des objets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de réflexion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TP_enonce_tictactoe_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail pratique - Tic Tac Toe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-1-comprendre-les-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 1 — Comprendre les concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 1 — Comprendre les concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-xr-grab-interactable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le XR Grab Interactable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-xr-socket-interactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le XR Socket Interactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-interaction-layer-masks-filtrer-ce-quun-socket-accepte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Interaction Layer Masks — filtrer ce qu'un socket accepte
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-2-exemple-de-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 2 — Exemple de référence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 2 — Exemple de référence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scene-de-lexemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scène de l'exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-de-reaction-au-depot-reactiondepotcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script de réaction au dépôt — ReactionDepot.cs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-la-balle-dans-lexemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration de la balle dans l'exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-support-dans-lexemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration du Support dans l'exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-3-votre-jeu-tri-spatial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partie 3 — Votre jeu : Tri spatial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partie 3 — Votre jeu : Tri spatial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-vous-devez-produire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que vous devez produire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-1-mettre-en-place-la-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 1 — Mettre en place la scène
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-2-creer-les-interaction-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 2 — Créer les Interaction Layers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-3-creer-les-objets-grabbables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 3 — Créer les objets grabbables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-4-creer-les-receptacles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 4 — Créer les réceptacles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-5-script-de-gestion-du-tri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 5 — Script de gestion du tri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tache-6-tester-avec-le-simulateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tâche 6 — Tester avec le simulateur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aller-plus-loin-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aller plus loin (optionnel)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aller plus loin (optionnel)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minuterie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minuterie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#score-base-sur-le-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Score basé sur le temps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reapparition-des-objets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réapparition des objets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de réflexion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="exercice-tri-spatial-vr-grab-et-socket-interactors">Exercice — Tri spatial VR : Grab et Socket Interactors</h1>
+<h2 id="objectifs">Objectifs</h2>
+<p>Dans cet exercice, vous allez d'abord explorer les deux nouvelles interactions fondamentales du toolkit XRI — le <strong>grab</strong> et le <strong>socket</strong> — à travers un exemple minimaliste sans lien avec votre jeu. Ensuite, vous adapterez ces concepts pour créer un jeu de tri spatial fonctionnel.</p>
+<p><strong>Durée approximative :</strong> 3 à 4 heures</p>
+<p><strong>Prérequis :</strong> Avoir complété l'exercice de peinture VR</p>
+<blockquote>
+<p><strong>Note importante :</strong> Cet exercice se développe entièrement avec le <strong>XR Interaction Simulator</strong>. Vous n'avez pas accès au casque pendant la relâche — c'est prévu et l'exercice est conçu pour fonctionner sans lui. Référez-vous aux contrôles du simulateur que vous avez déjà vus en classe.</p>
+</blockquote>
+<hr />
+<h2 id="partie-1-comprendre-les-concepts">Partie 1 — Comprendre les concepts</h2>
+<h3 id="le-xr-grab-interactable">Le XR Grab Interactable</h3>
+<p>Le <code>XR Grab Interactable</code> est un composant que vous ajoutez à un objet pour le rendre <strong>saisissable</strong> par un contrôleur. Quand le joueur appuie sur la gâchette en pointant vers l'objet (ou en le touchant directement), l'objet suit le mouvement du contrôleur.</p>
+<p>Le toolkit gère automatiquement :
+- La détection de la main proche ou du rayon lointain
+- L'attachement de l'objet au contrôleur pendant le grab
+- Le relâchement et la physique au lâcher</p>
+<p>Ce que vous devez configurer :
+- Le <code>Rigidbody</code> sur l'objet (obligatoire pour la physique)
+- Le <code>Collider</code> sur l'objet (obligatoire pour la détection)
+- Le composant <code>XR Grab Interactable</code> lui-même</p>
+<h3 id="le-xr-socket-interactor">Le XR Socket Interactor</h3>
+<p>Le <code>XR Socket Interactor</code> est un composant que vous ajoutez à un <strong>réceptacle</strong> — un emplacement vide qui attend de recevoir un objet grabbable. Quand un objet grabbable entre dans la zone du socket et que le joueur le relâche, l'objet se verrouille en place.</p>
+<p>Le socket peut être configuré pour :
+- Accepter tous les objets grabbables
+- Accepter seulement certains objets (via les <strong>Interaction Layer Masks</strong>)
+- Afficher un visuel fantôme de l'objet attendu</p>
+<h3 id="les-interaction-layer-masks-filtrer-ce-quun-socket-accepte">Les Interaction Layer Masks — filtrer ce qu'un socket accepte</h3>
+<p>En VR avec XRI, les <strong>Interaction Layer Masks</strong> jouent un rôle similaire aux Layer Masks de Physics.Raycast que vous connaissez déjà : ils permettent de filtrer quels interactors peuvent interagir avec quels interactables.</p>
+<p>Chaque interactor et chaque interactable a un champ <strong>Interaction Layer Mask</strong>. Une interaction n'est possible que si les deux ont <strong>au moins une couche en commun</strong>.</p>
+<p><strong>Configuration dans le Project Settings :</strong>
+1. <strong>Edit → Project Settings → XR Interaction Toolkit</strong>
+2. Dans <strong>Interaction Layers</strong>, ajoutez vos couches personnalisées (ex: <code>Sphere</code>, <code>Cube</code>, <code>Pyramid</code>)</p>
+<p><strong>Assigner une couche à un interactable (l'objet grabbable) :</strong>
+- Dans le composant <code>XR Grab Interactable</code>, champ <strong>Interaction Layer Mask</strong> → sélectionnez uniquement la couche correspondante</p>
+<p><strong>Assigner une couche à un socket (le réceptacle) :</strong>
+- Dans le composant <code>XR Socket Interactor</code>, champ <strong>Interaction Layer Mask</strong> → sélectionnez uniquement la couche que ce socket accepte</p>
+<p>Résultat : un socket configuré pour <code>Sphere</code> refusera automatiquement un cube même si le joueur tente de l'y déposer.</p>
+<hr />
+<h2 id="partie-2-exemple-de-reference">Partie 2 — Exemple de référence</h2>
+<blockquote>
+<p>⚠️ Cet exemple est <strong>volontairement différent</strong> de votre jeu final. L'objectif est de comprendre les patterns, pas de copier le code.</p>
+</blockquote>
+<p>L'exemple suivant crée une scène minimaliste : une balle qui tombe sur une table, un support qui attend de la recevoir. Quand la balle est déposée dans le support, un message s'affiche.</p>
+<h3 id="scene-de-lexemple">Scène de l'exemple</h3>
+<p>Une table simple avec un support cylindrique au centre. La balle est suspendue en l'air au-dessus.</p>
+<pre><code>Hierarchy :
+├── XR Origin (XR Rig)
+├── XR Interaction Manager
+├── Table (Cube, Scale 1, 0.05, 1, Position 0, 0.8, 0)
+├── Balle (Sphere, Scale 0.15, Position 0, 1.5, 0)
+└── Support (GameObject vide, Position 0, 0.9, 0)
+</code></pre>
+<h3 id="script-de-reaction-au-depot-reactiondepotcs">Script de réaction au dépôt — <code>ReactionDepot.cs</code></h3>
+<p>Ce script est attaché au <strong>Support</strong>. Il réagit quand un objet est déposé dans le socket.</p>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+
+public class ReactionDepot : MonoBehaviour
+{
+    // Le socket est sur ce même GameObject
+    private XRSocketInteractor socket;
+
+    void Awake()
+    {
+        socket = GetComponent&lt;XRSocketInteractor&gt;();
+    }
+
+    void OnEnable()
+    {
+        // S'abonner à l'événement : un objet vient d'être déposé
+        socket.selectEntered.AddListener(OnObjetDepose);
+
+        // S'abonner à l'événement : un objet vient d'être retiré
+        socket.selectExited.AddListener(OnObjetRetire);
+    }
+
+    void OnDisable()
+    {
+        socket.selectEntered.RemoveListener(OnObjetDepose);
+        socket.selectExited.RemoveListener(OnObjetRetire);
+    }
+
+    private void OnObjetDepose(SelectEnterEventArgs args)
+    {
+        // args.interactableObject est l'objet qui vient d'entrer dans le socket
+        GameObject objetDepose = args.interactableObject.transform.gameObject;
+        Debug.Log(&quot;Objet déposé : &quot; + objetDepose.name);
+    }
+
+    private void OnObjetRetire(SelectExitEventArgs args)
+    {
+        Debug.Log(&quot;Objet retiré du support&quot;);
+    }
+}
+</code></pre>
+<p><strong>Points importants :</strong></p>
+<p><code>socket.selectEntered</code> et <code>socket.selectExited</code> sont des <strong>UnityEvents</strong> — ils fonctionnent comme les événements d'Input Actions que vous connaissez déjà : on s'abonne dans <code>OnEnable</code>, on se désabonne dans <code>OnDisable</code>.</p>
+<p><code>SelectEnterEventArgs</code> contient <code>args.interactableObject</code> — une référence vers l'objet qui vient d'entrer. C'est par là que vous accédez à l'objet déposé pour l'interroger ou le modifier.</p>
+<h3 id="configuration-de-la-balle-dans-lexemple">Configuration de la balle dans l'exemple</h3>
+<ol>
+<li>Ajoutez un <code>Rigidbody</code> à la <strong>Balle</strong></li>
+<li><strong>Use Gravity</strong> : coché</li>
+<li>
+<p><strong>Is Kinematic</strong> : décoché</p>
+</li>
+<li>
+<p>Vérifiez que la <strong>Balle</strong> a un <code>Sphere Collider</code> (ajouté automatiquement)</p>
+</li>
+<li>
+<p>Ajoutez <code>XR Grab Interactable</code> à la <strong>Balle</strong></p>
+</li>
+<li>Laissez tous les paramètres par défaut pour l'exemple</li>
+</ol>
+<h3 id="configuration-du-support-dans-lexemple">Configuration du Support dans l'exemple</h3>
+<ol>
+<li>Ajoutez <code>XR Socket Interactor</code> au <strong>Support</strong></li>
+<li>
+<p><strong>Show Interactable Hover Meshes</strong> : coché (affiche un fantôme de l'objet attendu)</p>
+</li>
+<li>
+<p>Ajoutez le script <code>ReactionDepot</code> au <strong>Support</strong></p>
+</li>
+<li>
+<p>Ajoutez un <code>Sphere Collider</code> au <strong>Support</strong> comme zone de détection</p>
+</li>
+<li><strong>Is Trigger</strong> : coché</li>
+<li><strong>Radius</strong> : 0.15</li>
+</ol>
+<blockquote>
+<p><strong>Pourquoi Is Trigger ?</strong> Le socket utilise un collider trigger pour détecter quand un objet grabbable entre dans sa zone. Sans trigger, Unity traiterait ce collider comme une surface physique solide.</p>
+</blockquote>
+<hr />
+<h2 id="partie-3-votre-jeu-tri-spatial">Partie 3 — Votre jeu : Tri spatial</h2>
+<p>Vous allez maintenant créer un jeu de tri spatial. Le joueur se trouve dans une salle. Des objets de <strong>trois formes différentes</strong> apparaissent devant lui. Trois réceptacles au mur correspondent chacun à une forme. L'objectif : attraper chaque objet et le déposer dans le bon réceptacle.</p>
+<h3 id="ce-que-vous-devez-produire">Ce que vous devez produire</h3>
+<ul>
+<li>Une scène VR fonctionnelle avec le simulateur</li>
+<li>Trois types d'objets grabbables, chacun associé à une interaction layer distincte</li>
+<li>Trois sockets, chacun n'acceptant que la bonne forme</li>
+<li>Un compteur qui détecte quand les trois réceptacles sont correctement remplis et affiche un message de victoire</li>
+</ul>
+<h3 id="tache-1-mettre-en-place-la-scene">Tâche 1 — Mettre en place la scène</h3>
+<p>Créez une nouvelle scène nommée <code>TriSpatial</code> dans votre projet VR existant.</p>
+<p><strong>Structure recommandée de la Hierarchy :</strong></p>
+<pre><code>├── XR Origin (XR Rig)
+├── XR Interaction Manager
+├── XR Interaction Simulator
+├── Environnement
+│   ├── Sol
+│   ├── Mur arrière (avec les réceptacles)
+│   └── Plafond (optionnel)
+├── ZoneApparition (les objets à trier)
+└── Gestionnaire (script de victoire)
+</code></pre>
+<p><strong>Dimensions suggérées pour l'environnement :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Position</th>
+<th>Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sol</td>
+<td>(0, 0, 0)</td>
+<td>(6, 0.1, 6)</td>
+</tr>
+<tr>
+<td>Mur arrière</td>
+<td>(0, 1.5, 3)</td>
+<td>(6, 3, 0.1)</td>
+</tr>
+<tr>
+<td>XR Origin</td>
+<td>(0, 0, -2)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Le joueur fait face au mur arrière où seront les réceptacles. Les objets apparaissent entre le joueur et le mur.</p>
+</blockquote>
+<h3 id="tache-2-creer-les-interaction-layers">Tâche 2 — Créer les Interaction Layers</h3>
+<p>Avant de créer vos objets, définissez vos couches dans <strong>Edit → Project Settings → XR Interaction Toolkit → Interaction Layers</strong>.</p>
+<p>Ajoutez trois couches : donnez-leur des noms qui correspondent aux trois formes que vous choisirez.</p>
+<blockquote>
+<p><strong>Conseil :</strong> Choisissez des formes disponibles dans les primitives Unity (Sphere, Cube, Cylinder ou Capsule).</p>
+</blockquote>
+<h3 id="tache-3-creer-les-objets-grabbables">Tâche 3 — Créer les objets grabbables</h3>
+<p>Créez trois prefabs — un par forme. Chaque prefab doit :</p>
+<ul>
+<li>Avoir un <code>Collider</code> adapté à sa forme</li>
+<li>Avoir un <code>Rigidbody</code> avec gravity activée</li>
+<li>Avoir un <code>XR Grab Interactable</code></li>
+<li>Avoir une <code>Interaction Layer Mask</code> configurée sur <strong>une seule couche</strong> correspondant à sa forme</li>
+<li>Avoir un matériau d'une couleur distinctive</li>
+</ul>
+<p>Placez une instance de chaque prefab dans la scène, entre le joueur et le mur.</p>
+<p><strong>Positions suggérées pour les trois objets :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Objet</th>
+<th>Position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forme A</td>
+<td>(-1, 1, 0)</td>
+</tr>
+<tr>
+<td>Forme B</td>
+<td>(0, 1, 0)</td>
+</tr>
+<tr>
+<td>Forme C</td>
+<td>(1, 1, 0)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tache-4-creer-les-receptacles">Tâche 4 — Créer les réceptacles</h3>
+<p>Créez trois GameObjects vides contre le mur arrière — un par forme attendue.</p>
+<p><strong>Positions suggérées pour les réceptacles :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Réceptacle</th>
+<th>Position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Réceptacle A</td>
+<td>(-1, 1.2, 2.8)</td>
+</tr>
+<tr>
+<td>Réceptacle B</td>
+<td>(0, 1.2, 2.8)</td>
+</tr>
+<tr>
+<td>Réceptacle C</td>
+<td>(1, 1.2, 2.8)</td>
+</tr>
+</tbody>
+</table>
+<p>Chaque réceptacle doit avoir :</p>
+<ul>
+<li>Un <code>XR Socket Interactor</code> avec une <code>Interaction Layer Mask</code> configurée sur <strong>une seule couche</strong> (la couche de la forme qu'il accepte)</li>
+<li>Un <code>Sphere Collider</code> en mode trigger (Radius : 0.2) comme zone de détection</li>
+<li>Un indicateur visuel (un petit Cube ou Cylinder en enfant, semi-transparent, pour montrer où déposer l'objet)</li>
+</ul>
+<h3 id="tache-5-script-de-gestion-du-tri">Tâche 5 — Script de gestion du tri</h3>
+<p>Créez un script <code>GestionnaireTri</code> attaché au GameObject <strong>Gestionnaire</strong>. Ce script doit :</p>
+<ul>
+<li>Garder une référence vers les trois <code>XRSocketInteractor</code></li>
+<li>S'abonner aux événements <code>selectEntered</code> et <code>selectExited</code> de chacun</li>
+<li>Compter le nombre de réceptacles correctement remplis</li>
+<li>Afficher <code>"Bravo ! Tri complété."</code> dans la console quand les trois sont remplis</li>
+</ul>
+<p><strong>Ce que vous devez adapter de l'exemple :</strong></p>
+<p>L'exemple avait un seul socket et réagissait au dépôt de n'importe quel objet. Votre script doit gérer <strong>trois sockets</strong> et détecter quand <strong>tous les trois</strong> sont simultanément occupés.</p>
+<blockquote>
+<p><strong>Indice :</strong> Le socket a une propriété <code>hasSelection</code> (bool) qui indique s'il contient actuellement un objet. Vous pouvez l'interroger dans votre méthode de vérification.</p>
+<p><strong>Indice :</strong> Vous n'avez pas besoin de vérifier que c'est le <em>bon</em> objet dans chaque socket — la configuration des Interaction Layer Masks s'en charge déjà. Si un socket a un objet, c'est forcément le bon.</p>
+</blockquote>
+<h3 id="tache-6-tester-avec-le-simulateur">Tâche 6 — Tester avec le simulateur</h3>
+<p>Lancez la scène en mode Play et vérifiez :</p>
+<ul>
+<li>[ ] Vous pouvez attraper chaque objet avec le simulateur</li>
+<li>[ ] Les objets grabbés suivent le mouvement du contrôleur simulé</li>
+<li>[ ] Déposer un objet dans le bon réceptacle le verrouille en place</li>
+<li>[ ] Tenter de déposer un objet dans le mauvais réceptacle ne fonctionne pas</li>
+<li>[ ] Quand les trois réceptacles sont remplis, le message apparaît dans la console</li>
+</ul>
+<hr />
+<h2 id="aller-plus-loin-optionnel">Aller plus loin (optionnel)</h2>
+<p>Ces améliorations ne sont pas évaluées, mais elles préparent bien le sommatif.</p>
+<h3 id="minuterie">Minuterie</h3>
+<p>Affichez un timer qui commence au démarrage et s'arrête quand le tri est complété. Utilisez un <code>TextMeshPro</code> en World Space positionné dans la scène (pas en Screen Space — ça ne fonctionne pas bien en VR).</p>
+<h3 id="score-base-sur-le-temps">Score basé sur le temps</h3>
+<p>Calculez un score en fonction du temps écoulé. Plus le tri est rapide, plus le score est élevé.</p>
+<h3 id="reapparition-des-objets">Réapparition des objets</h3>
+<p>Si un objet tombe hors de portée (position Y inférieure à -1), réinitialisez-le à sa position de départ.</p>
+<pre><code class="language-csharp">// Indice de structure — à adapter
+void Update()
+{
+    if (transform.position.y &lt; -1f)
+    {
+        // remettre l'objet à sa position initiale
+    }
+}
+</code></pre>
+<hr />
+<h2 id="remise">Remise</h2>
+<p><strong>À remettre via Github :</strong></p>
+<ul>
+<li>Lien public vers le dépôt du projet</li>
+<li>Captures d'écran montrant :</li>
+<li>Les trois objets dans la scène avant le tri</li>
+<li>Au moins un objet correctement déposé dans son réceptacle</li>
+<li>La console affichant le message de victoire</li>
+</ul>
+<hr />
+<h2 id="questions-de-reflexion">Questions de réflexion</h2>
+<ol>
+<li>Quelle est la différence entre un <code>XR Grab Interactable</code> et un <code>XR Simple Interactable</code> utilisé dans l'exercice de peinture ?</li>
+<li>Pourquoi le collider du socket doit-il être en mode <strong>trigger</strong> plutôt que solide ?</li>
+<li>Pourquoi délègue-t-on la validation de la <em>bonne forme</em> aux Interaction Layer Masks plutôt qu'à une vérification dans le code ?</li>
+<li>Que se passerait-il si vous oubliiez de vous désabonner des événements <code>selectEntered</code> dans <code>OnDisable</code> ?</li>
+<li>Comment faudrait-il modifier le <code>GestionnaireTri</code> pour permettre au joueur de recommencer la partie sans relancer la scène ?</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

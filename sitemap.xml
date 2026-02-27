@@ -2,54 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/TP_enonce_tictactoe_ar/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/config_meta_quest_unity/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/config_simulation_ar/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/exercice_adaptation_ar/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/exercice_approfondissement_interactable/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/exercice_peinture_vr/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/exercice_raycasting_peinture3d/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
+    </url>
+    <url>
+         <loc>https://EnvImmersif-CegepVicto.github.io/exercice_tri_vr/</loc>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/image_tracking_ar/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/intro_arcore/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/intro_environnements_immersifs/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/raycasting_3d_theorie/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
     <url>
          <loc>https://EnvImmersif-CegepVicto.github.io/reference_input_actions/</loc>
-         <lastmod>2026-02-20</lastmod>
+         <lastmod>2026-02-27</lastmod>
     </url>
 </urlset>
