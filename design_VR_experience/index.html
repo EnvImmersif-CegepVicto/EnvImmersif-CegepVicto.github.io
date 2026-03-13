@@ -1,0 +1,1801 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours sur les environnements immersifs au Cégep de Victoriaville">
+      
+      
+      
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/design_VR_experience/">
+      
+      
+        <link rel="prev" href="../config_meta_quest_unity/">
+      
+      
+        <link rel="next" href="../exercice_raycasting_peinture3d/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Créer une expérience VR - Environnements Immersifs - Cégep de Victoriaville</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#confort-cybercinetose-et-optimisation-meta-quest-2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-header__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Environnements Immersifs - Cégep de Victoriaville
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Créer une expérience VR
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Environnements Immersifs - Cégep de Victoriaville" class="md-nav__button md-logo" aria-label="Environnements Immersifs - Cégep de Victoriaville" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Environnements Immersifs - Cégep de Victoriaville
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_environnements_immersifs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction aux environnements immersifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_input_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Actions Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raycasting_3d_theorie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_arcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à la Réalité Augmentée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_simulation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuratoin AR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config_meta_quest_unity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration VR dans Unity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Créer une expérience VR
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Créer une expérience VR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-cybercinetose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La cybercinétose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La cybercinétose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-que-cest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu'est-ce que c'est?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-ca-se-declenche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ça se déclenche?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regles-de-conception-pour-le-confort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règles de conception pour le confort
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Règles de conception pour le confort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locomotion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locomotion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environnements-et-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environnements et visuels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-et-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface et UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#son-et-presence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Son et présence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-loptimisation-est-critique-en-vr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi l'optimisation est critique en VR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-trois-problemes-les-plus-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les trois problèmes les plus fréquents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les trois problèmes les plus fréquents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trop-de-draw-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Trop de draw calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trop-de-lumieres-dynamiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trop de lumières dynamiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trop-de-polygones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Trop de polygones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiler-identifier-le-vrai-probleme-avant-doptimiser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profiler : identifier le vrai problème avant d'optimiser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Profiler : identifier le vrai problème avant d&#39;optimiser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utiliser-le-profiler-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utiliser le Profiler Unity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frame Debugger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stats-en-mode-play" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stats en mode Play
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametres-de-rendu-specifiques-au-quest-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètres de rendu spécifiques au Quest 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paramètres de rendu spécifiques au Quest 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed-foveated-rendering-ffr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed Foveated Rendering (FFR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shaders
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Résumé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#confort-et-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confort et design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimisation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de compréhension
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_raycasting_peinture3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 - Raycasting 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_adaptation_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 - Adaptation AR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_peinture_vr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3 - Peinture VR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_approfondissement_interactable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3.1 - Approfondissement Peinture VR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_tri_vr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TP_enonce_tictactoe_ar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail pratique - Tic Tac Toe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-cybercinetose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La cybercinétose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La cybercinétose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-que-cest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu'est-ce que c'est?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-ca-se-declenche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ça se déclenche?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regles-de-conception-pour-le-confort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règles de conception pour le confort
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Règles de conception pour le confort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locomotion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locomotion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environnements-et-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environnements et visuels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-et-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface et UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#son-et-presence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Son et présence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-loptimisation-est-critique-en-vr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi l'optimisation est critique en VR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-trois-problemes-les-plus-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les trois problèmes les plus fréquents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les trois problèmes les plus fréquents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trop-de-draw-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Trop de draw calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trop-de-lumieres-dynamiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trop de lumières dynamiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trop-de-polygones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Trop de polygones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiler-identifier-le-vrai-probleme-avant-doptimiser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profiler : identifier le vrai problème avant d'optimiser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Profiler : identifier le vrai problème avant d&#39;optimiser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utiliser-le-profiler-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utiliser le Profiler Unity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frame Debugger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stats-en-mode-play" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stats en mode Play
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametres-de-rendu-specifiques-au-quest-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètres de rendu spécifiques au Quest 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paramètres de rendu spécifiques au Quest 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed-foveated-rendering-ffr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed Foveated Rendering (FFR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shaders
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Résumé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#confort-et-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confort et design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimisation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions de compréhension
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="confort-cybercinetose-et-optimisation-meta-quest-2">Confort, cybercinétose et optimisation — Meta Quest 2</h1>
+<h2 id="la-cybercinetose">La cybercinétose</h2>
+<h3 id="quest-ce-que-cest">Qu'est-ce que c'est?</h3>
+<p>La <strong>cybercinétose</strong> (ou <em>VR sickness</em>) est une forme de mal des transports déclenchée par une expérience en réalité virtuelle. Les symptômes ressemblent à ceux du mal de mer : nausées, maux de tête, désorientation, fatigue visuelle. Dans les cas sévères, les symptômes persistent plusieurs heures après avoir retiré le casque.</p>
+<p>Ce n'est pas une réaction rare ou anormale — c'est le signe que quelque chose dans l'expérience envoie des signaux contradictoires au cerveau.</p>
+<h3 id="pourquoi-ca-se-declenche">Pourquoi ça se déclenche?</h3>
+<p>Le mécanisme principal est un <strong>conflit sensoriel</strong> entre deux systèmes qui devraient toujours être en accord :</p>
+<ul>
+<li>L'<strong>oreille interne</strong> (système vestibulaire) détecte les mouvements du corps dans l'espace réel. Si vous êtes assis, elle dit au cerveau : <em>tu es immobile</em>.</li>
+<li>Les <strong>yeux</strong> voient une image qui indique un déplacement dans l'environnement virtuel.</li>
+</ul>
+<p>Quand ces deux signaux divergent, le cerveau ne sait pas qui croire. Sa réponse évolutive à ce genre de confusion est de supposer qu'il y a empoisonnement — et de déclencher une nausée pour provoquer des vomissements. Ce mécanisme a été utile pendant des millions d'années ; il l'est beaucoup moins en VR.</p>
+<p><strong>Facteurs qui aggravent le conflit sensoriel :</strong></p>
+<ul>
+<li><strong>Framerate bas</strong> : Une image qui saute interrompt le flux visuel continu que le cerveau attend. En dessous de 72 fps, le risque augmente significativement.</li>
+<li><strong>Latence élevée</strong> : Si l'image met trop de temps à répondre aux mouvements de tête, les yeux voient le monde « en retard » par rapport à ce que l'oreille interne ressent.</li>
+<li><strong>Accélération et décélération brusques</strong> : Le corps ne ressent pas les forces correspondantes.</li>
+<li><strong>Déplacements artificiels</strong> : Se déplacer dans le monde virtuel sans bouger physiquement est la cause la plus fréquente.</li>
+</ul>
+<blockquote>
+<p><strong>À retenir :</strong> La cybercinétose n'est pas une question de volonté ou d'habitude. Certaines personnes y sont beaucoup plus sensibles que d'autres. Concevoir pour le confort, c'est concevoir pour tout le monde.</p>
+</blockquote>
+<hr />
+<h2 id="regles-de-conception-pour-le-confort">Règles de conception pour le confort</h2>
+<p>Ces règles ne sont pas des suggestions — ce sont des décisions de design qui ont un impact direct sur l'expérience de vos joueurs.</p>
+<h3 id="locomotion">Locomotion</h3>
+<p>Le déplacement est la principale source de cybercinétose en VR.</p>
+<p><strong>Téléportation</strong> : L'utilisateur pointe une destination et y apparaît instantanément. Aucun mouvement continu = aucun conflit sensoriel. C'est la méthode la plus sûre, mais elle brise l'immersion si elle est mal intégrée au design.</p>
+<p><strong>Déplacement continu</strong> : Le joystick déplace l'avatar dans l'espace. Confortable pour les utilisateurs habitués, mais risqué pour les novices. Si vous l'utilisez :</p>
+<ul>
+<li>Limitez la vitesse de déplacement</li>
+<li>Évitez les virages brusques — préférez la rotation par paliers (<strong>snap turning</strong>, ex: 30° ou 45° à la fois)</li>
+<li>Ne combinez pas déplacement et rotation simultanés</li>
+</ul>
+<p><strong>À éviter absolument :</strong> Faire tourner la caméra automatiquement — cinématiques avec mouvement de caméra, caméra sur rail, rotation imposée. En VR, le joueur doit toujours contrôler où il regarde.</p>
+<h3 id="environnements-et-visuels">Environnements et visuels</h3>
+<p><strong>Évitez les motifs répétitifs à haute fréquence.</strong> Un plancher en damier, un mur de briques très contrasté, un sol en carrelage noir et blanc — ce type de motif crée une stimulation visuelle intense qui fatigue rapidement les yeux et amplifie la sensation de mouvement lors des déplacements. Préférez des textures à faible contraste et à grain fin.</p>
+<p><strong>Évitez les horizons qui bougent.</strong> Si le ciel ou l'horizon se déplace indépendamment du sol (rotation de la skybox, météo animée rapide), le cerveau perd ses repères de stabilité. Un horizon fixe est une ancre visuelle importante.</p>
+<p><strong>Gardez la caméra stable.</strong> Ne faites jamais bouger la caméra sans l'input du joueur. Pas de balancement, pas de head bobbing, pas d'effet de tremblement lors d'explosions. En VR, tout mouvement de caméra non initié par l'utilisateur est une source de malaise.</p>
+<p><strong>Évitez les objets trop près du visage.</strong> Un objet placé à moins de 0.5 mètre virtuel de la caméra force les yeux à converger de façon inhabituelle et peut provoquer une fatigue oculaire ou une vision double. Gardez les éléments interactifs à une distance confortable.</p>
+<p><strong>Évitez le noir total comme transition.</strong> Passer directement à un écran noir entre deux scènes peut provoquer une désorientation. Un fondu rapide ou un flash blanc court est moins problématique.</p>
+<h3 id="interface-et-ui">Interface et UI</h3>
+<p><strong>Jamais de UI en Screen Space.</strong> En VR, une interface collée à l'écran (comme un HUD 2D classique) est physiquement impossible à regarder — les yeux ne peuvent pas converger sur quelque chose qui est « à zéro distance ». Toute UI doit être en <strong>World Space</strong>, placée à au moins 1 mètre virtuel du joueur.</p>
+<p><strong>Taille de texte généreuse.</strong> La résolution perçue en VR est plus faible que ce que les chiffres laissent croire — l'image est étirée sur un grand champ de vision. Utilisez des textes larges et bien contrastés.</p>
+<p><strong>Évitez les menus qui nécessitent de tourner la tête rapidement.</strong> Si le joueur doit regarder à gauche, à droite, en haut et en bas pour naviguer dans un menu, la fatigue s'installe vite. Concentrez l'UI dans un cône de vision confortable devant le joueur.</p>
+<h3 id="son-et-presence">Son et présence</h3>
+<p>Le son spatial contribue directement au sentiment de présence et peut atténuer la cybercinétose en renforçant la cohérence de l'environnement. Un son bien positionné dans l'espace aide le cerveau à valider ce que les yeux voient.</p>
+<p>À l'inverse, un son décalé par rapport à l'action visuelle (explosion à gauche mais son au centre) crée un conflit sensoriel secondaire qui aggrave l'inconfort.</p>
+<hr />
+<h2 id="pourquoi-loptimisation-est-critique-en-vr">Pourquoi l'optimisation est critique en VR</h2>
+<p>Le confort et la performance sont directement liés. Un framerate instable est l'une des causes les plus directes de cybercinétose.</p>
+<p>Le Quest 2 est un ordinateur de poche autonome. Tout le rendu se fait sur le casque : processeur, GPU et mémoire sont partagés, limités, et ils alimentent <strong>deux yeux simultanément</strong> à 72 Hz minimum.</p>
+<p><strong>Cibles Quest 2 :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Cible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framerate</td>
+<td>72 fps minimum (90 ou 120 recommandés)</td>
+</tr>
+<tr>
+<td>Draw calls</td>
+<td>&lt; 100 par frame</td>
+</tr>
+<tr>
+<td>Polygones</td>
+<td>&lt; 500 000 par frame</td>
+</tr>
+<tr>
+<td>Résolution par œil</td>
+<td>1832 × 1920</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="les-trois-problemes-les-plus-frequents">Les trois problèmes les plus fréquents</h2>
+<h3 id="1-trop-de-draw-calls">1. Trop de draw calls</h3>
+<p>Un <strong>draw call</strong> est une commande envoyée au GPU pour dessiner un objet. Chaque objet avec un matériau différent génère un draw call séparé.</p>
+<p><strong>Symptômes :</strong> Scène qui rame même avec peu d'objets visibles.</p>
+<p><strong>Solutions :</strong></p>
+<ul>
+<li><strong>Static Batching</strong> : Pour les objets qui ne bougent jamais, cochez <code>Static</code> dans l'Inspector. Unity les fusionne automatiquement en un seul draw call.</li>
+<li><strong>GPU Instancing</strong> : Pour plusieurs objets identiques (herbe, arbres, ennemis), cochez <code>Enable GPU Instancing</code> sur le matériau. Unity les dessine en un seul appel.</li>
+<li><strong>Atlas de textures</strong> : Regrouper plusieurs textures en une seule image réduit les changements de matériau entre draw calls.</li>
+</ul>
+<pre><code>Avant : 50 cubes × 1 draw call chacun = 50 draw calls
+Après (Static Batching) : 50 cubes = 1 draw call
+</code></pre>
+<h3 id="2-trop-de-lumieres-dynamiques">2. Trop de lumières dynamiques</h3>
+<p>Les lumières en temps réel sont extrêmement coûteuses sur Quest 2.</p>
+<p><strong>Règle pratique : évitez les lumières dynamiques autant que possible.</strong></p>
+<p><strong>Solutions :</strong></p>
+<ul>
+<li><strong>Baked Lighting</strong> : Précalculer l'éclairage et le stocker dans des lightmaps. Aucun coût à l'exécution.</li>
+<li>Window → Rendering → Lighting → Generate Lighting</li>
+<li><strong>Mixed Lighting</strong> : Lumières statiques précalculées + une seule lumière dynamique pour les ombres portées en temps réel.</li>
+<li><strong>Ambient light</strong> : Pour un éclairage global uniforme, utilisez uniquement la lumière ambiante (pas de point lights).</li>
+</ul>
+<blockquote>
+<p><strong>Règle d'or :</strong> Une scène bien éclairée avec du Baked Lighting coûte presque zéro GPU. Une scène sombre avec 3 point lights peut faire chuter le framerate à 30 fps.</p>
+</blockquote>
+<h3 id="3-trop-de-polygones">3. Trop de polygones</h3>
+<p>Le Quest 2 n'a pas le GPU d'un PC gaming. Des meshes complexes doivent être simplifiés.</p>
+<p><strong>Solutions :</strong></p>
+<ul>
+<li><strong>Niveaux de détail (LOD)</strong> : Afficher une version simplifiée d'un objet quand il est loin.</li>
+<li>Ajoutez un composant <code>LOD Group</code> à vos objets complexes</li>
+<li>Définissez 2-3 niveaux : high poly (proche), low poly (loin), rien (très loin)</li>
+<li><strong>Occlusion Culling</strong> : Ne pas dessiner les objets cachés derrière d'autres.</li>
+<li>Window → Rendering → Occlusion Culling → Bake</li>
+<li>Fonctionne particulièrement bien dans les environnements fermés (couloirs, salles)</li>
+</ul>
+<hr />
+<h2 id="profiler-identifier-le-vrai-probleme-avant-doptimiser">Profiler : identifier le vrai problème avant d'optimiser</h2>
+<p><strong>Règle absolue : ne pas optimiser à l'aveugle.</strong> Utilisez le Profiler pour trouver le goulot d'étranglement réel avant d'intervenir.</p>
+<h3 id="utiliser-le-profiler-unity">Utiliser le Profiler Unity</h3>
+<ol>
+<li><strong>Window → Analysis → Profiler</strong></li>
+<li>Lancez la scène en Play</li>
+<li>Observez les sections <strong>CPU</strong> et <strong>GPU</strong></li>
+</ol>
+<p><strong>Ce qu'on cherche :</strong></p>
+<ul>
+<li><strong>CPU bound</strong> : Le processeur est le goulot. Causes fréquentes : trop de scripts, physique complexe, trop de méthodes <code>Update()</code> coûteuses.</li>
+<li><strong>GPU bound</strong> : Le GPU est le goulot. Causes fréquentes : trop de draw calls, matériaux complexes, résolution trop élevée.</li>
+</ul>
+<h3 id="frame-debugger">Frame Debugger</h3>
+<p>Pour comprendre exactement ce qui est dessiné à chaque frame :</p>
+<p><strong>Window → Analysis → Frame Debugger → Enable</strong></p>
+<p>Vous pouvez avancer frame par frame et voir chaque draw call. Utile pour repérer les objets qui consomment inutilement.</p>
+<h3 id="stats-en-mode-play">Stats en mode Play</h3>
+<p>La fenêtre <strong>Game → Stats</strong> affiche en temps réel :</p>
+<ul>
+<li>FPS</li>
+<li>Draw calls (Batches)</li>
+<li>Triangles / Vertices</li>
+<li>Mémoire utilisée</li>
+</ul>
+<p>C'est l'outil le plus rapide pour une estimation grossière.</p>
+<hr />
+<h2 id="parametres-de-rendu-specifiques-au-quest-2">Paramètres de rendu spécifiques au Quest 2</h2>
+<h3 id="fixed-foveated-rendering-ffr">Fixed Foveated Rendering (FFR)</h3>
+<p>Le Quest 2 applique automatiquement une résolution réduite sur les bords de l'image, là où l'œil perçoit moins de détails. C'est activé par défaut via les paramètres Meta — aucune configuration requise de votre côté, mais c'est utile de savoir que ça existe.</p>
+<h3 id="render-scale">Render Scale</h3>
+<p>Le <code>Render Scale</code> contrôle la résolution de rendu interne. Il se configure dans le <strong>Universal Render Pipeline Asset</strong> de votre projet, sous la section <strong>Quality</strong>.</p>
+<p>Pour le trouver : tapez <code>t:UniversalRenderPipelineAsset</code> dans la barre de recherche du Project, ouvrez l'asset, et ajustez le champ <strong>Render Scale</strong> sous Quality. Réduire à 0.8 peut apporter 10–20 % de gain de performance avec très peu de différence visuelle perceptible.</p>
+<h3 id="shaders">Shaders</h3>
+<p>Les shaders complexes (PBR complet) sont coûteux. Pour le Quest 2 :</p>
+<ul>
+<li>Préférez <strong>Universal Render Pipeline / Lit</strong> (shader par défaut URP)</li>
+<li>Évitez les effets post-processing lourds : bloom, depth of field, ambient occlusion</li>
+<li>Le variant <strong>Mobile</strong> des shaders URP est plus léger pour les appareils limités</li>
+</ul>
+<hr />
+<h2 id="resume">Résumé</h2>
+<h3 id="confort-et-design">Confort et design</h3>
+<table>
+<thead>
+<tr>
+<th>À éviter</th>
+<th>Pourquoi</th>
+<th>Alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Déplacement continu sans option</td>
+<td>Principale source de cybercinétose</td>
+<td>Téléportation ou snap turning</td>
+</tr>
+<tr>
+<td>Rotation automatique de la caméra</td>
+<td>L'utilisateur doit toujours contrôler sa tête</td>
+<td>Rotation uniquement sur input</td>
+</tr>
+<tr>
+<td>Plancher en damier ou motifs très contrastés</td>
+<td>Fatigue visuelle, amplifie la sensation de mouvement</td>
+<td>Textures à faible contraste</td>
+</tr>
+<tr>
+<td>UI en Screen Space</td>
+<td>Impossible à focaliser physiquement</td>
+<td>World Space uniquement</td>
+</tr>
+<tr>
+<td>Objets à moins de 0.5 m de la caméra</td>
+<td>Fatigue oculaire, risque de vision double</td>
+<td>Distance minimale respectée</td>
+</tr>
+<tr>
+<td>Head bobbing, tremblement de caméra</td>
+<td>Mouvement non initié par l'utilisateur</td>
+<td>Caméra toujours stable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="optimisation">Optimisation</h3>
+<table>
+<thead>
+<tr>
+<th>Problème</th>
+<th>Outil de diagnostic</th>
+<th>Solution principale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draw calls trop élevés</td>
+<td>Stats → Batches</td>
+<td>Static Batching, GPU Instancing</td>
+</tr>
+<tr>
+<td>Lumières coûteuses</td>
+<td>Profiler GPU</td>
+<td>Baked Lighting</td>
+</tr>
+<tr>
+<td>Trop de polygones</td>
+<td>Stats → Triangles</td>
+<td>LOD Groups, Occlusion Culling</td>
+</tr>
+<tr>
+<td>Shaders lourds</td>
+<td>Frame Debugger</td>
+<td>URP Lit, éviter le post-processing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Le processus d'optimisation recommandé :</strong></p>
+<ol>
+<li><strong>Mesurer</strong> avec le Profiler — identifier si c'est CPU ou GPU</li>
+<li><strong>Cibler</strong> l'élément le plus coûteux (pas le plus évident)</li>
+<li><strong>Corriger</strong> une chose à la fois</li>
+<li><strong>Remesurer</strong> pour confirmer l'amélioration</li>
+</ol>
+<hr />
+<h2 id="ressources-complementaires">Ressources complémentaires</h2>
+<ul>
+<li><a href="https://developers.meta.com/horizon/documentation/unity/unity-vr-best-practices/">Concevoir pour le confort — documentation Meta</a></li>
+<li><a href="https://developers.meta.com/horizon/documentation/unity/unity-perf-best-practices/">Optimisation Quest — documentation Meta</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest">URP Performance — documentation Unity</a></li>
+<li><a href="https://docs.unity3d.com/Manual/Profiler.html">Profiler Unity</a></li>
+<li><a href="https://docs.unity3d.com/Manual/OcclusionCulling.html">Occlusion Culling Unity</a></li>
+</ul>
+<hr />
+<h2 id="questions-de-comprehension">Questions de compréhension</h2>
+<ol>
+<li>Expliquez en vos mots pourquoi un conflit entre le système vestibulaire et la vision peut provoquer des nausées.</li>
+<li>Quelle est la différence entre la téléportation et le snap turning comme solutions à la cybercinétose ? Dans quel cas utiliseriez-vous l'un plutôt que l'autre ?</li>
+<li>Pourquoi un plancher en damier est-il problématique en VR alors qu'il serait parfaitement acceptable dans un jeu classique ?</li>
+<li>Pourquoi est-il interdit de faire bouger la caméra sans l'input du joueur, même pour un effet dramatique ?</li>
+<li>Quelle est la différence entre être <em>CPU bound</em> et <em>GPU bound</em> ? Comment le Profiler permet-il de distinguer les deux ?</li>
+<li>Vous avez 200 arbres identiques dans une forêt. Quelle technique utiliseriez-vous pour réduire les draw calls ?</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
