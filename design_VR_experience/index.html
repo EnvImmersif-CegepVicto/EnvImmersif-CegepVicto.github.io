@@ -1565,7 +1565,7 @@
 <h2 id="les-trois-problemes-les-plus-frequents">Les trois problèmes les plus fréquents</h2>
 <h3 id="1-trop-de-draw-calls">1. Trop de draw calls</h3>
 <p>Un <strong>draw call</strong> est une commande envoyée au GPU pour dessiner un objet. Chaque objet avec un matériau différent génère un draw call séparé.</p>
-<p><strong>Symptômes :</strong> Scène qui rame même avec peu d'objets visibles.</p>
+<p><strong>Symptômes :</strong> Scène qui a de la difficulté même avec peu d'objets visibles.</p>
 <p><strong>Solutions :</strong></p>
 <ul>
 <li><strong>Static Batching</strong> : Pour les objets qui ne bougent jamais, cochez <code>Static</code> dans l'Inspector. Unity les fusionne automatiquement en un seul draw call.</li>
@@ -1726,8 +1726,8 @@ Après (Static Batching) : 50 cubes = 1 draw call
 <hr />
 <h2 id="ressources-complementaires">Ressources complémentaires</h2>
 <ul>
-<li><a href="https://developers.meta.com/horizon/documentation/unity/unity-vr-best-practices/">Concevoir pour le confort — documentation Meta</a></li>
-<li><a href="https://developers.meta.com/horizon/documentation/unity/unity-perf-best-practices/">Optimisation Quest — documentation Meta</a></li>
+<li><a href="https://developers.meta.com/horizon/documentation/unity/unity-best-practices-intro/">Meilleurs pratiques — documentation Meta</a></li>
+<li><a href="https://developers.meta.com/horizon/documentation/unity/unity-perf/">Optimisation Quest — documentation Meta</a></li>
 <li><a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest">URP Performance — documentation Unity</a></li>
 <li><a href="https://docs.unity3d.com/Manual/Profiler.html">Profiler Unity</a></li>
 <li><a href="https://docs.unity3d.com/Manual/OcclusionCulling.html">Occlusion Culling Unity</a></li>
