@@ -1335,8 +1335,7 @@ public class FeedbackGrab : MonoBehaviour
     private void OnGrabEntered(SelectEnterEventArgs args)
     {
         // Récupérer le contrôleur depuis l'interactor
-        var controller = args.interactorObject.transform
-                            .GetComponent&lt;XRBaseController&gt;();
+        var controller = args.interactorObject.transform.GetComponent&lt;XRBaseController&gt;();
 
         controller.SendHapticImpulse(amplitudeGrab, dureeGrab);
 
@@ -1347,7 +1346,7 @@ public class FeedbackGrab : MonoBehaviour
     private void OnGrabExited(SelectExitEventArgs args)
     {
         // Vibration plus courte et moins forte au relâchement
-        var controller = args.interactorObject.GetComponent&lt;XRBaseController&gt;();
+        var controller = args.interactorObject.transform.GetComponent&lt;XRBaseController&gt;();
 
         controller.SendHapticImpulse(amplitudeGrab * 0.3f, dureeGrab * 0.5f);
     }
@@ -1395,7 +1394,7 @@ public class FeedbackSocket : MonoBehaviour
     private void OnDepotEntered(SelectEnterEventArgs args)
     {
         // Récupérer le contrôleur qui vient de lâcher la balle
-        var controller = args.interactorObject.GetComponent&lt;XRBaseController&gt;();
+        var controller = args.interactorObject.transform.GetComponent&lt;XRBaseController&gt;();
 
         controller.SendHapticImpulse(amplitudeDepot, dureeDepot);
 
