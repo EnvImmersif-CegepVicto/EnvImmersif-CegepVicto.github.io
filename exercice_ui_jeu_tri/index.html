@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/exercice_feedback_vr/">
+        <link rel="canonical" href="https://EnvImmersif-CegepVicto.github.io/exercice_ui_jeu_tri/">
       
       
-        <link rel="prev" href="../exercice_tri_vr/">
+        <link rel="prev" href="../exercice_feedback_vr/">
       
       
-        <link rel="next" href="../exercice_ui_jeu_tri/">
+        <link rel="next" href="../TP_enonce_tictactoe_ar/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Exercice 4.1 - Feedback VR (Haptiques et audio spatial) - Environnements Immersifs - Cégep de Victoriaville</title>
+        <title>Exercice 4.2 - UI VR et GameManager - Environnements Immersifs - Cégep de Victoriaville</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exercice-feedback-multimodal-haptics-et-audio-spatial" class="md-skip">
+        <a href="#exercice-ui-en-espace-3d-et-structure-de-jeu" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exercice 4.1 - Feedback VR (Haptiques et audio spatial)
+              Exercice 4.2 - UI VR et GameManager
             
           </span>
         </div>
@@ -691,6 +691,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercice_feedback_vr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 4.1 - Feedback VR (Haptiques et audio spatial)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -710,7 +738,7 @@
   <span class="md-ellipsis">
     
   
-    Exercice 4.1 - Feedback VR (Haptiques et audio spatial)
+    Exercice 4.2 - UI VR et GameManager
   
 
     
@@ -728,7 +756,7 @@
   <span class="md-ellipsis">
     
   
-    Exercice 4.1 - Feedback VR (Haptiques et audio spatial)
+    Exercice 4.2 - UI VR et GameManager
   
 
     
@@ -765,22 +793,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partie-1-comprendre-les-concepts" class="md-nav__link">
+  <a href="#partie-1-exemple-de-reference-la-sphere-dans-le-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partie 1 — Comprendre les concepts
+        Partie 1 — Exemple de référence : la sphère dans le support
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Partie 1 — Comprendre les concepts">
+    <nav class="md-nav" aria-label="Partie 1 — Exemple de référence : la sphère dans le support">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#les-haptics-en-xri" class="md-nav__link">
+  <a href="#11-preparer-levent-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les haptics en XRI
+        1.1 Préparer l'Event System
       
     </span>
   </a>
@@ -788,10 +816,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#laudio-spatial-en-vr" class="md-nav__link">
+  <a href="#12-creer-les-trois-canvas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'audio spatial en VR
+        1.2 Créer les trois Canvas
       
     </span>
   </a>
@@ -799,10 +827,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lier-feedback-et-evenements-xri" class="md-nav__link">
+  <a href="#13-contenu-des-canvas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lier feedback et événements XRI
+        1.3 Contenu des Canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-le-game-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Le Game Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-connecter-les-boutons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Connecter les boutons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-connecter-la-fin-de-partie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Connecter la fin de partie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 Tester
       
     </span>
   </a>
@@ -815,22 +887,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partie-2-exemple-de-reference" class="md-nav__link">
+  <a href="#partie-2-adaptation-au-jeu-de-tri" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partie 2 — Exemple de référence
+        Partie 2 — Adaptation au jeu de tri
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Partie 2 — Exemple de référence">
+    <nav class="md-nav" aria-label="Partie 2 — Adaptation au jeu de tri">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#script-de-feedback-sur-un-objet-grabbable-feedbackgrabcs" class="md-nav__link">
+  <a href="#ce-qui-reste-identique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Script de feedback sur un objet grabbable — FeedbackGrab.cs
+        Ce qui reste identique
       
     </span>
   </a>
@@ -838,10 +910,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#script-de-feedback-sur-un-socket-feedbacksocketcs" class="md-nav__link">
+  <a href="#ce-qui-doit-etre-adapte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Script de feedback sur un socket — FeedbackSocket.cs
+        Ce qui doit être adapté
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liste-de-verification-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liste de vérification finale
       
     </span>
   </a>
@@ -854,22 +937,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partie-3-votre-jeu-ajouter-le-feedback" class="md-nav__link">
+  <a href="#defis-supplementaires" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partie 3 — Votre jeu : ajouter le feedback
+        Défis supplémentaires
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Partie 3 — Votre jeu : ajouter le feedback">
+    <nav class="md-nav" aria-label="Défis supplémentaires">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#obtenir-des-sons" class="md-nav__link">
+  <a href="#defi-1-reapparition-des-objets-tombes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Obtenir des sons
+        Défi 1 — Réapparition des objets tombés
       
     </span>
   </a>
@@ -877,10 +960,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tache-1-feedback-sur-le-grab" class="md-nav__link">
+  <a href="#defi-2-meilleur-score-persistant" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tâche 1 — Feedback sur le grab
+        Défi 2 — Meilleur score persistant
       
     </span>
   </a>
@@ -888,32 +971,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tache-2-feedback-sur-le-depot-correct" class="md-nav__link">
+  <a href="#defi-3-compte-a-rebours-plutot-que-chronometre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tâche 2 — Feedback sur le dépôt correct
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tache-3-feedback-de-victoire" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tâche 3 — Feedback de victoire
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tache-4-comparer-avec-et-sans-feedback" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tâche 4 — Comparer avec et sans feedback
+        Défi 3 — Compte à rebours plutôt que chronomètre
       
     </span>
   </a>
@@ -940,34 +1001,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../exercice_ui_jeu_tri/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Exercice 4.2 - UI VR et GameManager
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1128,22 +1161,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partie-1-comprendre-les-concepts" class="md-nav__link">
+  <a href="#partie-1-exemple-de-reference-la-sphere-dans-le-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partie 1 — Comprendre les concepts
+        Partie 1 — Exemple de référence : la sphère dans le support
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Partie 1 — Comprendre les concepts">
+    <nav class="md-nav" aria-label="Partie 1 — Exemple de référence : la sphère dans le support">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#les-haptics-en-xri" class="md-nav__link">
+  <a href="#11-preparer-levent-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les haptics en XRI
+        1.1 Préparer l'Event System
       
     </span>
   </a>
@@ -1151,10 +1184,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#laudio-spatial-en-vr" class="md-nav__link">
+  <a href="#12-creer-les-trois-canvas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'audio spatial en VR
+        1.2 Créer les trois Canvas
       
     </span>
   </a>
@@ -1162,10 +1195,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lier-feedback-et-evenements-xri" class="md-nav__link">
+  <a href="#13-contenu-des-canvas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lier feedback et événements XRI
+        1.3 Contenu des Canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-le-game-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Le Game Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-connecter-les-boutons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Connecter les boutons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-connecter-la-fin-de-partie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Connecter la fin de partie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 Tester
       
     </span>
   </a>
@@ -1178,22 +1255,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partie-2-exemple-de-reference" class="md-nav__link">
+  <a href="#partie-2-adaptation-au-jeu-de-tri" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partie 2 — Exemple de référence
+        Partie 2 — Adaptation au jeu de tri
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Partie 2 — Exemple de référence">
+    <nav class="md-nav" aria-label="Partie 2 — Adaptation au jeu de tri">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#script-de-feedback-sur-un-objet-grabbable-feedbackgrabcs" class="md-nav__link">
+  <a href="#ce-qui-reste-identique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Script de feedback sur un objet grabbable — FeedbackGrab.cs
+        Ce qui reste identique
       
     </span>
   </a>
@@ -1201,10 +1278,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#script-de-feedback-sur-un-socket-feedbacksocketcs" class="md-nav__link">
+  <a href="#ce-qui-doit-etre-adapte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Script de feedback sur un socket — FeedbackSocket.cs
+        Ce qui doit être adapté
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liste-de-verification-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liste de vérification finale
       
     </span>
   </a>
@@ -1217,22 +1305,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partie-3-votre-jeu-ajouter-le-feedback" class="md-nav__link">
+  <a href="#defis-supplementaires" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partie 3 — Votre jeu : ajouter le feedback
+        Défis supplémentaires
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Partie 3 — Votre jeu : ajouter le feedback">
+    <nav class="md-nav" aria-label="Défis supplémentaires">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#obtenir-des-sons" class="md-nav__link">
+  <a href="#defi-1-reapparition-des-objets-tombes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Obtenir des sons
+        Défi 1 — Réapparition des objets tombés
       
     </span>
   </a>
@@ -1240,10 +1328,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tache-1-feedback-sur-le-grab" class="md-nav__link">
+  <a href="#defi-2-meilleur-score-persistant" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tâche 1 — Feedback sur le grab
+        Défi 2 — Meilleur score persistant
       
     </span>
   </a>
@@ -1251,32 +1339,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tache-2-feedback-sur-le-depot-correct" class="md-nav__link">
+  <a href="#defi-3-compte-a-rebours-plutot-que-chronometre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tâche 2 — Feedback sur le dépôt correct
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tache-3-feedback-de-victoire" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tâche 3 — Feedback de victoire
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tache-4-comparer-avec-et-sans-feedback" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tâche 4 — Comparer avec et sans feedback
+        Défi 3 — Compte à rebours plutôt que chronomètre
       
     </span>
   </a>
@@ -1316,241 +1382,253 @@
 
 
 
-<h1 id="exercice-feedback-multimodal-haptics-et-audio-spatial">Exercice — Feedback multimodal : haptics et audio spatial</h1>
+<h1 id="exercice-ui-en-espace-3d-et-structure-de-jeu">Exercice — UI en espace 3D et structure de jeu</h1>
 <h2 id="objectifs">Objectifs</h2>
-<p>Dans cet exercice, vous allez ajouter une couche de <strong>feedback sensoriel</strong> à votre jeu de tri spatial. Un jeu qui <em>fonctionne</em> devient un jeu qui <em>se sent bien</em>.</p>
+<p>Dans cet exercice, vous allez d'abord construire une boucle de jeu complète sur un exemple minimaliste — une table et une sphère. Ensuite, vous adapterez ces concepts pour transformer votre jeu de tri en une expérience jouable de bout en bout.</p>
 <p>Concrètement, vous allez :</p>
 <ol>
-<li>✅ Déclencher des vibrations haptiques sur le grab et le dépôt</li>
-<li>✅ Jouer un son positionnel sur chaque interaction clé</li>
-<li>✅ Comprendre la différence entre <code>AudioSource</code> en World Space et en Screen Space en VR</li>
+<li>✅ Configurer un Canvas World Space avec interaction contrôleur</li>
+<li>✅ Implémenter un Game Manager avec états (menu → jeu → fin)</li>
+<li>✅ Afficher un timer et un score dans un HUD</li>
+<li>✅ Adapter la structure complète à votre jeu de tri existant</li>
 </ol>
-<p><strong>Durée approximative :</strong> 2 heures</p>
-<p><strong>Prérequis :</strong> Avoir complété l'exercice de tri spatial (<code>TriSpatial</code>)</p>
+<p><strong>Durée approximative :</strong> 2 heures 15</p>
+<p><strong>Prérequis :</strong> Avoir complété l'exercice de feedback multimodal (<code>TriSpatial</code> avec haptics et audio)</p>
+<hr />
+<h2 id="partie-1-exemple-de-reference-la-sphere-dans-le-support">Partie 1 — Exemple de référence : la sphère dans le support</h2>
+<p>Vous repartez de la scène minimale utilisée à la séance précédente — la <strong>table</strong>, la <strong>sphère</strong> grabbable et le <strong>support</strong> (socket). L'objectif est simple : attraper la sphère et la déposer dans le support. Le jeu démarre sur un menu et se termine sur un écran de fin avec un score basé sur le temps.</p>
+<p>Travaillez dans cette scène avant de toucher à votre jeu de tri.</p>
+<hr />
+<h3 id="11-preparer-levent-system">1.1 Préparer l'Event System</h3>
+<p>Vérifiez que votre scène contient un <strong>Event System</strong> (GameObject → UI → Event System si absent).</p>
+<ol>
+<li>Sélectionnez l'<strong>Event System</strong></li>
+<li>Retirez le composant <strong>Standalone Input Module</strong> (clic droit → Remove Component)</li>
+<li>Ajoutez <strong>XR UI Input Module</strong> (Add Component → XR → XR UI Input Module)</li>
+</ol>
 <blockquote>
-<p><strong>Cette séance se fait avec le casque.</strong> Profitez-en — le feedback haptique ne peut pas être évalué sans le sentir.</p>
+<p>Sans ce remplacement, les boutons ne répondront pas au rayon du contrôleur.</p>
 </blockquote>
 <hr />
-<h2 id="partie-1-comprendre-les-concepts">Partie 1 — Comprendre les concepts</h2>
-<h3 id="les-haptics-en-xri">Les haptics en XRI</h3>
-<p>En XRI 3.x, les vibrations haptiques sont envoyées via <code>XRBaseController</code>. La méthode centrale est :</p>
-<pre><code class="language-csharp">controller.SendHapticImpulse(amplitude, duration);
-</code></pre>
+<h3 id="12-creer-les-trois-canvas">1.2 Créer les trois Canvas</h3>
+<p>Créez trois Canvas (<strong>GameObject → UI → Canvas</strong>). Pour chacun, configurez :</p>
 <ul>
-<li><strong><code>amplitude</code></strong> : intensité de la vibration, de <code>0.0f</code> (rien) à <code>1.0f</code> (maximum)</li>
-<li><strong><code>duration</code></strong> : durée en secondes</li>
+<li><strong>Render Mode</strong> : World Space</li>
+<li><strong>Width</strong> : 400 / <strong>Height</strong> : 300</li>
+<li><strong>Scale</strong> : (0.005, 0.005, 0.005)</li>
+<li>Retirez <strong>Graphic Raycaster</strong> → ajoutez <strong>Tracked Device Graphic Raycaster</strong></li>
 </ul>
-<p>Pour accéder au contrôleur depuis un script, on peut interroger l'interactor qui a effectué l'action. Les événements de <code>XRGrabInteractable</code> et <code>XRSocketInteractor</code> fournissent une référence vers l'interactor dans leurs <code>EventArgs</code>.</p>
-<h3 id="laudio-spatial-en-vr">L'audio spatial en VR</h3>
-<p>En VR, le son doit se comporter comme dans le monde réel — il doit venir d'une <strong>direction</strong> et s'atténuer avec la <strong>distance</strong>.</p>
-<p>Unity gère cela via le composant <code>AudioSource</code> combiné à un <code>AudioListener</code>. En VR, l'<code>AudioListener</code> est automatiquement placé sur la caméra principale (dans le XR Origin), ce qui reproduit la perception auditive naturelle.</p>
-<p>La clé est le champ <strong>Spatial Blend</strong> de l'<code>AudioSource</code> :</p>
 <table>
 <thead>
 <tr>
-<th>Valeur</th>
-<th>Comportement</th>
+<th>Canvas</th>
+<th>Nom</th>
+<th>Position</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>0</code> (2D)</td>
-<td>Son identique dans les deux oreilles, peu importe la position — à éviter en VR sauf pour la musique d'ambiance</td>
+<td>Menu principal</td>
+<td><code>CanvasMenu</code></td>
+<td>(0, 1.8, -1) face au joueur</td>
 </tr>
 <tr>
-<td><code>1</code> (3D)</td>
-<td>Son positionnel, atténué par la distance et la direction — à utiliser pour les interactions</td>
+<td>Écran de fin</td>
+<td><code>CanvasGameOver</code></td>
+<td>(0, 1.8, -1) même position</td>
+</tr>
+<tr>
+<td>HUD</td>
+<td><code>CanvasHUD</code></td>
+<td>Enfant de la caméra (voir ci-dessous)</td>
 </tr>
 </tbody>
 </table>
-<p>Pour un son positionnel sur une interaction, l'<code>AudioSource</code> doit être <strong>sur l'objet lui-même</strong> (ou à sa position), pas sur la caméra.</p>
-<h3 id="lier-feedback-et-evenements-xri">Lier feedback et événements XRI</h3>
-<p>Les composants <code>XRGrabInteractable</code> et <code>XRSocketInteractor</code> exposent des <strong>UnityEvents</strong> que vous connaissez déjà depuis l'exercice de tri. Ces mêmes événements transportent les <code>EventArgs</code> qui donnent accès à l'interactor — et donc au contrôleur pour les haptics.</p>
-<pre><code>selectEntered → args.interactorObject → GetComponent&lt;XRBaseController&gt;() → SendHapticImpulse()
-</code></pre>
-<hr />
-<h2 id="partie-2-exemple-de-reference">Partie 2 — Exemple de référence</h2>
-<p>Vous repartez de la scène minimale de l'exercice précédent — la <strong>table</strong>, la <strong>balle</strong> et le <strong>support</strong>. Ajoutez le feedback sur cette scène avant de toucher à votre jeu de tri.</p>
-<p>L'exemple illustre les deux patterns : haptics au grab de la balle, son positionnel au verrouillage dans le support.</p>
-<h3 id="script-de-feedback-sur-un-objet-grabbable-feedbackgrabcs">Script de feedback sur un objet grabbable — <code>FeedbackGrab.cs</code></h3>
-<p>Ce script est attaché à la <strong>balle</strong>.</p>
-<pre><code class="language-csharp">using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
-
-[RequireComponent(typeof(XRGrabInteractable))]
-[RequireComponent(typeof(AudioSource))]
-public class FeedbackGrab : MonoBehaviour
-{
-    [Header(&quot;Haptique&quot;)]
-    [SerializeField] private float amplitudeGrab = 0.5f;
-    [SerializeField] private float dureeGrab = 0.1f;
-
-    [Header(&quot;Audio&quot;)]
-    [SerializeField] private AudioClip sonGrab;
-
-    private XRGrabInteractable grabInteractable;
-    private AudioSource audioSource;
-
-    void Awake()
-    {
-        grabInteractable = GetComponent&lt;XRGrabInteractable&gt;();
-        audioSource = GetComponent&lt;AudioSource&gt;();
-
-        // Configurer l'AudioSource pour du son positionnel
-        audioSource.spatialBlend = 1f; // 100% 3D
-        audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
-        audioSource.maxDistance = 5f;
-    }
-
-    void OnEnable()
-    {
-        grabInteractable.selectEntered.AddListener(OnGrabEntered);
-        grabInteractable.selectExited.AddListener(OnGrabExited);
-    }
-
-    void OnDisable()
-    {
-        grabInteractable.selectEntered.RemoveListener(OnGrabEntered);
-        grabInteractable.selectExited.RemoveListener(OnGrabExited);
-    }
-
-    private void OnGrabEntered(SelectEnterEventArgs args)
-    {
-        // Récupérer le contrôleur depuis l'interactor
-        var controller = args.interactorObject.transform.GetComponent&lt;XRBaseController&gt;();
-
-        controller.SendHapticImpulse(amplitudeGrab, dureeGrab);
-
-        // Jouer le son à la position de l'objet
-        audioSource.PlayOneShot(sonGrab);
-    }
-
-    private void OnGrabExited(SelectExitEventArgs args)
-    {
-        // Vibration plus courte et moins forte au relâchement
-        var controller = args.interactorObject.transform.GetComponent&lt;XRBaseController&gt;();
-
-        controller.SendHapticImpulse(amplitudeGrab * 0.3f, dureeGrab * 0.5f);
-    }
-}
-</code></pre>
-<h3 id="script-de-feedback-sur-un-socket-feedbacksocketcs">Script de feedback sur un socket — <code>FeedbackSocket.cs</code></h3>
-<p>Ce script est attaché au <strong>support</strong>.</p>
-<pre><code class="language-csharp">using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
-
-[RequireComponent(typeof(XRSocketInteractor))]
-[RequireComponent(typeof(AudioSource))]
-public class FeedbackSocket : MonoBehaviour
-{
-    [Header(&quot;Haptique&quot;)]
-    [SerializeField] private float amplitudeDepot = 0.8f;
-    [SerializeField] private float dureeDepot = 0.2f;
-
-    [Header(&quot;Audio&quot;)]
-    [SerializeField] private AudioClip sonDepot;
-
-    private XRSocketInteractor socket;
-    private AudioSource audioSource;
-
-    void Awake()
-    {
-        socket = GetComponent&lt;XRSocketInteractor&gt;();
-        audioSource = GetComponent&lt;AudioSource&gt;();
-
-        audioSource.spatialBlend = 1f;
-        audioSource.maxDistance = 5f;
-    }
-
-    void OnEnable()
-    {
-        socket.selectEntered.AddListener(OnDepotEntered);
-    }
-
-    void OnDisable()
-    {
-        socket.selectEntered.RemoveListener(OnDepotEntered);
-    }
-
-    private void OnDepotEntered(SelectEnterEventArgs args)
-    {
-        // Récupérer le contrôleur qui vient de lâcher la balle
-        var controller = args.interactorObject.transform.GetComponent&lt;XRBaseController&gt;();
-
-        controller.SendHapticImpulse(amplitudeDepot, dureeDepot);
-
-        audioSource.PlayOneShot(sonDepot);
-    }
-}
-</code></pre>
-<p><strong>Points importants :</strong></p>
-<p><code>args.interactorObject</code> dans le contexte d'un socket correspond au <strong>Near-Far Interactor</strong> du contrôleur — on remonte jusqu'au <code>XRBaseController</code> sur le même GameObject pour envoyer la vibration.</p>
-<p><code>audioSource.PlayOneShot(clip)</code> joue le son sans interrompre un son déjà en cours — préférable à <code>audioSource.Play()</code> pour les sons d'interaction qui peuvent se superposer rapidement.</p>
-<p><code>spatialBlend = 1f</code> sur l'<code>AudioSource</code> est la ligne la plus importante pour l'immersion. Sans elle, le son est identique dans les deux oreilles et perd tout ancrage spatial.</p>
-<hr />
-<h2 id="partie-3-votre-jeu-ajouter-le-feedback">Partie 3 — Votre jeu : ajouter le feedback</h2>
-<p>Ouvrez votre scène <code>TriSpatial</code>. Vous allez enrichir chaque objet grabbable et chaque réceptacle avec du feedback sensoriel.</p>
-<h3 id="obtenir-des-sons">Obtenir des sons</h3>
-<p>Vous avez besoin d'au minimum deux sons courts : un pour le grab, un pour le dépôt dans un socket. Quelques sources gratuites compatibles avec les projets scolaires :</p>
-<ul>
-<li><a href="https://freesound.org">freesound.org</a> — licence CC, vérifiez les attributions requises</li>
-<li><a href="https://kenney.nl/assets">kenney.nl/assets</a> — entièrement libre de droits</li>
-</ul>
-<p>Privilégiez des fichiers <code>.wav</code> ou <code>.ogg</code>, courts (moins de 1 seconde pour les sons d'interaction).</p>
-<h3 id="tache-1-feedback-sur-le-grab">Tâche 1 — Feedback sur le grab</h3>
-<p>Adaptez le script <code>FeedbackGrab</code> de l'exemple pour l'appliquer à vos objets grabbables.</p>
-<p>Ce que vous devez adapter :
-- Le script de l'exemple a un seul <code>AudioClip</code>. Votre adaptation doit permettre d'assigner des sons différents selon la forme de l'objet (un son doux pour la sphère, un son mat pour le cube, etc.) — ou vous pouvez utiliser le même son pour tous si vous jugez que c'est le bon choix de design.
-- L'amplitude et la durée doivent être configurables depuis l'Inspector pour chaque objet, pas codées en dur.</p>
-<p>Vérifiez sur le casque :
-- [ ] Attraper un objet déclenche une vibration et un son
-- [ ] Le son vient bien de la direction de l'objet (tournez la tête pour valider)
-- [ ] Relâcher l'objet dans le vide déclenche une vibration plus faible</p>
-<h3 id="tache-2-feedback-sur-le-depot-correct">Tâche 2 — Feedback sur le dépôt correct</h3>
-<p>Adaptez le script <code>FeedbackSocket</code> pour vos réceptacles.</p>
-<p>Ce que vous devez adapter :
-- L'amplitude du dépôt doit être <strong>plus forte</strong> que celle du grab — le dépôt correct est le moment de récompense principal du jeu.
-- Le son du dépôt doit être <strong>différent</strong> du son du grab, même si vous n'avez qu'un seul fichier audio par défaut.</p>
-<p>Vérifiez sur le casque :
-- [ ] Déposer un objet dans le bon réceptacle déclenche une vibration distincte et un son
-- [ ] Le son de dépôt vient de la position du réceptacle</p>
-<h3 id="tache-3-feedback-de-victoire">Tâche 3 — Feedback de victoire</h3>
-<p>Votre <code>GestionnaireTri</code> détecte déjà quand les trois réceptacles sont remplis. Ajoutez un feedback de victoire :</p>
-<ul>
-<li>Une vibration sur <strong>les deux contrôleurs</strong> simultanément, plus longue que les vibrations d'interaction</li>
-<li>Un son d'ambiance ou de victoire joué en <strong>2D</strong> (Spatial Blend à 0) — ce son doit envelopper le joueur, pas venir d'une direction précise</li>
-</ul>
-<p>Pour accéder aux deux contrôleurs depuis le <code>GestionnaireTri</code>, vous aurez besoin de les référencer. Une façon simple :</p>
-<pre><code class="language-csharp">// Indice de structure — à adapter
-[SerializeField] private XRBaseController controleurGauche;
-[SerializeField] private XRBaseController controleurDroit;
-
-private void DeclencherVictoireHaptique()
-{
-    // À vous de compléter
-}
+<p><strong>Pour le CanvasHUD :</strong> glissez-le comme enfant de <strong>XR Origin → Camera Offset → Main Camera</strong> dans la Hierarchy, puis configurez sa position locale :</p>
+<pre><code>Position : (0, -0.3, 1.0)
+Scale : (0.001, 0.001, 0.001)
 </code></pre>
 <blockquote>
-<p><strong>Indice :</strong> Les contrôleurs se trouvent dans la hiérarchie du XR Origin. Vous pouvez les assigner directement dans l'Inspector plutôt que de les chercher par code.</p>
+<p>Le HUD suit la tête du joueur. Il n'a pas besoin de Tracked Device Graphic Raycaster — le joueur ne clique pas dessus.</p>
 </blockquote>
-<h3 id="tache-4-comparer-avec-et-sans-feedback">Tâche 4 — Comparer avec et sans feedback</h3>
-<p>Avant de passer à autre chose, faites le test suivant :</p>
-<ol>
-<li>Désactivez temporairement tous vos scripts de feedback (décochez-les dans l'Inspector)</li>
-<li>Jouez une partie complète</li>
-<li>Réactivez les scripts et rejouez</li>
-</ol>
+<hr />
+<h3 id="13-contenu-des-canvas">1.3 Contenu des Canvas</h3>
+<p><strong>CanvasMenu</strong> — ajoutez à l'intérieur :
+- Text - TextMeshPro : titre (ex : "Attrape la sphère")
+- Button - TextMeshPro : texte "Jouer"</p>
+<p><strong>CanvasHUD</strong> — ajoutez à l'intérieur :
+- Text - TextMeshPro nommé <code>TexteTimer</code> : texte initial "00:00"</p>
+<p><strong>CanvasGameOver</strong> — ajoutez à l'intérieur :
+- Text - TextMeshPro : "Terminé !"
+- Text - TextMeshPro nommé <code>TexteScoreFinal</code> : texte initial "Score : 0"
+- Button - TextMeshPro : texte "Rejouer"</p>
+<hr />
+<h3 id="14-le-game-manager">1.4 Le Game Manager</h3>
+<p>Créez un script <code>GameManager</code> sur un GameObject vide nommé <strong>GameManager</strong>.</p>
+<pre><code class="language-csharp">using UnityEngine;
+using TMPro;
+
+public class GameManager : MonoBehaviour
+{
+    public enum EtatJeu { Menu, EnJeu, GameOver }
+
+    [Header(&quot;Canvas&quot;)]
+    [SerializeField] private GameObject canvasMenu;
+    [SerializeField] private GameObject canvasHUD;
+    [SerializeField] private GameObject canvasGameOver;
+
+    [Header(&quot;Textes&quot;)]
+    [SerializeField] private TextMeshProUGUI texteTimer;
+    [SerializeField] private TextMeshProUGUI texteScoreFinal;
+
+    private EtatJeu etatActuel;
+    private float tempsEcoule;
+    private bool timerActif;
+
+    void Start()
+    {
+        ChangerEtat(EtatJeu.Menu);
+    }
+
+    void Update()
+    {
+        if (timerActif)
+        {
+            tempsEcoule += Time.deltaTime;
+            AfficherTimer();
+        }
+    }
+
+    public void ChangerEtat(EtatJeu nouvelEtat)
+    {
+        etatActuel = nouvelEtat;
+        canvasMenu.SetActive(etatActuel == EtatJeu.Menu);
+        canvasHUD.SetActive(etatActuel == EtatJeu.EnJeu);
+        canvasGameOver.SetActive(etatActuel == EtatJeu.GameOver);
+    }
+
+    public void CommencerJeu()
+    {
+        tempsEcoule = 0f;
+        timerActif = true;
+        AfficherTimer();
+        ChangerEtat(EtatJeu.EnJeu);
+    }
+
+    public void TerminerJeu()
+    {
+        timerActif = false;
+        int score = Mathf.Max(100, 1000 - Mathf.FloorToInt(tempsEcoule) * 10);
+        texteScoreFinal.text = $&quot;Score : {score}&quot;;
+        ChangerEtat(EtatJeu.GameOver);
+    }
+
+    public void Rejouer()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+        );
+    }
+
+    private void AfficherTimer()
+    {
+        int minutes = Mathf.FloorToInt(tempsEcoule / 60f);
+        int secondes = Mathf.FloorToInt(tempsEcoule % 60f);
+        texteTimer.text = $&quot;{minutes:00}:{secondes:00}&quot;;
+    }
+}
+</code></pre>
+<p>Assignez toutes les références dans l'Inspector du <strong>GameManager</strong>.</p>
+<hr />
+<h3 id="15-connecter-les-boutons">1.5 Connecter les boutons</h3>
+<p>Les boutons appellent les méthodes du <code>GameManager</code> via <strong>On Click ()</strong> dans l'Inspector — aucun script sur les boutons.</p>
+<ul>
+<li>Bouton "Jouer" → <code>GameManager.CommencerJeu()</code></li>
+<li>Bouton "Rejouer" → <code>GameManager.Rejouer()</code></li>
+</ul>
+<hr />
+<h3 id="16-connecter-la-fin-de-partie">1.6 Connecter la fin de partie</h3>
+<p>Votre script <code>ReactionDepot</code> (ou équivalent) détecte déjà quand la sphère est déposée dans le support. Ajoutez-y une référence au <code>GameManager</code> et appelez <code>TerminerJeu()</code> au bon moment.</p>
+<pre><code class="language-csharp">[SerializeField] private GameManager gameManager;
+
+// Dans la méthode déclenchée par selectEntered du socket :
+gameManager.TerminerJeu();
+</code></pre>
+<hr />
+<h3 id="17-tester">1.7 Tester</h3>
+<ul>
+<li>[ ] La scène démarre sur le menu</li>
+<li>[ ] Pointer le bouton "Jouer" avec le contrôleur fait apparaître la ligne sur le Canvas</li>
+<li>[ ] Appuyer sur la gâchette sur "Jouer" lance le jeu et affiche le HUD</li>
+<li>[ ] Le timer s'incrémente</li>
+<li>[ ] Déposer la sphère dans le support déclenche l'écran de fin avec un score</li>
+<li>[ ] Le bouton "Rejouer" relance la scène</li>
+</ul>
+<hr />
+<h2 id="partie-2-adaptation-au-jeu-de-tri">Partie 2 — Adaptation au jeu de tri</h2>
+<p>Vous maîtrisez maintenant les briques de base. Ouvrez votre scène <code>TriSpatial</code> et adaptez ce que vous venez de construire pour compléter votre jeu.</p>
+<p>Voici ce que vous devez réaliser :</p>
+<h3 id="ce-qui-reste-identique">Ce qui reste identique</h3>
+<ul>
+<li>La configuration de l'Event System (XR UI Input Module)</li>
+<li>La création et configuration des trois Canvas</li>
+<li>La structure du <code>GameManager</code> (états, timer, score, boutons)</li>
+</ul>
+<h3 id="ce-qui-doit-etre-adapte">Ce qui doit être adapté</h3>
+<p><strong>Le CanvasMenu</strong> doit apparaître devant le joueur dans votre environnement de tri — ajustez la position en conséquence.</p>
+<p><strong>Le <code>GameManager</code></strong> doit rester inactif au démarrage : les objets sont présents dans la scène, mais le tri ne peut pas commencer tant que le joueur n'a pas appuyé sur "Jouer". Réfléchissez à ce que ça implique pour les interactions grab.</p>
+<blockquote>
+<p><strong>Indice :</strong> <code>XRGrabInteractable</code> peut être activé ou désactivé via <code>enabled</code>. Le <code>GameManager</code> peut désactiver les grabs au démarrage et les réactiver dans <code>CommencerJeu()</code>.</p>
+</blockquote>
+<p><strong>La fin de partie</strong> est déclenchée par le <code>GestionnaireTri</code> plutôt que par un seul socket. Modifiez <code>GestionnaireTri</code> pour qu'il appelle <code>gameManager.TerminerJeu()</code> au lieu d'afficher dans la console.</p>
+<p><strong>Le score</strong> reflète le temps pour trier les trois objets — la formule de l'exemple convient, mais vous pouvez l'ajuster.</p>
+<hr />
+<h3 id="liste-de-verification-finale">Liste de vérification finale</h3>
+<ul>
+<li>[ ] La scène démarre sur le menu — les objets ne peuvent pas être grabbés</li>
+<li>[ ] "Jouer" démarre le timer et active les interactions</li>
+<li>[ ] Les trois objets déposés dans les bons réceptacles déclenchent l'écran de fin</li>
+<li>[ ] Le score s'affiche correctement sur l'écran de fin</li>
+<li>[ ] "Rejouer" relance la scène depuis le menu</li>
+</ul>
+<hr />
+<h2 id="defis-supplementaires">Défis supplémentaires</h2>
+<h3 id="defi-1-reapparition-des-objets-tombes">Défi 1 — Réapparition des objets tombés</h3>
+<p>Si un objet tombe hors de la salle (position Y inférieure à -1), remettez-le à sa position initiale.</p>
+<pre><code class="language-csharp">private Vector3 positionDepart;
+
+void Start()
+{
+    positionDepart = transform.position;
+}
+
+void Update()
+{
+    if (transform.position.y &lt; -1f)
+    {
+        transform.position = positionDepart;
+        GetComponent&lt;Rigidbody&gt;().linearVelocity = Vector3.zero;
+    }
+}
+</code></pre>
+<h3 id="defi-2-meilleur-score-persistant">Défi 2 — Meilleur score persistant</h3>
+<p>Sauvegardez le meilleur score entre les parties avec <code>PlayerPrefs</code> et affichez-le sur l'écran de fin.</p>
+<pre><code class="language-csharp">// Sauvegarder après calcul du score
+PlayerPrefs.SetInt(&quot;MeilleurScore&quot;, score);
+PlayerPrefs.Save();
+
+// Lire pour affichage
+int meilleurScore = PlayerPrefs.GetInt(&quot;MeilleurScore&quot;, 0);
+</code></pre>
+<h3 id="defi-3-compte-a-rebours-plutot-que-chronometre">Défi 3 — Compte à rebours plutôt que chronomètre</h3>
+<p>Remplacez le timer ascendant par un décompte de 60 secondes. Si le temps expire avant que le tri soit complété, affichez un écran "Raté" distinct.</p>
 <hr />
 <h2 id="questions-de-reflexion">Questions de réflexion</h2>
 <ol>
-<li>Pourquoi configure-t-on <code>spatialBlend = 1f</code> par code dans <code>Awake()</code> plutôt que de le faire directement dans l'Inspector ?</li>
-<li>Quelle est la différence entre <code>audioSource.Play()</code> et <code>audioSource.PlayOneShot()</code> ? Dans quel cas l'un est-il préférable à l'autre ?</li>
-<li>La vibration de victoire est plus longue que les vibrations d'interaction. Quel principe de design justifie ce choix ?</li>
-<li>Si un joueur joue sans casque audio (seulement avec les hautparleurs du Quest), l'audio spatial fonctionne-t-il quand même ? Pourquoi ?</li>
-<li>Comment faudrait-il modifier <code>FeedbackGrab</code> pour que l'amplitude de la vibration soit proportionnelle à la <strong>vitesse</strong> à laquelle le joueur attrape l'objet ?</li>
+<li>Pourquoi faut-il remplacer le <strong>Graphic Raycaster</strong> par <strong>Tracked Device Graphic Raycaster</strong> sur un Canvas World Space ?</li>
+<li>Quelle est la différence entre un Canvas HUD attaché à la caméra et un Canvas fixe dans la scène ? Dans quel cas privilégieriez-vous l'un ou l'autre ?</li>
+<li>Pourquoi <code>Rejouer()</code> recharge-t-il la scène complète plutôt que de remettre manuellement les objets à leur position initiale ?</li>
+<li>Pourquoi désactiver les <code>XRGrabInteractable</code> pendant le menu plutôt que de simplement ignorer les dépôts dans les sockets ?</li>
 </ol>
 
 
